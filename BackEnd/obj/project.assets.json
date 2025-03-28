@@ -646,11 +646,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\MusicSpot.csproj",
+      "projectUniqueName": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\MusicSpot.csproj",
       "projectName": "MusicSpot",
-      "projectPath": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\MusicSpot.csproj",
+      "projectPath": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\MusicSpot.csproj",
       "packagesPath": "C:\\Users\\floor\\.nuget\\packages\\",
-      "outputPath": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\obj\\",
+      "outputPath": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\floor\\AppData\\Roaming\\NuGet\\NuGet.Config",

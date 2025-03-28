@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\",
+  "WorkspaceRootPath": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\musicspot\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\backend\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\musicspot\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\musicspot\\releases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\backend\\releases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:releases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\musicspot\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\backend\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\school\\inspiration lab\\project\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,11 +32,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Data.cs",
-              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Data.cs",
+              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Data.cs",
               "RelativeDocumentMoniker": "Data.cs",
-              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Data.cs",
+              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Data.cs",
               "RelativeToolTip": "Data.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAQwDgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAgwD4AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T12:21:46.783Z",
               "IsPinned": true,
@@ -44,13 +44,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Accounts.cs",
-              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Accounts.cs",
+              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Accounts.cs",
               "RelativeDocumentMoniker": "Accounts.cs",
-              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Accounts.cs",
+              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Accounts.cs",
               "RelativeToolTip": "Accounts.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAswAgAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwCMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T09:04:17.542Z",
               "IsPinned": true,
@@ -62,13 +62,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Releases.cs",
-              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Releases.cs",
+              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Releases.cs",
               "RelativeDocumentMoniker": "Releases.cs",
-              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Releases.cs",
+              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Releases.cs",
               "RelativeToolTip": "Releases.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAcwDEAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwA8AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T08:34:52.363Z",
               "EditorCaption": ""
@@ -77,11 +77,11 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Program.cs",
+              "DocumentMoniker": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\MusicSpot\\Program.cs",
+              "ToolTip": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T08:29:57.855Z",
               "EditorCaption": ""
