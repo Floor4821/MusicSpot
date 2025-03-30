@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2025 at 08:53 PM
+-- Generation Time: Mar 30, 2025 at 11:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `musicspot`
 --
-CREATE DATABASE IF NOT EXISTS `musicspot` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `musicspot`;
 
 -- --------------------------------------------------------
 
@@ -84,6 +82,23 @@ CREATE TABLE `genretype` (
   `Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `genretype`
+--
+
+INSERT INTO `genretype` (`ID`, `Type`) VALUES
+(1, 'Ambient'),
+(2, 'Electronic'),
+(3, 'Experimental'),
+(4, 'Folk'),
+(5, 'HipHop'),
+(6, 'Jazz'),
+(7, 'Metal'),
+(8, 'Pop'),
+(9, 'Punk'),
+(10, 'Rock'),
+(11, 'Soul');
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +121,15 @@ CREATE TABLE `mediatype` (
   `ID` int(11) NOT NULL,
   `Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mediatype`
+--
+
+INSERT INTO `mediatype` (`ID`, `Type`) VALUES
+(1, 'Vinyl'),
+(2, 'CD'),
+(3, 'Cassette');
 
 -- --------------------------------------------------------
 
@@ -193,6 +217,16 @@ CREATE TABLE `releasetype` (
   `Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `releasetype`
+--
+
+INSERT INTO `releasetype` (`ID`, `Type`) VALUES
+(1, 'Album'),
+(2, 'EP'),
+(3, 'Single'),
+(4, 'Other');
+
 -- --------------------------------------------------------
 
 --
@@ -216,6 +250,99 @@ CREATE TABLE `subgenretype` (
   `ID` int(11) NOT NULL,
   `Type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subgenretype`
+--
+
+INSERT INTO `subgenretype` (`ID`, `Type`) VALUES
+(1, 'Ambient'),
+(2, 'DarkAmbient'),
+(3, 'ElectronicAmbient'),
+(4, 'BitMusic'),
+(5, 'Breakbeat'),
+(6, 'BubblegumBass'),
+(7, 'Chillout'),
+(8, 'DrumAndBass'),
+(9, 'Dubstep'),
+(10, 'ElectroIndustrial'),
+(11, 'Electronic'),
+(12, 'GlitchHop'),
+(13, 'Hardcore'),
+(14, 'House'),
+(15, 'IDM'),
+(16, 'Indietronica'),
+(17, 'Techno'),
+(18, 'TripHop'),
+(19, 'Drone'),
+(20, 'Experimental'),
+(21, 'Noise'),
+(22, 'Plunderphonics'),
+(23, 'AvantFolk'),
+(24, 'ChamberFolk'),
+(25, 'FolkRock'),
+(26, 'IndieFolk'),
+(27, 'AbstractHipHop'),
+(28, 'ConsciousHipHop'),
+(29, 'ExperimentalHipHop'),
+(30, 'HardcoreHipHop'),
+(31, 'JazzRap'),
+(32, 'PopRap'),
+(33, 'Trap'),
+(34, 'AvantGardeJazz'),
+(35, 'CoolJazz'),
+(36, 'HardBop'),
+(37, 'JazzFusion'),
+(38, 'ModalJazz'),
+(39, 'SmoothJazz'),
+(40, 'AlternativeMetal'),
+(41, 'AvantGardeMetal'),
+(42, 'BlackMetal'),
+(43, 'DeathMetal'),
+(44, 'HeavyMetal'),
+(45, 'ProgressiveMetal'),
+(46, 'StonerMetal'),
+(47, 'ThrashMetal'),
+(48, 'ArtPop'),
+(49, 'BaroquePop'),
+(50, 'DancePop'),
+(51, 'Electropop'),
+(52, 'GlitchPop'),
+(53, 'IndiePop'),
+(54, 'JanglePop'),
+(55, 'ProgressivePop'),
+(56, 'PsychedelicPop'),
+(57, 'Synthpop'),
+(58, 'ArtPunk'),
+(59, 'Emo'),
+(60, 'GothicRock'),
+(61, 'HardcorePunk'),
+(62, 'PopPunk'),
+(63, 'PostHardcore'),
+(64, 'PostPunk'),
+(65, 'PunkRock'),
+(66, 'AlternativeRock'),
+(67, 'ArtRock'),
+(68, 'DreamPop'),
+(69, 'ExperimentalRock'),
+(70, 'GarageRock'),
+(71, 'Grunge'),
+(72, 'HardRock'),
+(73, 'IndieRock'),
+(74, 'IndustrialRock'),
+(75, 'MathRock'),
+(76, 'NewWave'),
+(77, 'NoiseRock'),
+(78, 'PopRock'),
+(79, 'PostRock'),
+(80, 'ProgressiveRock'),
+(81, 'PsychedelicRock'),
+(82, 'Shoegaze'),
+(83, 'SlackerRock'),
+(84, 'Slowcore'),
+(85, 'NeoSoul'),
+(86, 'ProgressiveSoul'),
+(87, 'Soul');
 
 -- --------------------------------------------------------
 
@@ -385,7 +512,7 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `genretype`
 --
 ALTER TABLE `genretype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `likedlist`
@@ -397,7 +524,7 @@ ALTER TABLE `likedlist`
 -- AUTO_INCREMENT for table `mediatype`
 --
 ALTER TABLE `mediatype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `person`
@@ -439,7 +566,7 @@ ALTER TABLE `releasegenre`
 -- AUTO_INCREMENT for table `releasetype`
 --
 ALTER TABLE `releasetype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `song`
@@ -451,7 +578,7 @@ ALTER TABLE `song`
 -- AUTO_INCREMENT for table `subgenretype`
 --
 ALTER TABLE `subgenretype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

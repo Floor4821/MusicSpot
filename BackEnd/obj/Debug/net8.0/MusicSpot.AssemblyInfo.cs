@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MusicSpot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7ba3f5c6ae9f1b5e38093786e8a4bbeb7bed6f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b981a97b05aac32f929aa45a3393364f704c630")]
 [assembly: System.Reflection.AssemblyProductAttribute("MusicSpot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MusicSpot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
