@@ -8,7 +8,6 @@ namespace MusicSpot
 {
     public class Account
     {
-        
         public int ID { get; set; }
         public string AccountName { get; set; }
         public string Email { get; set; }
@@ -21,7 +20,7 @@ namespace MusicSpot
 
         private Data data = new Data();
 
-        public Account(string accountName, string email, string password, int isAdmin, string profilePic)
+        public Account(string accountName, string email, string password, int isAdmin, string profilePic = "NULL")
         {
             AccountName = accountName;
             Email = email;
