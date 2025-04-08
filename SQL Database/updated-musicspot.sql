@@ -19,6 +19,7 @@
 -- Table structure for table `account`
 --
 
+DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `account` (
@@ -46,6 +47,7 @@ UNLOCK TABLES;
 -- Table structure for table `genre`
 --
 
+DROP TABLE IF EXISTS `genre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `genre` (
@@ -73,6 +75,7 @@ UNLOCK TABLES;
 -- Table structure for table `genretype`
 --
 
+DROP TABLE IF EXISTS `genretype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `genretype` (
@@ -96,6 +99,7 @@ UNLOCK TABLES;
 -- Table structure for table `likedlist`
 --
 
+DROP TABLE IF EXISTS `likedlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `likedlist` (
@@ -123,6 +127,7 @@ UNLOCK TABLES;
 -- Table structure for table `mediatype`
 --
 
+DROP TABLE IF EXISTS `mediatype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mediatype` (
@@ -146,6 +151,7 @@ UNLOCK TABLES;
 -- Table structure for table `product`
 --
 
+DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product` (
@@ -175,6 +181,7 @@ UNLOCK TABLES;
 -- Table structure for table `purchase`
 --
 
+DROP TABLE IF EXISTS `purchase`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `purchase` (
@@ -201,6 +208,7 @@ UNLOCK TABLES;
 -- Table structure for table `purchaseproduct`
 --
 
+DROP TABLE IF EXISTS `purchaseproduct`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `purchaseproduct` (
@@ -228,6 +236,7 @@ UNLOCK TABLES;
 -- Table structure for table `release`
 --
 
+DROP TABLE IF EXISTS `release`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `release` (
@@ -256,6 +265,7 @@ UNLOCK TABLES;
 -- Table structure for table `releasegenre`
 --
 
+DROP TABLE IF EXISTS `releasegenre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `releasegenre` (
@@ -283,6 +293,7 @@ UNLOCK TABLES;
 -- Table structure for table `releasetype`
 --
 
+DROP TABLE IF EXISTS `releasetype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `releasetype` (
@@ -306,6 +317,7 @@ UNLOCK TABLES;
 -- Table structure for table `song`
 --
 
+DROP TABLE IF EXISTS `song`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `song` (
@@ -332,6 +344,7 @@ UNLOCK TABLES;
 -- Table structure for table `subgenretype`
 --
 
+DROP TABLE IF EXISTS `subgenretype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `subgenretype` (
@@ -355,6 +368,7 @@ UNLOCK TABLES;
 -- Table structure for table `wishlist`
 --
 
+DROP TABLE IF EXISTS `wishlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `wishlist` (
@@ -387,4 +401,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-06 16:34:08
+-- Dump completed on 2025-04-07 18:25:06
