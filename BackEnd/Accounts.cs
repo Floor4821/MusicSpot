@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,15 @@ namespace MusicSpot
 {
     public class Account
     {
-        public int ID { get; set; }
+        [Key]
+        public int AccountID { get; set; }
+        [Required]
         public string AccountName { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
+        [Required]
         public int IsAdmin { get; set; }
         public string ProfilePic { get; set; }
         public List<Product> Wishlist { get; set; }
@@ -32,18 +38,19 @@ namespace MusicSpot
             Purchases = new List<Purchase>();
 
 
-            ID = data.CreateAccount(this);
+            AccountID = data.CreateAccount(this);
         }
 
         public override string ToString()
         {
-            return $"Account {ID} Made: {AccountName} - {Email} - {Password} - {IsAdmin} - {ProfilePic}";
+            return $"Account {AccountID} Made: {AccountName} - {Email} - {Password} - {IsAdmin} - {ProfilePic}";
         }
 
     }
 
     public class Product
     {
+        public int ProductID { get; set; }
         public double Price { get; set; }
         public int Stock { get; set; }
 
@@ -59,7 +66,7 @@ namespace MusicSpot
 
     public class Purchase
     {
-        public int ID { get; set; }
+        public int PurchaseID { get; set; }
         public DateTime Date { get; set; }
         public double Paid { get; set; }
         public Account Account { get; set; }

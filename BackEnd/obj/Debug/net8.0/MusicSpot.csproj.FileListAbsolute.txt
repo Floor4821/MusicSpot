@@ -56,3 +56,31 @@ C:\School\Inspiration Lab\Project\BackEnd\obj\Debug\net8.0\refint\MusicSpot.dll
 C:\School\Inspiration Lab\Project\BackEnd\obj\Debug\net8.0\MusicSpot.pdb
 C:\School\Inspiration Lab\Project\BackEnd\obj\Debug\net8.0\MusicSpot.genruntimeconfig.cache
 C:\School\Inspiration Lab\Project\BackEnd\obj\Debug\net8.0\ref\MusicSpot.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\MusicSpot.exe
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\MusicSpot.deps.json
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\MusicSpot.runtimeconfig.json
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\MusicSpot.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\MusicSpot.pdb
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.csproj.AssemblyReference.cache
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.AssemblyInfoInputs.cache
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.AssemblyInfo.cs
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.csproj.CoreCompileInputs.cache
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.csproj.Up2Date
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\refint\MusicSpot.dll
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.pdb
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\MusicSpot.genruntimeconfig.cache
+C:\Users\jamey\OneDrive - Thomas More\Musicspot Copy\obj\Debug\net8.0\ref\MusicSpot.dll

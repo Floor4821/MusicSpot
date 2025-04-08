@@ -159,40 +159,5 @@ namespace MusicSpot
             return this.Insert(query);
         }
 
-        public int InitiateArtist(Artist artist)
-        {
-
-            int artistID = AddArtist(artist);
-
-            string query = $"INSERT INTO artistperson(artistpersonID, artistID, personID) " +
-                $"VALUES ";
-
-
-            foreach (Person p in artist.People)
-            {
-                int personID = p.ID;
-                query += $"(NULL, {artistID}, {personID}), ";
-            }
-            query = query.TrimEnd(',', ' ');
-            return this.Insert(query);
-        }
-
-        public int AddArtist(Artist artist)
-        {
-            string query = $"INSERT INTO artist(artistID, name) " +
-                $"VALUES (NULL, '{artist.ArtistName}'); ";
-
-            return this.Insert(query);
-        }
-
-        public int AddPerson(Person person)
-        {
-            string query = $"INSERT INTO person(personID, name) " +
-                $"VALUES (NULL, '{person.PersonName}');";
-
-            return this.Insert(query);
-        }
-
-            
     }
 }

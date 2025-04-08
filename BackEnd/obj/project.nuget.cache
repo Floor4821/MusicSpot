@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4UPwoH1/qdQ=",
+  "dgSpecHash": "M735Um/w2js=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\MusicSpot.csproj",
+  "projectFilePath": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\MusicSpot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jamey\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.3\\microsoft.entityframeworkcore.9.0.3.nupkg.sha512",
     "C:\\Users\\jamey\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.3\\microsoft.entityframeworkcore.abstractions.9.0.3.nupkg.sha512",

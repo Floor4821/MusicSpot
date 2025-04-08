@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\",
+  "WorkspaceRootPath": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\backend\\releases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:releases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\onedrive - thomas more\\musicspot copy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\backend\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\onedrive - thomas more\\musicspot copy\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\backend\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\onedrive - thomas more\\musicspot copy\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|c:\\users\\jamey\\onedrive - thomas more\\musicspot copy\\releases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A7605DB-2DF1-49BB-9884-574D38C0410C}|MusicSpot.csproj|solutionrelative:releases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +26,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Data.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Data.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Data.cs",
               "RelativeDocumentMoniker": "Data.cs",
-              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Data.cs",
+              "ToolTip": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Data.cs",
               "RelativeToolTip": "Data.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAgwAUAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T12:21:46.783Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Accounts.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Accounts.cs",
+              "RelativeDocumentMoniker": "Accounts.cs",
+              "ToolTip": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Accounts.cs",
+              "RelativeToolTip": "Accounts.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T09:04:17.542Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Accounts.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Accounts.cs",
-              "RelativeDocumentMoniker": "Accounts.cs",
-              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Accounts.cs",
-              "RelativeToolTip": "Accounts.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAUwBkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T09:04:17.542Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Releases.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Releases.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Releases.cs",
               "RelativeDocumentMoniker": "Releases.cs",
-              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Releases.cs",
+              "ToolTip": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Releases.cs",
               "RelativeToolTip": "Releases.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAwGQAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T08:34:52.363Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\BackEnd\\Program.cs",
+              "ToolTip": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAsAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T08:29:57.855Z"
+              "WhenOpened": "2025-03-25T08:29:57.855Z",
+              "EditorCaption": ""
             }
           ]
         }
