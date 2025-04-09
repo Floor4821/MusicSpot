@@ -33,7 +33,7 @@
                 <Button Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,84,1384,780" Click="Button_Click_2"/>
                 <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="422,84,938,780"/>
                 <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="859,84,427,780"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,84,10,780"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Click="AccountButton" Content="Account" FontSize="36" Margin="1343,84,10,780"/>
                 <Button Content="Register" Click="Register" Foreground="White" FontSize="20" Margin="1211,16,181,864">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">

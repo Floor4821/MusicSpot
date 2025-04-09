@@ -11,15 +11,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
+using MusicSpot;
 
 namespace MusicSpot
 {
+    public static class LogCheck
+    {
+        public static string IsLogged { get; set; } = "false";
+    }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string PFP = "NULL";
         public MainWindow()
         {
             InitializeComponent();
@@ -51,6 +55,13 @@ namespace MusicSpot
         private void NewestReleases_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void AccountButton(object sender, RoutedEventArgs e)
+        {
+            Navigation nav = new Navigation();
+            nav.ShowAccount();
+            if (LogCheck.IsLogged == "true") { this.Close(); }
         }
         /*
 var client = new HttpClient();

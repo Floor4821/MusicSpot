@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MusicSpot.csproj": {}
+    "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MusicSpot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MusicSpot.csproj": {
+    "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MusicSpot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MusicSpot.csproj",
+        "projectUniqueName": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MusicSpot.csproj",
         "projectName": "MusicSpot",
-        "projectPath": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MusicSpot.csproj",
+        "projectPath": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MusicSpot.csproj",
         "packagesPath": "C:\\Users\\jamey\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\obj\\",
+        "outputPath": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jamey\\AppData\\Roaming\\NuGet\\NuGet.Config",

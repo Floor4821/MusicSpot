@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MusicSpot;
 
 namespace MusicSpot
 {
@@ -22,6 +23,11 @@ namespace MusicSpot
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void UserLogin(object sender, RoutedEventArgs e)
+        {
+            LogCheck.IsLogged = "true"; 
         }
     }
 }

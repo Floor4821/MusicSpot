@@ -55,3 +55,5 @@ C:\Users\jamey\source\repos\MusicSpot\obj\Debug\net8.0-windows\Login.g.cs
 C:\Users\jamey\source\repos\MusicSpot\obj\Debug\net8.0-windows\Login.baml
 C:\Users\jamey\source\repos\MusicSpot\obj\Debug\net8.0-windows\Register.g.cs
 C:\Users\jamey\source\repos\MusicSpot\obj\Debug\net8.0-windows\Register.baml
+C:\Users\jamey\source\repos\MusicSpot\obj\Debug\net8.0-windows\Account.g.cs
+C:\Users\jamey\source\repos\MusicSpot\obj\Debug\net8.0-windows\Account.baml

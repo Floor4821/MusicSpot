@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32; 
 using System.Windows.Media.Imaging; 
 using System.IO;
+using System.Net.Mail;
 
 namespace MusicSpot
 {
@@ -43,6 +44,27 @@ namespace MusicSpot
                 bitmap.EndInit();
                 ProfilePicture = bitmap.ToString();
             }
+        }
+        /*public bool CheckMail(string email)
+        {
+            try
+            {
+                var mail = new MailAddress(email);
+                using (var client = new SmtpClient(mail.Host))
+                {
+                    client.Port = 25;
+                    client.Send(new MailMessage("jamey.verlinden@gmail.com", mail.ToString(), "Verification Email", "This is a verification email."));
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }*/
+        private void CreateAccount(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
