@@ -30,5 +30,15 @@ namespace MusicSpot
             MainWindow MW = new MainWindow();
             MW.Show();
         }
+        public void ShowTrans()
+        {
+            ConfirmTransaction CT = new ConfirmTransaction();
+            CT.Show();
+        }
+        public void ShowReleaseView()
+        {
+            ReleaseView RV = new ReleaseView();
+            RV.Show();
+        }
     }
 }

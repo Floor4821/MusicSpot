@@ -27,7 +27,8 @@ namespace MusicSpot
 
         private void UserLogin(object sender, RoutedEventArgs e)
         {
-            LogCheck.IsLogged = "true"; 
+            LogCheck.IsLogged = "true";
+            string mail = LoginMail.Text;
         }
     }
 }

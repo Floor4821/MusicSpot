@@ -1,0 +1,67 @@
+﻿<Window x:Class="MusicSpot.ReleaseView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicSpot"
+        WindowState="Maximized"
+        mc:Ignorable="d"
+        Title="ReleaseView" Height="802" Width="1534">
+    <Grid>
+        <Rectangle Fill="LightGray" Margin="0,0,0,697"/>
+        <Rectangle Fill="LightGray" Margin="0,68,0,718"/>
+        <Button Click="RV_Home" Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,5,1372,702"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="411,5,949,702"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,702"/>
+        <Button Click="R_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,702"/>
+        <ListBox SelectionMode="Multiple" Name="GenreSelection" Margin="86,208,1180,297">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding ReleaseName}" IsChecked="{Binding IsFav}" Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="Genre" HorizontalAlignment="Left" Margin="86,129,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Label Content="ReleaseType" HorizontalAlignment="Left" Margin="86,507,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <ListBox SelectionMode="Multiple" x:Name="ReleaseTypeSelection" Margin="86,581,1180,36">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Content="{Binding ReleaseName}" IsChecked="{Binding IsFav}" Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox BorderBrush="Black" BorderThickness="2" TextAlignment="Center" Margin="456,120,150,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Height="46" FontSize="36"/>
+        <Button Content="Search" HorizontalAlignment="Left" Foreground="White" Background="#222222" Margin="1412,120,0,0" VerticalAlignment="Top" Height="46" Width="112" FontSize="24"/>
+        <Rectangle HorizontalAlignment="Left" Height="578" Margin="456,208,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1078"/>
+        <Label Content="[INSERT BOXLIST HERE]" HorizontalAlignment="Left" Margin="471,539,0,0" VerticalAlignment="Top" Height="89" Width="501" FontSize="48" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="26.829"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="[INSERT BOXLIST HERE]" HorizontalAlignment="Left" Margin="721,463,0,0" VerticalAlignment="Top" Height="89" Width="501" FontSize="48" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="26.829"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="[INSERT BOXLIST HERE]" HorizontalAlignment="Left" Margin="969,382,0,0" VerticalAlignment="Top" Height="89" Width="501" FontSize="48" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="26.829"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+    </Grid>
+</Window>

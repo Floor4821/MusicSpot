@@ -15,7 +15,7 @@ namespace MusicSpot
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("datasource=127.0.0.1;port=3307;username=root;password=;database=musicspot");
+            optionsBuilder.UseMySQL("Server=localhost;Port=3306;Database=musicspot;User=root;Password=D1t1s33nP4sw00rd;");
         }
         public void testconnection()
         {

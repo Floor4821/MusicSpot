@@ -10,15 +10,27 @@
     <Compile Update="Account.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ConfirmTransaction.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ReleasePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ReleaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Account.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ConfirmTransaction.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Login.xaml">
@@ -28,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ReleaseView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

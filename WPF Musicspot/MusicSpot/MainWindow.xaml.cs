@@ -63,6 +63,12 @@ namespace MusicSpot
             nav.ShowAccount();
             if (LogCheck.IsLogged == "true") { this.Close(); }
         }
+        public void ReleaseButton(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowReleaseView();
+            this.Close();
+        }
         /*
 var client = new HttpClient();
 var request = new HttpRequestMessage

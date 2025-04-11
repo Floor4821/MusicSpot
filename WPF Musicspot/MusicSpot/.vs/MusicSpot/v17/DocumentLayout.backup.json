@@ -1,33 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\",
+  "WorkspaceRootPath": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\source\\repos\\musicspot\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\releasepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:releasepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\source\\repos\\musicspot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\releaseview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:releaseview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\source\\repos\\musicspot\\account.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\account.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:account.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\source\\repos\\musicspot\\account.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\releaseview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:releaseview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\account.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:account.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\source\\repos\\musicspot\\register.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:register.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\source\\repos\\musicspot\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\source\\repos\\musicspot\\navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|c:\\users\\jamey\\vakken semester 2\\inspiration lab\\project\\wpf musicspot\\musicspot\\navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE9A8815-3490-420E-A5D9-BE43FE5984A1}|MusicSpot.csproj|solutionrelative:navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,73 +46,101 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Register.xaml",
-              "DocumentMoniker": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Register.xaml",
-              "RelativeDocumentMoniker": "Register.xaml",
-              "ToolTip": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Register.xaml",
-              "RelativeToolTip": "Register.xaml",
+              "DocumentIndex": 0,
+              "Title": "ReleasePage.xaml",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\ReleasePage.xaml",
+              "RelativeDocumentMoniker": "ReleasePage.xaml",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\ReleasePage.xaml",
+              "RelativeToolTip": "ReleasePage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-09T16:48:57.981Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Account.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Account.xaml.cs",
-              "RelativeDocumentMoniker": "Account.xaml.cs",
-              "ToolTip": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Account.xaml.cs",
-              "RelativeToolTip": "Account.xaml.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAIAwwDAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T16:26:20.378Z"
+              "WhenOpened": "2025-04-11T18:14:20.739Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Data.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Data.cs",
-              "RelativeDocumentMoniker": "Data.cs",
-              "ToolTip": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Data.cs",
-              "RelativeToolTip": "Data.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAmwAoAAAABAAAAAAAAAA==",
+              "Title": "Account.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Account.xaml.cs",
+              "RelativeDocumentMoniker": "Account.xaml.cs",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Account.xaml.cs",
+              "RelativeToolTip": "Account.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T18:21:56.059Z"
+              "WhenOpened": "2025-04-10T19:49:27.224Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "ReleaseView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\ReleaseView.xaml.cs",
+              "RelativeDocumentMoniker": "ReleaseView.xaml.cs",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\ReleaseView.xaml.cs",
+              "RelativeToolTip": "ReleaseView.xaml.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAjwDcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T18:48:52.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Data.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Data.cs",
+              "RelativeDocumentMoniker": "Data.cs",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Data.cs",
+              "RelativeToolTip": "Data.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAIwCMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T18:11:57.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Account.xaml",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Account.xaml",
+              "RelativeDocumentMoniker": "Account.xaml",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Account.xaml",
+              "RelativeToolTip": "Account.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-10T15:32:39.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReleaseView.xaml",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\ReleaseView.xaml",
+              "RelativeDocumentMoniker": "ReleaseView.xaml",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\ReleaseView.xaml",
+              "RelativeToolTip": "ReleaseView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-10T15:32:00.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Navigation.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Navigation.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Navigation.cs",
               "RelativeDocumentMoniker": "Navigation.cs",
-              "ToolTip": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Navigation.cs",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\Navigation.cs",
               "RelativeToolTip": "Navigation.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAIwB4AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAADwvygAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T15:48:37.508Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Account.xaml",
-              "DocumentMoniker": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Account.xaml",
-              "RelativeDocumentMoniker": "Account.xaml",
-              "ToolTip": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\Account.xaml",
-              "RelativeToolTip": "Account.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-09T15:57:57.709Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-04-07T15:32:38.449Z",
@@ -112,15 +148,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\jamey\\source\\repos\\MusicSpot\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\jamey\\Vakken Semester 2\\Inspiration Lab\\Project\\WPF Musicspot\\MusicSpot\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwBsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAwD8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T15:32:33.846Z"
+              "WhenOpened": "2025-04-07T15:32:33.846Z",
+              "EditorCaption": ""
             }
           ]
         }
