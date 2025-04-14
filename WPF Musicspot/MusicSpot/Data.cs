@@ -12,6 +12,7 @@ namespace MusicSpot
     public class Data: DbContext
     {
         public DbSet<release> release { get; set; }
+        public DbSet<account> account { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,6 +35,10 @@ namespace MusicSpot
         public List<release> GetAllReleases()
         {
             return release.ToList();
+        }
+        public List<account> GetAllUsers()
+        {
+            return account.ToList();
         }
     }
 }

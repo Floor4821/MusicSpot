@@ -22,6 +22,45 @@ namespace MusicSpot
         public ReleasePage()
         {
             InitializeComponent();
+            if (AdminCheck.IsAdmin == 1) 
+            {
+                DeleteRelease.Visibility = Visibility.Visible;
+                EditRelease.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void RP_Home(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowHome();
+            this.Close();
+        }
+
+        private void RP_Releases(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowReleaseView();
+            this.Close();
+        }
+
+        private void RP_Recommended(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowRecommended();
+            this.Close();
+        }
+
+        private void RP_Account(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowAccount();
+            if (LogCheck.IsLogged == "true") { this.Close(); }
+        }
+
+        public void ReleaseEdit(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowReleaseManager();
         }
     }
 }

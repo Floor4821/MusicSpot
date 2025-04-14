@@ -58,5 +58,12 @@ namespace MusicSpot
             Navigation n = new Navigation();
             n.ShowTrans();
         }
+
+        private void A_Recommended(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowRecommended();
+            this.Close();
+        }
     }
 }

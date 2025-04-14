@@ -11,9 +11,9 @@
         <Rectangle Fill="LightGray" Margin="0,0,0,697"/>
         <Rectangle Fill="LightGray" Margin="0,68,0,718"/>
         <Button Click="RV_Home" Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,5,1372,702"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="411,5,949,702"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,702"/>
-        <Button Click="R_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,702"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="257,5,1103,702"/>
+        <Button Click="RV_Recommended" Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="585,5,701,702"/>
+        <Button Click="R_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="961,5,392,702"/>
         <ListBox SelectionMode="Multiple" Name="GenreSelection" Margin="86,208,1180,297">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -33,35 +33,26 @@
         <TextBox BorderBrush="Black" BorderThickness="2" TextAlignment="Center" Margin="456,120,150,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Height="46" FontSize="36"/>
         <Button Content="Search" HorizontalAlignment="Left" Foreground="White" Background="#222222" Margin="1412,120,0,0" VerticalAlignment="Top" Height="46" Width="112" FontSize="24"/>
         <Rectangle HorizontalAlignment="Left" Height="578" Margin="456,208,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1078"/>
-        <Label Content="[INSERT BOXLIST HERE]" HorizontalAlignment="Left" Margin="471,539,0,0" VerticalAlignment="Top" Height="89" Width="501" FontSize="48" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="26.829"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="[INSERT BOXLIST HERE]" HorizontalAlignment="Left" Margin="721,463,0,0" VerticalAlignment="Top" Height="89" Width="501" FontSize="48" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="26.829"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label Content="[INSERT BOXLIST HERE]" HorizontalAlignment="Left" Margin="969,382,0,0" VerticalAlignment="Top" Height="89" Width="501" FontSize="48" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="26.829"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
+        <ListBox x:Name="ReleaseList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="498,264,0,0" Width="1026" SelectionChanged="Show_ReleasePage" Height="486">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="1003" Height="841"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="Gray" Padding="40" CornerRadius="5">
+                        <StackPanel>
+                            <Canvas Height="60" Width="140">
+                                <TextBlock HorizontalAlignment="Left" Text="{Binding ReleaseName}" Width="163" Canvas.Left="-20" Canvas.Top="54"/>
+                                <Image HorizontalAlignment="Left" Source="C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Album.jpg" Height="51" Width="60" RenderTransformOrigin="0.537,0.447" Canvas.Left="-20" Canvas.Top="-1"/>
+                            </Canvas>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Name="InsertRelease" Click="InsertNewRelease" Visibility="Hidden" Content="Insert New Release" HorizontalAlignment="Left" Foreground="White" Background="#222222" Margin="1299,17,0,0" VerticalAlignment="Top" Height="60" Width="225" FontSize="24"/>
     </Grid>
 </Window>

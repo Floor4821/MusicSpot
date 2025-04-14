@@ -123,3 +123,9 @@ C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot
 C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ReleaseView.baml
 C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ReleasePage.g.cs
 C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ReleasePage.baml
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\RecommendedView.g.cs
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\RecommendedView.baml
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ReleaseManager.g.cs
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ReleaseManager.baml
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\AccountManager.g.cs
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\AccountManager.baml

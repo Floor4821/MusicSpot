@@ -30,10 +30,10 @@
                 </Grid.ColumnDefinitions>
                 <Rectangle Fill="LightGray" Margin="0,68,0,764"/>
                 <Label Content="MusicSpot" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="69" Width="288" FontSize="48" FontFamily="Broadway"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,84,1384,780" Click="Button_Click_2"/>
-                <Button Click="ReleaseButton" Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="422,84,938,780"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="859,84,427,780"/>
-                <Button Background="Transparent" BorderBrush="Transparent" Click="AccountButton" Content="Account" FontSize="36" Margin="1343,84,10,780"/>
+                <Button Click="RefreshHome" Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,84,1384,780"/>
+                <Button Click="WM_Releases" Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="422,84,938,780"/>
+                <Button Click="WM_Recommended" Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="859,84,427,780"/>
+                <Button Background="Transparent" BorderBrush="Transparent" Click="WM_Account" Content="Account" FontSize="36" Margin="1343,84,10,780"/>
                 <Button Content="Register" Click="Register" Foreground="White" FontSize="20" Margin="1211,16,181,864">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -107,6 +107,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="55,818,0,-12" TextWrapping="Wrap" FontSize="20" FontFamily="Yu Gothic" Width="1445"><Run Language="nl-be" Text="We like music. And money. Mostly money."/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Margin="55,933,0,-75" TextWrapping="Wrap" FontSize="36" FontFamily="Yu Gothic"><Run Language="nl-be" Text="Contact"/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Margin="55,996,0,-190" TextWrapping="Wrap" FontSize="20" FontFamily="Yu Gothic" Width="1445"><Run Language="nl-be" Text="Github + Website + ..."/></TextBlock>
+                <Label Name="AdminLabel" Visibility="Hidden" Content="[ADMIN]" Foreground="Red" HorizontalAlignment="Left" Margin="303,8,0,0" VerticalAlignment="Top" FontSize="36"/>
 
 
             </Grid>

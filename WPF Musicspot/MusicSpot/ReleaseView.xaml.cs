@@ -25,6 +25,11 @@ namespace MusicSpot
             Data d = new Data();
             List<release> allreleases = d.GetAllReleases();
             GenreSelection.ItemsSource = allreleases;
+            ReleaseList.ItemsSource = allreleases;
+            if (AdminCheck.IsAdmin == 1)
+            {
+                InsertRelease.Visibility = Visibility.Visible;
+            }
         }
 
         public void Checkbox_Checked(object sender, RoutedEventArgs e)
@@ -53,6 +58,24 @@ namespace MusicSpot
             Navigation n = new Navigation();
             n.ShowAccount();
             if (LogCheck.IsLogged == "true") { this.Close(); }
+        }
+        public void Show_ReleasePage(object sender, RoutedEventArgs e)
+        {
+            var item = ReleaseList.SelectedItem;
+            var RP = new ReleasePage();
+            RP.Show();
+            this.Close();
+        }
+
+        private void RV_Recommended(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowRecommended();
+            this.Close();
+        }
+        public void InsertNewRelease(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

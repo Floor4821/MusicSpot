@@ -11,7 +11,12 @@ namespace MusicSpot
     {
         public void ShowAccount()
         {
-            if (LogCheck.IsLogged == "true")
+            if (LogCheck.IsLogged == "true" && AdminCheck.IsAdmin == 1)
+            {
+                AccountManager AM = new AccountManager();
+                AM.Show();
+            }
+            else if (LogCheck.IsLogged == "true")
             {
                 Account A = new Account();
                 A.Show();
@@ -39,6 +44,16 @@ namespace MusicSpot
         {
             ReleaseView RV = new ReleaseView();
             RV.Show();
+        }
+        public void ShowRecommended()
+        {
+            RecommendedView RV = new RecommendedView();
+            RV.Show();
+        }
+        public void ShowReleaseManager()
+        {
+            ReleaseManager RM = new ReleaseManager();
+            RM.Show();
         }
     }
 }

@@ -27,8 +27,24 @@ namespace MusicSpot
 
         private void UserLogin(object sender, RoutedEventArgs e)
         {
-            LogCheck.IsLogged = "true";
             string mail = LoginMail.Text;
+            string password = LoginPassword.Password;
+            Data d = new Data();
+            List<account> allaccount = d.GetAllUsers();
+            foreach (account a in allaccount)
+            {
+                if (a.email == mail && a.password == password)
+                {
+                    MessageBox.Show("You are logged in", "Successfull login", MessageBoxButton.OK, MessageBoxImage.Information);
+                    int isadmin = a.isadmin;
+                    AdminCheck.IsAdmin = isadmin;
+                    LogCheck.IsLogged = "true";
+                }
+            }
+            if (LogCheck.IsLogged == "false")
+            {
+                MessageBox.Show("Failed login attempt. Try again or make a new account", "Failed login", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
