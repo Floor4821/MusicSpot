@@ -26,8 +26,13 @@ namespace MusicSpot
             List<release> releases = dt.GetAllReleases();
             ShoppingCart.ItemsSource = releases;
         }
-
-        private void Account_HomeButton(object sender, RoutedEventArgs e)
+        public void A_Releases(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowReleaseView();
+            this.Close();
+        }
+        private void A_Home(object sender, RoutedEventArgs e)
         {
             Navigation n = new Navigation();
             n.ShowHome();
@@ -47,6 +52,18 @@ namespace MusicSpot
                 case MessageBoxResult.No:
                     break;
             }
+        }
+        public void ConfirmTransaction(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowTrans();
+        }
+
+        private void A_Recommended(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowRecommended();
+            this.Close();
         }
     }
 }

@@ -19,6 +19,10 @@ namespace MusicSpot
     {
         public static string IsLogged { get; set; } = "false";
     }
+    public static class AdminCheck
+    {
+        public static int IsAdmin { get; set; } = 0;
+    }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -30,13 +34,8 @@ namespace MusicSpot
             Data dt = new Data();
             List<release> releases = dt.GetAllReleases();
             NewestReleases.ItemsSource = releases;
+            if (AdminCheck.IsAdmin == 1) { AdminLabel.Visibility = Visibility.Visible; }
         }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         public void login(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
@@ -47,21 +46,38 @@ namespace MusicSpot
             Register register = new Register();
             register.Show();
         }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void NewestReleases_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void AccountButton(object sender, RoutedEventArgs e)
+        private void WM_Recommended(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowRecommended();
+            this.Close();
+        }
+
+        private void WM_Releases(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowReleaseView();
+            this.Close();
+        }
+
+        private void WM_Account(object sender, RoutedEventArgs e)
         {
             Navigation nav = new Navigation();
             nav.ShowAccount();
             if (LogCheck.IsLogged == "true") { this.Close(); }
+        }
+
+        private void RefreshHome(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowHome();
+            this.Close();
         }
         /*
 var client = new HttpClient();

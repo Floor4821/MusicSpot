@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jamey\source\repos\MusicSpot\obj\Debug\net8.0-windows\
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\
 MusicSpot
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\jamey\source\repos\MusicSpot\App.xaml
-4-1357797909
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\App.xaml
+101986906698
 
-11-1987257788
+18-1337459616
 221613649961
-Account.xaml;Login.xaml;MainWindow.xaml;Register.xaml;
+Account.xaml;AccountManager.xaml;ConfirmTransaction.xaml;Login.xaml;MainWindow.xaml;RecommendedView.xaml;Register.xaml;ReleaseManager.xaml;ReleasePage.xaml;ReleaseView.xaml;
 
 False
 

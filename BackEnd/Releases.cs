@@ -9,59 +9,39 @@ namespace MusicSpot
 {
     public class Release
     {
-        [Key]
-        public int releaseID { get; set; }
-        [Required]
+        public int ReleaseID { get; set; }
         public string ReleaseName { get; set; }
-        [Required]
-        public ReleaseType ReleaseType { get; set; } //*!
-        public string Cover { get; set; }
-        [Required]
-        public List<string> Songs { get; set; }
-        [Required]
         public string Artist { get; set; }
-        [Required]
+        public byte[] Cover { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public ReleaseType ReleaseType { get; set; } 
+        public List<string> Songs { get; set; }
+        public List<Genre> Genres { get; set; }
         public List<Product> Products { get; set; }
 
-        public Release(string releaseName, ReleaseType releaseType, string cover, List<string> songs, string artist)
+        public Release(string releaseName, string artist, byte[] cover, DateTime releaseDate, ReleaseType releaseType, List<string> songs, List<Genre> genres, List<Product> products)
         {
             ReleaseName = releaseName;
-            ReleaseType = releaseType;
-            Cover = cover;
-            Songs = songs;
             Artist = artist;
-            Products = new List<Product>();
+            Cover = cover;
+            ReleaseDate = releaseDate;
+            Songs = songs;
+            Genres = genres;
+            Products = products;
         }
     }
 
 
     public class Genre
     {
-        [Key]
         public int GenreID { get; set; }
-        [Required]
         public EnumSubGenre Subgenre { get; set; }
-        [Required]
         public EnumGenre GenreType { get; set; }
 
         public Genre(EnumSubGenre subgenre, EnumGenre genretype)
         {
             Subgenre = subgenre;
             GenreType = genretype;
-        }
-    }
-
-    public class Song
-    {
-        [Key]
-        public int SongID { get; set; }
-        [Required]
-        public string SongName { get; set; }
-        public int SongLength { get; set; }
-        public Song(string songName, int songlength)
-        {
-            SongName = songName;
-            SongLength = songlength;
         }
     }
 

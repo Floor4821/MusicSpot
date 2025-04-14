@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\App.xaml
-4-1357797909
+101986906698
 
-13303450277
+20953248449
 221613649961
-Account.xaml;Login.xaml;MainWindow.xaml;Register.xaml;
+Account.xaml;AccountManager.xaml;ConfirmTransaction.xaml;Login.xaml;MainWindow.xaml;RecommendedView.xaml;Register.xaml;ReleaseManager.xaml;ReleasePage.xaml;ReleaseView.xaml;
 
-False
+True
 

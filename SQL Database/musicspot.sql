@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2025 at 11:45 AM
+-- Generation Time: Apr 14, 2025 at 02:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -20,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `musicspot`
 --
+CREATE DATABASE IF NOT EXISTS `musicspot` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `musicspot`;
 
 -- --------------------------------------------------------
 
@@ -34,29 +37,6 @@ CREATE TABLE `account` (
   `password` varchar(255) NOT NULL,
   `isadmin` tinyint(1) NOT NULL,
   `profilepic` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `artist`
---
-
-CREATE TABLE `artist` (
-  `artistID` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `artistperson`
---
-
-CREATE TABLE `artistperson` (
-  `artistpersonID` int(11) NOT NULL,
-  `artistID` int(11) NOT NULL,
-  `personID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -134,17 +114,6 @@ INSERT INTO `mediatype` (`ID`, `Type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `person`
---
-
-CREATE TABLE `person` (
-  `personID` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `product`
 --
 
@@ -191,18 +160,9 @@ CREATE TABLE `release` (
   `releaseID` int(11) NOT NULL,
   `cover` blob NOT NULL,
   `releasetype` int(11) NOT NULL,
-  `artistID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `releasegenre`
---
-
-CREATE TABLE `releasegenre` (
-  `releasegenreID` int(11) NOT NULL,
-  `releaseID` int(11) NOT NULL,
+  `artist` varchar(255) DEFAULT NULL,
+  `releasedate` datetime DEFAULT NULL,
+  `releasename` varchar(255) NOT NULL,
   `genreID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -236,7 +196,6 @@ INSERT INTO `releasetype` (`ID`, `Type`) VALUES
 CREATE TABLE `song` (
   `songID` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `length` int(11) NOT NULL,
   `releaseID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -367,20 +326,6 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`accountID`);
 
 --
--- Indexes for table `artist`
---
-ALTER TABLE `artist`
-  ADD PRIMARY KEY (`artistID`);
-
---
--- Indexes for table `artistperson`
---
-ALTER TABLE `artistperson`
-  ADD PRIMARY KEY (`artistpersonID`),
-  ADD KEY `artistID` (`artistID`),
-  ADD KEY `personID` (`personID`);
-
---
 -- Indexes for table `genre`
 --
 ALTER TABLE `genre`
@@ -407,12 +352,6 @@ ALTER TABLE `likedlist`
 --
 ALTER TABLE `mediatype`
   ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `person`
---
-ALTER TABLE `person`
-  ADD PRIMARY KEY (`personID`);
 
 --
 -- Indexes for table `product`
@@ -443,15 +382,7 @@ ALTER TABLE `purchaseproduct`
 ALTER TABLE `release`
   ADD PRIMARY KEY (`releaseID`),
   ADD KEY `releasetype` (`releasetype`),
-  ADD KEY `artistID` (`artistID`);
-
---
--- Indexes for table `releasegenre`
---
-ALTER TABLE `releasegenre`
-  ADD PRIMARY KEY (`releasegenreID`),
-  ADD KEY `releaseID` (`releaseID`),
-  ADD KEY `genreID` (`genreID`);
+  ADD KEY `fk_genre` (`genreID`);
 
 --
 -- Indexes for table `releasetype`
@@ -491,18 +422,6 @@ ALTER TABLE `account`
   MODIFY `accountID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `artist`
---
-ALTER TABLE `artist`
-  MODIFY `artistID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `artistperson`
---
-ALTER TABLE `artistperson`
-  MODIFY `artistpersonID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
@@ -527,12 +446,6 @@ ALTER TABLE `mediatype`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `person`
---
-ALTER TABLE `person`
-  MODIFY `personID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
@@ -555,12 +468,6 @@ ALTER TABLE `purchaseproduct`
 --
 ALTER TABLE `release`
   MODIFY `releaseID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `releasegenre`
---
-ALTER TABLE `releasegenre`
-  MODIFY `releasegenreID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `releasetype`
@@ -589,13 +496,6 @@ ALTER TABLE `wishlist`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `artistperson`
---
-ALTER TABLE `artistperson`
-  ADD CONSTRAINT `artistperson_ibfk_1` FOREIGN KEY (`artistID`) REFERENCES `artist` (`artistID`),
-  ADD CONSTRAINT `artistperson_ibfk_2` FOREIGN KEY (`personID`) REFERENCES `person` (`personID`);
 
 --
 -- Constraints for table `genre`
@@ -635,15 +535,8 @@ ALTER TABLE `purchaseproduct`
 -- Constraints for table `release`
 --
 ALTER TABLE `release`
-  ADD CONSTRAINT `release_ibfk_1` FOREIGN KEY (`releasetype`) REFERENCES `releasetype` (`ID`),
-  ADD CONSTRAINT `release_ibfk_2` FOREIGN KEY (`artistID`) REFERENCES `artist` (`artistID`);
-
---
--- Constraints for table `releasegenre`
---
-ALTER TABLE `releasegenre`
-  ADD CONSTRAINT `releasegenre_ibfk_1` FOREIGN KEY (`releaseID`) REFERENCES `release` (`releaseID`),
-  ADD CONSTRAINT `releasegenre_ibfk_2` FOREIGN KEY (`genreID`) REFERENCES `genre` (`genreID`);
+  ADD CONSTRAINT `fk_genre` FOREIGN KEY (`genreID`) REFERENCES `genre` (`genreID`),
+  ADD CONSTRAINT `release_ibfk_1` FOREIGN KEY (`releasetype`) REFERENCES `releasetype` (`ID`);
 
 --
 -- Constraints for table `song`
@@ -657,6 +550,7 @@ ALTER TABLE `song`
 ALTER TABLE `wishlist`
   ADD CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`accountID`) REFERENCES `account` (`accountID`),
   ADD CONSTRAINT `wishlist_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `product` (`productID`);
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

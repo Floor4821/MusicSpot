@@ -11,9 +11,9 @@
         <Rectangle HorizontalAlignment="Left" Height="99" Margin="864,438,0,0" Fill="#F5F5F5" VerticalAlignment="Top" Width="607"/>
         <Rectangle Fill="LightGray" Margin="0,0,0,703"/>
         <Rectangle Fill="LightGray" Margin="0,68,0,764"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,5,1372,708" Click="Account_HomeButton"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="411,5,949,708"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,708"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,5,1372,708" Click="A_Home"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="411,5,949,708" Click="A_Releases"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,708" Click="A_Recommended"/>
         <Button Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,708"/>
         <Rectangle HorizontalAlignment="Left" Height="277" Margin="864,145,0,0" Fill="LightCyan" VerticalAlignment="Top" Width="607"/>
         <Image Source="https://i.postimg.cc/vZsp5kN2/defaultpfp.png" Stretch="Fill" Margin="906,249,464,396"/>
@@ -41,7 +41,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Button Content="Confirm Transaction" Foreground="White" FontSize="20" Margin="1168,466,72,283">
+        <Button Click="ConfirmTransaction" Content="Confirm Transaction" Foreground="White" FontSize="20" Margin="1168,466,72,283">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="#222222" CornerRadius="10">

@@ -9,24 +9,19 @@ namespace MusicSpot
 {
     public class Account
     {
-        [Key]
         public int AccountID { get; set; }
-        [Required]
         public string AccountName { get; set; }
-        [Required]
         public string Email { get; set; }
-        [Required]
         public string Password { get; set; }
-        [Required]
         public int IsAdmin { get; set; }
-        public string ProfilePic { get; set; }
+        public byte[] ProfilePic { get; set; }
         public List<Product> Wishlist { get; set; }
         public List<Release> Likedlist { get; set; }
         public List<Purchase> Purchases { get; set; }
 
         private Data data = new Data();
 
-        public Account(string accountName, string email, string password, int isAdmin, string profilePic = "NULL")
+        public Account(string accountName, string email, string password, int isAdmin, byte[] profilePic)
         {
             AccountName = accountName;
             Email = email;

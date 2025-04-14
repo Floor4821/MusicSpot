@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace MusicSpot
         [Key]
         public int releaseID { get; set; }
         public string ReleaseName { get; set; }
-        public string cover { get; set; }
+        public byte[] cover { get; set; }
         public releasetype releasetype { get; set; }
         public string artist { get; set; }
         public DateTime releasedate { get; set; }
