@@ -16,17 +16,17 @@ namespace MusicSpot
         public DateTime ReleaseDate { get; set; }
         public ReleaseType ReleaseType { get; set; } 
         public List<string> Songs { get; set; }
-        public List<Genre> Genres { get; set; }
+        public Genre Genre { get; set; }
         public List<Product> Products { get; set; }
 
-        public Release(string releaseName, string artist, byte[] cover, DateTime releaseDate, ReleaseType releaseType, List<string> songs, List<Genre> genres, List<Product> products)
+        public Release(string releaseName, string artist, byte[] cover, DateTime releaseDate, ReleaseType releaseType, List<string> songs, Genre genre, List<Product> products)
         {
             ReleaseName = releaseName;
             Artist = artist;
             Cover = cover;
             ReleaseDate = releaseDate;
             Songs = songs;
-            Genres = genres;
+            Genre = genre;
             Products = products;
         }
     }

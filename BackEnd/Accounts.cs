@@ -18,6 +18,7 @@ namespace MusicSpot
         public List<Product> Wishlist { get; set; }
         public List<Release> Likedlist { get; set; }
         public List<Purchase> Purchases { get; set; }
+        public List<Release> Recommendations { get; set; }
 
         private Data data = new Data();
 
@@ -31,6 +32,7 @@ namespace MusicSpot
             Wishlist = new List<Product>();
             Likedlist = new List<Release>();
             Purchases = new List<Purchase>();
+            Recommendations = new List<Release>();
 
 
             AccountID = data.CreateAccount(this);
@@ -48,14 +50,13 @@ namespace MusicSpot
         public int ProductID { get; set; }
         public double Price { get; set; }
         public int Stock { get; set; }
-
-        public MediaType MediaType { get; set; }
+        public MediaType Type { get; set; }
 
         public Product(double price, int stock, MediaType mediaType)
         {
             Price = price;
             Stock = stock;
-            MediaType = mediaType;
+            Type = mediaType;
         }
     }
 
