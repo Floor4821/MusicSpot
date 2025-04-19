@@ -16,9 +16,9 @@
         <Button Click="RP_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="896,5,458,702"/>
         <Rectangle HorizontalAlignment="Center" Height="629" Margin="0,139,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1458"/>
         <Image HorizontalAlignment="Left" Source="C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Album.jpg" Width="346" RenderTransformOrigin="0.537,0.447" Margin="86,181,0,343"/>
-        <Label Content="ReleaseName: Data Binding" HorizontalAlignment="Left" Margin="449,181,0,0" VerticalAlignment="Top" Height="105" Width="895" FontSize="72"/>
-        <Label Content="Artist: Data Binding" HorizontalAlignment="Left" Margin="449,312,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
-        <Label Content="Genre: Data Binding" HorizontalAlignment="Left" Margin="449,387,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
+        <Label Name="ReleaseName" Content="ReleaseName: Data Binding" HorizontalAlignment="Left" Margin="449,181,0,0" VerticalAlignment="Top" Height="105" Width="895" FontSize="72"/>
+        <Label Name="Artist" Content="Artist: Data Binding" HorizontalAlignment="Left" Margin="449,312,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
+        <Label Name="Genre" Content="Genre: Data Binding" HorizontalAlignment="Left" Margin="449,387,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
         <Label Content="Products: Data Binding" HorizontalAlignment="Left" Margin="767,471,0,0" VerticalAlignment="Top" Height="56" Width="386" FontSize="36"/>
         <Rectangle HorizontalAlignment="Left" Height="221" Margin="767,532,0,0" Fill="DarkGray"  VerticalAlignment="Top" Width="695"/>
         <ListBox Background="DarkGray" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="86,532,1127,33"/>

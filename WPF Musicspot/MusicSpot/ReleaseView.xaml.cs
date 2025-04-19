@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace MusicSpot
 {
@@ -62,7 +63,10 @@ namespace MusicSpot
         public void Show_ReleasePage(object sender, RoutedEventArgs e)
         {
             var item = ReleaseList.SelectedItem;
-            var RP = new ReleasePage();
+
+            release selectedrelease = (release)item;
+
+            ReleasePage RP = new ReleasePage(selectedrelease);
             RP.Show();
             this.Close();
         }
@@ -75,6 +79,24 @@ namespace MusicSpot
         }
         public void InsertNewRelease(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void SearchReleaseName(object sender, RoutedEventArgs e)
+        {
+            string name = ReleaseNameInput.Text;
+            Data d = new Data();
+            List<release> ReleaseFilter = new List<release>();
+            List<release> allreleases = d.GetAllReleases();
+            Regex regex = new Regex(name);
+            foreach (release r in allreleases)
+            {
+                if (regex.IsMatch(r.ReleaseName))
+                {
+                    ReleaseFilter.Add(r);
+                }
+            }
+            ReleaseList.ItemsSource = ReleaseFilter;
 
         }
     }

@@ -19,13 +19,22 @@ namespace MusicSpot
     /// </summary>
     public partial class ReleasePage : Window
     {
-        public ReleasePage()
+        public ReleasePage(release r)
         {
             InitializeComponent();
             if (AdminCheck.IsAdmin == 1) 
             {
                 DeleteRelease.Visibility = Visibility.Visible;
                 EditRelease.Visibility = Visibility.Visible;
+            }
+            ReleaseName.Content = "Name: " + r.ReleaseName.ToString();
+            Artist.Content ="Artist: " + r.Artist.ToString();
+            Data d = new Data();
+            List<string> genres = d.SearchGenre(r);
+            Genre.Content = "Genre: ";
+            foreach(string s in genres)
+            {
+                Genre.Content += s + " ";
             }
         }
 

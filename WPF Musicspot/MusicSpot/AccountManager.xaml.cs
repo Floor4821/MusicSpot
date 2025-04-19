@@ -23,37 +23,35 @@ namespace MusicSpot
         {
             InitializeComponent();
             Data D = new Data();
-            List<account> AllAccount = D.GetAllUsers();
+            List<UserAccount> AllAccount = D.GetAllUsers();
             ProfileList.ItemsSource = AllAccount;
-        }
-
-        private void AM_Account(object sender, RoutedEventArgs e)
-        {
-            Navigation n = new Navigation();
-            n.ShowAccount();
         }
 
         private void AM_Recommended(object sender, RoutedEventArgs e)
         {
             Navigation n = new Navigation();
             n.ShowRecommended();
+            this.Close();
         }
 
         private void AM_Releases(object sender, RoutedEventArgs e)
         {
             Navigation n = new Navigation();
             n.ShowReleaseView();
+            this.Close();
         }
 
         private void AM_Home(object sender, RoutedEventArgs e)
         {
             Navigation n = new Navigation();
             n.ShowHome();
+            this.Close();
         }
         public void EditProfile(object sender, RoutedEventArgs e)
         {
             Navigation n = new Navigation();
             n.ShowAccount();
+            this.Close();
         }
     }
 }

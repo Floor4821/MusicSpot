@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using MusicSpot;
+using MySqlConnector;
 
 namespace MusicSpot
 {
@@ -22,6 +23,10 @@ namespace MusicSpot
     public static class AdminCheck
     {
         public static int IsAdmin { get; set; } = 0;
+    }
+    public static class AccountID
+    {
+        public static int AI { get; set; }
     }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -68,8 +73,9 @@ namespace MusicSpot
 
         private void WM_Account(object sender, RoutedEventArgs e)
         {
-            Navigation nav = new Navigation();
-            nav.ShowAccount();
+            Navigation n = new Navigation();
+            Data d = new Data();
+            n.ShowAccount();
             if (LogCheck.IsLogged == "true") { this.Close(); }
         }
 

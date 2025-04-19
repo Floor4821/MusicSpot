@@ -641,19 +641,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jamey\\.nuget\\packages\\": {}
+    "C:\\Users\\floor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\MusicSpot.csproj",
+      "projectUniqueName": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\MusicSpot.csproj",
       "projectName": "MusicSpot",
-      "projectPath": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\MusicSpot.csproj",
-      "packagesPath": "C:\\Users\\jamey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jamey\\OneDrive - Thomas More\\Musicspot Copy\\obj\\",
+      "projectPath": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\MusicSpot.csproj",
+      "packagesPath": "C:\\Users\\floor\\.nuget\\packages\\",
+      "outputPath": "C:\\School\\Inspiration Lab\\Project\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jamey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\floor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -661,7 +661,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

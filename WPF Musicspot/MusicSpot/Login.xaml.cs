@@ -30,17 +30,21 @@ namespace MusicSpot
             string mail = LoginMail.Text;
             string password = LoginPassword.Password;
             Data d = new Data();
-            List<account> allaccount = d.GetAllUsers();
-            foreach (account a in allaccount)
+            List<UserAccount> allaccount = d.GetAllUsers();
+            foreach (UserAccount a in allaccount)
             {
-                if (a.email == mail && a.password == password)
+                MessageBox.Show(a.Email);
+                if (a.Email == mail && a.Password == password)
                 {
                     MessageBox.Show("You are logged in", "Successfull login", MessageBoxButton.OK, MessageBoxImage.Information);
-                    int isadmin = a.isadmin;
+                    int isadmin = a.Isadmin;
                     AdminCheck.IsAdmin = isadmin;
                     LogCheck.IsLogged = "true";
+                    AccountID.AI = a.AccountID;
+                    return;
                 }
             }
+            MessageBox.Show(LogCheck.IsLogged);
             if (LogCheck.IsLogged == "false")
             {
                 MessageBox.Show("Failed login attempt. Try again or make a new account", "Failed login", MessageBoxButton.OK, MessageBoxImage.Error);

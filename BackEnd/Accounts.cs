@@ -9,24 +9,20 @@ namespace MusicSpot
 {
     public class Account
     {
-        [Key]
         public int AccountID { get; set; }
-        [Required]
         public string AccountName { get; set; }
-        [Required]
         public string Email { get; set; }
-        [Required]
         public string Password { get; set; }
-        [Required]
         public int IsAdmin { get; set; }
-        public string ProfilePic { get; set; }
+        public byte[] ProfilePic { get; set; }
         public List<Product> Wishlist { get; set; }
         public List<Release> Likedlist { get; set; }
         public List<Purchase> Purchases { get; set; }
+        public List<Release> Recommendations { get; set; }
 
         private Data data = new Data();
 
-        public Account(string accountName, string email, string password, int isAdmin, string profilePic = "NULL")
+        public Account(string accountName, string email, string password, int isAdmin, byte[] profilePic)
         {
             AccountName = accountName;
             Email = email;
@@ -36,6 +32,7 @@ namespace MusicSpot
             Wishlist = new List<Product>();
             Likedlist = new List<Release>();
             Purchases = new List<Purchase>();
+            Recommendations = new List<Release>();
 
 
             AccountID = data.CreateAccount(this);
@@ -53,14 +50,13 @@ namespace MusicSpot
         public int ProductID { get; set; }
         public double Price { get; set; }
         public int Stock { get; set; }
-
-        public MediaType MediaType { get; set; }
+        public MediaType Type { get; set; }
 
         public Product(double price, int stock, MediaType mediaType)
         {
             Price = price;
             Stock = stock;
-            MediaType = mediaType;
+            Type = mediaType;
         }
     }
 

@@ -7,14 +7,27 @@ using System.Threading.Tasks;
 
 namespace MusicSpot
 {
-    public class account
+    public class UserAccount
     {
         [Key]
-        public int accountID { get; set; }
-        public string name { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public int isadmin { get; set; }
-        public string? profilepic { get; set; }
+        public int AccountID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int Isadmin { get; set; }
+        public string? Profilepic { get; set; }
+
+        public UserAccount()
+        {
+            
+        }
+        public UserAccount(string name, string email, string password, int isadmin, string profilepic = "NULL")
+        {
+            Name = name;
+            Email = email;
+            Password = password;
+            Isadmin = isadmin;
+            Profilepic = profilepic;
+        }
     }
 }
