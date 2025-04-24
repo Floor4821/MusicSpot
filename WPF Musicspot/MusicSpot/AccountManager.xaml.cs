@@ -49,8 +49,11 @@ namespace MusicSpot
         }
         public void EditProfile(object sender, RoutedEventArgs e)
         {
-            Navigation n = new Navigation();
-            n.ShowAccount();
+            string info = "";
+            UserAccount items = (UserAccount)ProfileList.SelectedItem;
+            int userid = items.AccountID;
+            Manage_User a = new Manage_User(userid);
+            a.Show();
             this.Close();
         }
     }

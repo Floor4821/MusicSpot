@@ -33,7 +33,6 @@ namespace MusicSpot
             List<UserAccount> allaccount = d.GetAllUsers();
             foreach (UserAccount a in allaccount)
             {
-                MessageBox.Show(a.Email);
                 if (a.Email == mail && a.Password == password)
                 {
                     MessageBox.Show("You are logged in", "Successfull login", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -44,7 +43,6 @@ namespace MusicSpot
                     return;
                 }
             }
-            MessageBox.Show(LogCheck.IsLogged);
             if (LogCheck.IsLogged == "false")
             {
                 MessageBox.Show("Failed login attempt. Try again or make a new account", "Failed login", MessageBoxButton.OK, MessageBoxImage.Error);

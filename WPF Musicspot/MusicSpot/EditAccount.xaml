@@ -1,0 +1,29 @@
+﻿<Page x:Class="MusicSpot.EditAccount"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MusicSpot"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      Background="White"
+      Title="EditAccount" Width="900">
+
+    <Grid>
+        <Label Content="Create/Edit new account" HorizontalAlignment="Left" Margin="56,40,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label Content="Username: " HorizontalAlignment="Left" Margin="56,123,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Email: " HorizontalAlignment="Left" Margin="56,183,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Password: " HorizontalAlignment="Left" Margin="56,244,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Permission: " HorizontalAlignment="Left" Margin="56,322,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Expander HorizontalAlignment="Left" Height="53" Header="Permission" Margin="197,336,0,0" VerticalAlignment="Top" Width="132">
+            <Grid Background="#FFE5E5E5">
+                <Button Click="AdminPer" Content="Admin" Background="LightGray" Margin="10,5,76,5"></Button>
+                <Button Click="UserPer" Content="User" Background="LightGray" Margin="65,5,23,5"/>
+            </Grid>
+        </Expander>
+        <TextBox HorizontalAlignment="Left" Margin="184,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Height="24" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="134,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" Height="24" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="177,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="25" FontSize="16"/>
+
+    </Grid>
+</Page>

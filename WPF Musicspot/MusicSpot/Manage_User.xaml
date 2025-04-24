@@ -1,4 +1,4 @@
-﻿<Window x:Class="MusicSpot.Account"
+﻿<Window x:Class="MusicSpot.Manage_User"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,23 +6,23 @@
         xmlns:local="clr-namespace:MusicSpot"
         WindowState="Maximized"
         mc:Ignorable="d"
-        Title="Account" Height="802" Width="1534">
+        Title="Manage_User" Height="802" Width="1534">
     <Grid Margin="0,0,0,-6">
         <Rectangle HorizontalAlignment="Left" Height="99" Margin="864,438,0,0" Fill="#F5F5F5" VerticalAlignment="Top" Width="607"/>
         <Rectangle Fill="LightGray" Margin="0,0,0,703"/>
         <Rectangle Fill="LightGray" Margin="0,68,0,764"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,5,1372,708" Click="A_Home"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="411,5,949,708" Click="A_Releases"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,708" Click="A_Recommended"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,708" Click="A_Account"/>
-        <Rectangle HorizontalAlignment="Left" Height="277" Margin="864,145,0,0" Fill="LightCyan" VerticalAlignment="Top" Width="607"/>
-        <Image Name="profilepicture" Stretch="Fill" Margin="888,231,419,396"/>
-        <Label x:Name="AccountName" Content="" HorizontalAlignment="Left" Margin="900,176,0,0" VerticalAlignment="Top" FontSize="24" Width="534"/>
-        <Label x:Name="AccountMail" Content="Email:" HorizontalAlignment="Left" Margin="1133,265,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
-        <Label x:Name="AccountPass" Content="Password:" HorizontalAlignment="Left" Margin="1133,325,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,5,1372,708" Click="MU_Home"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="411,5,949,708" Click="MU_Releases"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,708" Click="MU_Recommended"/>
+        <Button Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,708" Click="MU_Account"/>
+        <Rectangle HorizontalAlignment="Left" Height="246" Margin="864,176,0,0" Fill="LightCyan" VerticalAlignment="Top" Width="607"/>
+        <Image Name="profilepicture" Stretch="Fill" Margin="892,249,436,396"/>
+        <Label x:Name="AccountName" Content="" HorizontalAlignment="Left" Margin="888,194,0,0" VerticalAlignment="Top" FontSize="24" Width="500"/>
+        <Label x:Name="AccountMail" Content="" HorizontalAlignment="Left" Margin="1116,265,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
+        <Label x:Name="AccountPass" Content="" HorizontalAlignment="Left" Margin="1116,323,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
         <Image Source="https://i.postimg.cc/25XcsbjM/Cart.jpg" Margin="863,438,570,255"/>
         <Rectangle HorizontalAlignment="Left" Stroke="Transparent" Fill="LightGray" Width="607" RenderTransformOrigin="0.502,0.711" Margin="864,542,0,52"/>
-        <ListBox Name="ShoppingCart" Margin="888,560,83,70">
+        <ListBox Name="UserCart" Margin="888,560,83,70">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="531">
@@ -41,19 +41,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Button Click="ConfirmTransaction" Content="Confirm Transaction" Foreground="White" FontSize="20" Margin="1168,466,72,283">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="#222222" CornerRadius="10">
-                        <ContentPresenter 
-                            Content="{TemplateBinding Content}"
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <ListBox x:Name="Wishlist" Margin="21,179,1119,52">
+        <ListBox x:Name="UserWishlist" Margin="21,179,1119,52">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="361" Height="134">
@@ -72,7 +60,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <ListBox x:Name="Likelist" Margin="435,179,702,52">
+        <ListBox x:Name="UserLikelist" Margin="435,179,702,52">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="363" Height="134">
@@ -91,8 +79,9 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Label x:Name="AccountName_Copy" Content="Your Wishlist" HorizontalAlignment="Left" Margin="86,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
-        <Label x:Name="AccountName_Copy1" Content="Your Likelist" HorizontalAlignment="Left" Margin="524,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
-        <Button Content="Logout" Background="Black" Click="Logout" Foreground="White" FontSize="20" Margin="1381,386,66,374"></Button>
+        <Label x:Name="AccountName_Copy" Content="User Wishlist" HorizontalAlignment="Left" Margin="86,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
+        <Label x:Name="AccountName_Copy1" Content="User Likelist" HorizontalAlignment="Left" Margin="524,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
+        <Button Click="Edit_Profile" Content="Edit Profile" HorizontalAlignment="Left" Margin="1116,110,0,0" VerticalAlignment="Top" Height="49" Width="157" FontSize="24"/>
+        <Button Click="Delete_Profile" Content="Delete Profile" HorizontalAlignment="Left" Margin="1301,110,0,0" VerticalAlignment="Top" Height="49" Width="170" FontSize="24"/>
     </Grid>
 </Window>

@@ -15,13 +15,13 @@ namespace MusicSpot
         public string Email { get; set; }
         public string Password { get; set; }
         public int Isadmin { get; set; }
-        public string? Profilepic { get; set; }
+        public byte[]? Profilepic { get; set; }
 
         public UserAccount()
         {
             
         }
-        public UserAccount(string name, string email, string password, int isadmin, string profilepic = "NULL")
+        public UserAccount(string name, string email, string password, int isadmin, byte[] profilepic = null)
         {
             Name = name;
             Email = email;

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MySql.Data.MySqlClient; // Import MySql.Data only
+using MySql.Data.MySqlClient; 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,15 @@ using System.Windows;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Security.Policy;
 using System.Linq.Expressions;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.IO;
+using System.Drawing;
 
 namespace MusicSpot
 {
+    // SQL ENTITYFRAMEWORK CORE
+    //_________________________________________________________________________________
     public class Data: DbContext
     {
         public DbSet<release> release { get; set; }
@@ -27,29 +33,14 @@ namespace MusicSpot
         {
             foreach (var entity in modelBuilder.Model.GetEntityTypes())
             {
-                // Set lowercase table name
                 entity.SetTableName(entity.GetTableName().ToLower());
 
-                // Set lowercase column names
                 foreach (var property in entity.GetProperties())
                 {
                     property.SetColumnName(property.Name.ToLower());
                 }
             }
         }
-        /*INSERT INTO musicspot.release (cover, releasetype, artist, releasedate, releasename, genreID) VALUES
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg...', 1, 'Aurora Lane', '2023-07-14 00:00:00', 'Starlight Echoes', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg', 2, 'Neon Heights', '2022-11-08 00:00:00', 'City Lights', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg', 3, 'EchoNova', '2024-01-21 00:00:00', 'Orbit', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg=', 1, 'Velvet Horizon', '2021-05-30 00:00:00', 'Waves', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg=', 2, 'Crimson Bloom', '2023-03-18 00:00:00', 'Petals & Flames', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg=', 3, 'Skybound', '2020-09-10 00:00:00', 'Above the Clouds', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg', 1, 'Lunar Bloom', '2024-12-25 00:00:00', 'Silent Nights', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg', 2, 'Violet Noir', '2022-02-14 00:00:00', 'Dark Love', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg=', 3, 'Atlas Dream', '2023-08-04 00:00:00', 'Horizons', 1),
-('C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Song.jpg=', 1, 'Nova & Co.', '2021-12-31 00:00:00', 'The Last Light', 1);
-        */
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL(connectionstring);
@@ -88,6 +79,98 @@ namespace MusicSpot
             }
             return null;
         }
+        public Dictionary<string, string> PEN(int ID) //PEN = Password, Email, Name
+        {
+            Dictionary<string, string> PEN = new Dictionary<string, string>();
+            using (var context = new Data())
+            {
+                var A = context.account.Where(current_ID => current_ID.AccountID == ID);
+                foreach(UserAccount UA in A)
+                {
+                    PEN.Add("Password", UA.Password);
+                    PEN.Add("Username", UA.Name);
+                    PEN.Add("Email", UA.Email);
+                    break;
+                }
+                return PEN;
+            }
+        }
+        public BitmapImage pfp(int check = 0)
+        {
+            if(check == 0)
+            {
+                int accountid = AccountID.AI;
+                using (var CONTEXT = new Data())
+                {
+                    var A = CONTEXT.account.FirstOrDefault(current_ID => current_ID.AccountID == AccountID.AI);
+                    UserAccount UA = (UserAccount)A;
+                    byte[] bytearray = UA.Profilepic;
+                    try
+                    {
+                        using (MemoryStream Stream = new MemoryStream(bytearray))
+                        {
+                            using (MemoryStream stream = new MemoryStream(bytearray))
+                            {
+                                BitmapImage bitmap = new BitmapImage();
+                                bitmap.BeginInit();
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.StreamSource = stream;
+                                bitmap.EndInit();
+                                return bitmap;
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                }
+            }
+            else
+            {
+                int accountid = check;
+                using (var CONTEXT = new Data())
+                {
+                    var A = CONTEXT.account.FirstOrDefault(current_ID => current_ID.AccountID == accountid);
+                    UserAccount UA = (UserAccount)A;
+                    byte[] bytearray = UA.Profilepic;
+                    try
+                    {
+                        using (MemoryStream Stream = new MemoryStream(bytearray))
+                        {
+                            using (MemoryStream stream = new MemoryStream(bytearray))
+                            {
+                                BitmapImage bitmap = new BitmapImage();
+                                bitmap.BeginInit();
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.StreamSource = stream;
+                                bitmap.EndInit();
+                                return bitmap;
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                }
+            }
+        }
+        public void DeleteAccount(int ID)
+        {
+            using (var data = new Data())
+            {
+                var delete_me = data.account.FirstOrDefault(x => x.AccountID == ID);
+                data.account.Remove(delete_me);
+                data.SaveChanges();
+            }
+        }
+        //SQL ENTITYFRAMEWORK CORE
+        //___________________________________________________________________________________________
+
+
+        //RAW SQL QUERRIES
+        //___________________________________________________________________________________________
         public void TestQuerryConnection()
         {
             var connection = this.Database.GetDbConnection();
@@ -154,6 +237,8 @@ namespace MusicSpot
             }
             
         }
+        //RAW SQL QUERRIES
+        //_____________________________________________________________________________________________________
     }
 }
 

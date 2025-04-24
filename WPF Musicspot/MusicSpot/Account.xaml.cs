@@ -25,6 +25,28 @@ namespace MusicSpot
             Data dt = new Data();
             List<release> releases = dt.GetAllReleases();
             ShoppingCart.ItemsSource = releases;
+
+            int accountid = AccountID.AI;
+
+            Dictionary<string, string> userinfo = dt.PEN(accountid);
+
+            AccountName.Content = "USERNAME: " + userinfo["Username"];
+            AccountPass.Content = "PASSWORD: " + userinfo["Password"];
+            AccountMail.Content = "EMAIL: " + userinfo["Email"];
+
+            BitmapImage BMI = dt.pfp();
+
+            if(BMI is null)
+            {
+                string imagePath = "pack://application:,,,/Images/defaultpfp.png";
+                BitmapImage bitmap = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+                profilepicture.Source = bitmap;
+            }
+            else
+            {
+                profilepicture.Source = BMI;
+            }
+            //AccountName.Content = AccountID.AI.ToString();
         }
         public void A_Releases(object sender, RoutedEventArgs e)
         {
@@ -63,6 +85,13 @@ namespace MusicSpot
         {
             Navigation n = new Navigation();
             n.ShowRecommended();
+            this.Close();
+        }
+
+        private void A_Account(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowAccount();
             this.Close();
         }
     }

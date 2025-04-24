@@ -27,7 +27,7 @@ namespace MusicSpot
     /// </summary>
     public partial class Register : Window
     {
-        public string ProfilePicture = "NULL";
+        public byte[] ProfilePicture = null;
         public Register()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace MusicSpot
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(selectedFileName);
                 bitmap.EndInit();
-                ProfilePicture = bitmap.ToString();
+                ProfilePicture = File.ReadAllBytes(selectedFileName);
             }
         }
         /*public bool CheckMail(string email)
@@ -68,7 +68,7 @@ namespace MusicSpot
             string name = RegisterName.Text;
             string mail = RegisterMail.Text;
             string password = RegisterPass.Password;
-            string pfp = ProfilePicture;
+            byte[] pfp = ProfilePicture;
             if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(mail) || String.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Missing values. Please ensure all fields are satisfied.", "Failed to create new account", MessageBoxButton.OK, MessageBoxImage.Error);
