@@ -24,6 +24,8 @@
         <TextBox HorizontalAlignment="Left" Margin="184,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" Height="24" FontSize="16"/>
         <TextBox HorizontalAlignment="Left" Margin="134,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="373" Height="24" FontSize="16"/>
         <TextBox HorizontalAlignment="Left" Margin="177,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="25" FontSize="16"/>
+        <Image MouseLeftButtonDown="AddPicture" Source="https://i.postimg.cc/xThL7S2g/AddPfp.png" Margin="599,124,55,124"/>
+        <Label Content="Add Profilepicture " HorizontalAlignment="Left" Margin="621,77,0,0" VerticalAlignment="Top" FontSize="24"/>
 
     </Grid>
 </Page>

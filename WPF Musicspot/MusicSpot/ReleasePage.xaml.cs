@@ -36,6 +36,11 @@ namespace MusicSpot
             {
                 Genre.Content += s + " ";
             }
+
+            int ReleaseID = r.ReleaseID;
+            List<Song> songs = d.songlist(ReleaseID);
+
+            SongList.ItemsSource = songs;
         }
 
         private void RP_Home(object sender, RoutedEventArgs e)

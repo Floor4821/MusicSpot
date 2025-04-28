@@ -22,6 +22,7 @@ namespace MusicSpot
     {
         public DbSet<release> release { get; set; }
         public DbSet<UserAccount> account { get; set; }
+        public DbSet<Song> song { get; set; }
         
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -163,6 +164,14 @@ namespace MusicSpot
                 var delete_me = data.account.FirstOrDefault(x => x.AccountID == ID);
                 data.account.Remove(delete_me);
                 data.SaveChanges();
+            }
+        }
+        public List<Song> songlist(int ReleaseID)
+        {
+            using (var data = new Data())
+            {
+                var songs = data.song.Where(x => x.ReleaseID == ReleaseID).ToList();
+                return songs;
             }
         }
         //SQL ENTITYFRAMEWORK CORE
