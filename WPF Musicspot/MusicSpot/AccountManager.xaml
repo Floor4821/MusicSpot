@@ -35,6 +35,7 @@
             </ListView>
 
         </Grid>
+        <Button Click="CreateNewAccount" Background="#222222" Foreground="White" Content="Insert Profile" HorizontalAlignment="Left" Margin="1289,16,0,0" VerticalAlignment="Top" Height="58" Width="191" FontSize="24"/>
 
     </Grid>
 </Window>

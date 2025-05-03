@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\defaultpfp.png" />
+    <None Remove="images\defaultpfp.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\defaultpfp.png" />
+    <Resource Include="images\defaultpfp.png" />
   </ItemGroup>
 
 </Project>

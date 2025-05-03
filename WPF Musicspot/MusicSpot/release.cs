@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MusicSpot
 {
@@ -18,6 +22,37 @@ namespace MusicSpot
         public string Artist { get; set; }
         public DateTime Releasedate { get; set; }
         public int GenreID { get; set; }
+        
+        [NotMapped]
+        public ImageSource CoverImage
+        {
+            get
+            {
+                if(Cover != null)
+                {
+                    try
+                    {
+                        using (var ms = new MemoryStream(Cover))
+                        {
+                            var image = new BitmapImage();
+                            image.BeginInit();
+                            image.CacheOption = BitmapCacheOption.OnLoad;
+                            image.StreamSource = ms;
+                            image.EndInit();
+                            return image;
+                        }
+                    }
+                    catch
+                    {
+                        return new BitmapImage(new Uri("https://i.postimg.cc/T3Yq5RgQ/Album.jpg"));
+                    }
+                }
+                else
+                {
+                    return new BitmapImage(new Uri("https://i.postimg.cc/T3Yq5RgQ/Album.jpg"));
+                }
+            }
+        }
         public release()
         {
             

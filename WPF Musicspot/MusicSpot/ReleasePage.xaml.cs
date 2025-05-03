@@ -30,7 +30,7 @@ namespace MusicSpot
             ReleaseName.Content = "Name: " + r.ReleaseName.ToString();
             Artist.Content ="Artist: " + r.Artist.ToString();
             Data d = new Data();
-            List<string> genres = d.SearchGenre(r);
+            List<string> genres = d.SearchGenre(r); 
             Genre.Content = "Genre: ";
             foreach(string s in genres)
             {
@@ -41,6 +41,7 @@ namespace MusicSpot
             List<Song> songs = d.songlist(ReleaseID);
 
             SongList.ItemsSource = songs;
+            ReleasepageCover.Source = r.CoverImage;
         }
 
         private void RP_Home(object sender, RoutedEventArgs e)
@@ -75,6 +76,14 @@ namespace MusicSpot
         {
             Navigation n = new Navigation();
             n.ShowReleaseManager();
+        }
+        public void ReleaseDestroy(object sender, RoutedEventArgs e)
+        {
+            string RN = ReleaseName.Content.ToString();
+            string CorrectName = (string)RN.Split(": ")[1];
+
+            Data d = new Data();
+            d.ReleaseDel(CorrectName);
         }
     }
 }

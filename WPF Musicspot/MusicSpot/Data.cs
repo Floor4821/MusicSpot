@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Drawing;
+using MySqlX.XDevAPI.Common;
+using Microsoft.Win32;
 
 namespace MusicSpot
 {
@@ -23,12 +25,20 @@ namespace MusicSpot
         public DbSet<release> release { get; set; }
         public DbSet<UserAccount> account { get; set; }
         public DbSet<Song> song { get; set; }
-        
+
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
             "username = root;" +
             "password = ;" +
             "database = musicspot;";
+
+            //"Server=127.0.0.1;Port=3306;Database=musicspot;Uid=root;Pwd=D1t1s33nP4sw00rd;";
+
+        /*"datasource = 127.0.0.1;" +
+        "port = 3307;" +
+        "username = root;" +
+        "password = ;" +
+        "database = musicspot;";*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -172,6 +182,38 @@ namespace MusicSpot
             {
                 var songs = data.song.Where(x => x.ReleaseID == ReleaseID).ToList();
                 return songs;
+            }
+        }
+        public void ReleaseDel(string releasename)
+        {
+            using (var data = new Data())
+            {
+                var ID = data.release.FirstOrDefault(x => x.ReleaseName == releasename);
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    data.release.Remove(ID);
+                    data.SaveChanges();
+                }
+            }
+        }
+        public byte[] PFP()
+        {
+            var dlg = new OpenFileDialog();
+            if (dlg.ShowDialog() == true)
+            {
+                string selectedFileName = dlg.FileName;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(selectedFileName);
+                bitmap.EndInit();
+                byte[] stuff = File.ReadAllBytes(selectedFileName);
+
+                return stuff;
+            }
+            else
+            {
+                return null;
             }
         }
         //SQL ENTITYFRAMEWORK CORE

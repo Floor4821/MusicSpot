@@ -131,5 +131,5 @@ C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot
 C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ReleaseView.baml
 C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\Manage_User.g.cs
 C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\Manage_User.baml
-C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\EditAccount.g.cs
-C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\EditAccount.baml
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ChangeAccount.g.cs
+C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Project\WPF Musicspot\MusicSpot\obj\Debug\net8.0-windows\ChangeAccount.baml

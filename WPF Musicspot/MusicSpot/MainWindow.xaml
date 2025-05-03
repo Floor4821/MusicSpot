@@ -62,7 +62,7 @@
                 <ListBox Name="NewestReleases" SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=20}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,255,0,0" Width="1403" SelectionChanged="NewestReleases_SelectionChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal"/>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
 

@@ -51,6 +51,7 @@
         <Label Content="Price:" HorizontalAlignment="Left" Margin="828,597,0,0" VerticalAlignment="Top" FontSize="20" Height="44" Width="61"/>
         <TextBox TextAlignment="Center" HorizontalAlignment="Left" Margin="887,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="28" FontSize="18"/>
         <TextBox TextAlignment="Center" HorizontalAlignment="Left" Margin="889,607,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="26" FontSize="18"/>
+        <Button Content="Submit" Canvas.Left="906" Canvas.Top="709" Height="51" Width="135" FontSize="22"/>
 
     </Canvas>
 </Window>

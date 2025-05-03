@@ -31,12 +31,12 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBox Name="ReleaseNameInput" BorderBrush="Black" BorderThickness="2" TextAlignment="Center" Margin="456,120,150,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Height="46" FontSize="36"/>
-        <Button Click="SearchReleaseName"  Content="Search" HorizontalAlignment="Left" Foreground="White" Background="#222222" Margin="1412,120,0,0" VerticalAlignment="Top" Height="46" Width="112" FontSize="24"/>
+        <Button IsDefault="True" Click="SearchReleaseName"  Content="Search" HorizontalAlignment="Left" Foreground="White" Background="#222222" Margin="1412,120,0,0" VerticalAlignment="Top" Height="46" Width="112" FontSize="24"/>
         <Rectangle HorizontalAlignment="Left" Height="578" Margin="456,208,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1078"/>
         <ListBox x:Name="ReleaseList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="498,264,0,0" Width="1026" SelectionChanged="Show_ReleasePage" Height="486">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Width="1003" Height="841"/>
+                    <WrapPanel Orientation="Horizontal" Width="1009"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
 
@@ -46,7 +46,7 @@
                         <StackPanel>
                             <Canvas Height="60" Width="140">
                                 <TextBlock HorizontalAlignment="Left" Text="{Binding ReleaseName}" Width="163" Canvas.Left="-20" Canvas.Top="54"/>
-                                <Image HorizontalAlignment="Left" Source="C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Album.jpg" Height="51" Width="60" RenderTransformOrigin="0.537,0.447" Canvas.Left="-20" Canvas.Top="-1"/>
+                                <Image Name="ReleaseviewCover" HorizontalAlignment="Left" Source="{Binding CoverImage}" Height="51" Width="60" RenderTransformOrigin="0.537,0.447" Canvas.Left="-20" Canvas.Top="-1"/>
                             </Canvas>
                         </StackPanel>
                     </Border>

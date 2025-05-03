@@ -16,7 +16,7 @@
         <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,708" Click="MU_Recommended"/>
         <Button Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,708" Click="MU_Account"/>
         <Rectangle HorizontalAlignment="Left" Height="246" Margin="864,176,0,0" Fill="LightCyan" VerticalAlignment="Top" Width="607"/>
-        <Image Name="profilepicture" Stretch="Fill" Margin="892,249,436,396"/>
+        <Image Name="profilepicture" Stretch="Fill" Margin="892,243,436,386"/>
         <Label x:Name="AccountName" Content="" HorizontalAlignment="Left" Margin="888,194,0,0" VerticalAlignment="Top" FontSize="24" Width="500"/>
         <Label x:Name="AccountMail" Content="" HorizontalAlignment="Left" Margin="1116,265,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
         <Label x:Name="AccountPass" Content="" HorizontalAlignment="Left" Margin="1116,323,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>

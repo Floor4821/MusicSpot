@@ -34,17 +34,9 @@ namespace MusicSpot
         }
         public void AddPfp(object sender, RoutedEventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            if (dlg.ShowDialog() == true)
-            {
-                string selectedFileName = dlg.FileName;
-                MessageBox.Show(selectedFileName);
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(selectedFileName);
-                bitmap.EndInit();
-                ProfilePicture = File.ReadAllBytes(selectedFileName);
-            }
+            Data d = new Data();
+            byte[] stuff = d.PFP();
+            ProfilePicture = stuff;
         }
         /*public bool CheckMail(string email)
         {

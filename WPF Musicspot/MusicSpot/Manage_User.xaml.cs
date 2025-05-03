@@ -48,7 +48,8 @@ namespace MusicSpot
 
         private void Edit_Profile(object sender, RoutedEventArgs e)
         {
-
+            ChangeAccount CA = new ChangeAccount(CurrentAccount);
+            CA.Show();
         }
 
         private void Delete_Profile(object sender, RoutedEventArgs e)
