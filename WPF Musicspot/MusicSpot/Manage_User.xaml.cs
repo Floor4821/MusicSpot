@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata;
 
 namespace MusicSpot
 {
@@ -23,6 +27,7 @@ namespace MusicSpot
         public int CurrentAccount = 0;
         public Manage_User(int accountid)
         {
+            var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "album.png");
             CurrentAccount = accountid;
             InitializeComponent();
             Data d = new Data();
@@ -36,8 +41,7 @@ namespace MusicSpot
 
             if (BMI is null)
             {
-                string imagePath = "pack://application:,,,/Images/defaultpfp.png";
-                BitmapImage bitmap = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+                BitmapImage bitmap = new BitmapImage(new Uri(path, UriKind.Absolute));
                 profilepicture.Source = bitmap;
             }
             else

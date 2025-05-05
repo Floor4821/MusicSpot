@@ -15,6 +15,7 @@ using System.IO;
 using System.Drawing;
 using MySqlX.XDevAPI.Common;
 using Microsoft.Win32;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace MusicSpot
 {
@@ -25,6 +26,8 @@ namespace MusicSpot
         public DbSet<release> release { get; set; }
         public DbSet<UserAccount> account { get; set; }
         public DbSet<Song> song { get; set; }
+        public DbSet<Genretype> genretype { get; set; }
+        public DbSet<Product> product { get; set; }
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -215,6 +218,29 @@ namespace MusicSpot
             {
                 return null;
             }
+        }
+        public List<Genretype> GetGenretype()
+        {
+            using (var data = new Data())
+            {
+                return data.genretype.ToList();
+            }
+        }
+        public List<Product> GetProductsByID(int RelID)
+        {
+            using (var data = new Data())
+            {
+                List<Product> products = data.product.Where(x => x.ReleaseID == RelID).ToList();
+                return products;
+            }
+        }
+        public void AddProductToCart()
+        {
+
+        }
+        public void AddToLikeList(int accountid, int releaseid)
+        {
+
         }
         //SQL ENTITYFRAMEWORK CORE
         //___________________________________________________________________________________________

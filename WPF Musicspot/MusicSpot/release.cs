@@ -28,7 +28,8 @@ namespace MusicSpot
         {
             get
             {
-                if(Cover != null)
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "album.png");
+                if (Cover != null)
                 {
                     try
                     {
@@ -44,12 +45,12 @@ namespace MusicSpot
                     }
                     catch
                     {
-                        return new BitmapImage(new Uri("https://i.postimg.cc/T3Yq5RgQ/Album.jpg"));
+                        return new BitmapImage(new Uri(path));
                     }
                 }
                 else
                 {
-                    return new BitmapImage(new Uri("https://i.postimg.cc/T3Yq5RgQ/Album.jpg"));
+                    return new BitmapImage(new Uri(path));
                 }
             }
         }

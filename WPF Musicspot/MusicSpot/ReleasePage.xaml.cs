@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,11 @@ namespace MusicSpot
     /// </summary>
     public partial class ReleasePage : Window
     {
+        public int CurrentReleaseID = 0;
         public ReleasePage(release r)
         {
             InitializeComponent();
+            CurrentReleaseID = r.ReleaseID;
             if (AdminCheck.IsAdmin == 1) 
             {
                 DeleteRelease.Visibility = Visibility.Visible;
@@ -42,6 +45,10 @@ namespace MusicSpot
 
             SongList.ItemsSource = songs;
             ReleasepageCover.Source = r.CoverImage;
+
+            List<Product> products = d.GetProductsByID(r.ReleaseID);
+
+            ProductList.ItemsSource = products;
         }
 
         private void RP_Home(object sender, RoutedEventArgs e)
@@ -84,6 +91,15 @@ namespace MusicSpot
 
             Data d = new Data();
             d.ReleaseDel(CorrectName);
+        }
+        public void AddProduct(object sender, RoutedEventArgs e)
+        {
+            var item = (Product)ProductList.SelectedItem;
+            MessageBox.Show(item.MediaString);
+        }
+        public void LikeRelease(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

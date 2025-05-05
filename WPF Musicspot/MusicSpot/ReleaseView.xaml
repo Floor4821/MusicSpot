@@ -17,7 +17,7 @@
         <ListBox SelectionMode="Multiple" Name="GenreSelection" Margin="86,208,1180,297">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox Content="{Binding ReleaseName}" IsChecked="{Binding IsFav}" Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked"/>
+                    <CheckBox Content="{Binding Type}" IsChecked="{Binding IsFav}" Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

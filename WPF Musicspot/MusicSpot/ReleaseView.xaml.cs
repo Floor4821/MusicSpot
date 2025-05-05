@@ -25,7 +25,8 @@ namespace MusicSpot
             InitializeComponent();
             Data d = new Data();
             List<release> allreleases = d.GetAllReleases();
-            GenreSelection.ItemsSource = allreleases;
+            List<Genretype> GenreTypes = d.GetGenretype();
+            GenreSelection.ItemsSource = GenreTypes;
             ReleaseList.ItemsSource = allreleases;
             if (AdminCheck.IsAdmin == 1)
             {
