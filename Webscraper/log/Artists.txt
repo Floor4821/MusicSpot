@@ -1,0 +1,334 @@
+Frank Sinatra
+Miles Davis
+John Coltrane
+Charles Mingus
+Ornette Coleman
+Art Blakey
+Sonny Rollins
+Elvis Presley
+Thelonious Monk
+Little Richard
+Joao Gilberto
+Nina Simone
+Sun Ra
+Johnny Cash
+Duke Ellington
+Chuck Berry
+King Crimson
+The Beatles
+The Velvet Underground
+The Beach Boys
+Bob Dylan
+The Doors
+Led Zeppelin
+Pink Floyd
+The Jimi Hendrix Experience
+Frank Zappa
+Leonard Cohen
+Nick Drake
+Love
+The Zombies
+Rolling Stones
+Captain Beefheart
+Pharoah Sanders
+Van Morrison
+The Kinks
+The Band
+Neil Young
+David Bowie
+The Who
+Jefferson Airplane
+Townes Van Zandt
+Scott Engel
+Nina Simone
+Simon And Garfunkel
+Isaac Hayes
+Otis Redding
+Creedence Clearwater Revival
+Tim Buckley
+Silver Apples
+Joy Division
+Black Sabbath
+The Clash
+Television
+Fleetwood Mac
+Marvin Gaye
+Stevie Wonder
+Yes
+Can
+Talking Heads
+Brian Eno
+The Stooges
+Lou Reed
+Joni Mitchell
+Wire
+Kraftwerk
+Queen
+Funkadelic
+ZZ Top
+Sex Pistols
+Herbie Hancock
+Steely Dan
+George Harrison
+Patti Smith
+Michael Jackson
+Suicide
+Ramones
+The Cure
+Jethro Tull
+John Lennon
+Kate Bush
+Comus
+Rush
+Neu
+Paul McCartney
+Camel
+AC_DC
+Tom Waits
+Exuma
+The Wailers
+Soft Machine
+Curtis Mayfield
+Supertramp
+Syd Barrett
+Mike Oldfield
+Yellow Magic Orchestra
+Elton John
+Tangerine Dream
+The Smiths
+Pixies
+Metallica
+Sonic Youth
+Nirvana
+My Bloody Valentine
+The Stone Roses
+Cocteau Twins
+New Order
+Talk Talk
+Iron Maiden
+Swans
+Dinosaur Jr
+Dead Kennedys
+Guns n Roses
+Nine Inch Nails
+Beastie Boys
+R_E_M
+U2
+Violent Femmes
+This Heat
+Tears for Fears
+Big Black
+Megadeth
+N_W_A
+Black Flag
+Minutemen
+Husker Du
+De La Soul
+Bauhaus
+Death
+Prince
+Depeche Mode
+Motorhead
+Paul Simon
+Descendents
+Sade
+Nick Cave and the Bad Seeds
+Daniel Johnston
+Slint
+The Police
+Steve Roach
+Coil
+Ozzy Osbourne
+Misfits
+Radiohead
+Neutral Milk Hotel
+Nas
+Slowdive
+Aphex Twin
+Portishead
+Weezer
+Bjork
+Wu Tang Clan
+Fishmans
+A Tribe Called Quest
+Godspeed You Black Emperor
+DJ Shadow
+Jeff Buckley
+Massive Attack
+Elliott Smith
+Sigur Ros
+Boards of Canada
+Smashing Pumpkins
+Pearl Jam
+Alice in Chains
+American Football
+Rage Against the Machine
+Duster
+Deftones
+Rammstein
+Tool
+Modest Mouse
+Outkast
+Oasis
+MF DOOM
+The Notorious B_I_G
+2pac
+Pavement
+The Flaming Lips
+Green Day
+Daft Punk
+Lauryn Hill
+Fiona Apple
+Red Hot Chili Peppers
+Ween
+Soundgarden
+System of a Down
+Fugazi
+Built to Spill
+Eminem
+Yo La Tengo
+Mobb Deep
+Stereolab
+Blur
+Dr Dre
+Beck
+Mos Def
+Guided by Voices
+Prodigy
+Low
+Slipknot
+Sunny Day Real Estate
+Foo Fighters
+Snoop Dogg
+Jay Z
+Red House Painters
+Butthole Surfers
+Dream Theater
+PJ Harvey
+Autechre
+The Magnetic Fields
+Unwound
+Kanye West
+The Strokes
+Arcade Fire
+Gorillaz
+Have a Nice Life
+The Microphones
+Sufjan Stevens
+Interpol
+Animal Collective
+The Avalanches
+Queens of the Stone Age
+J Dilla
+Sweet Trip
+Arctic Monkeys
+LCD Soundsystem
+My Chemical Romance
+Bon Iver
+Linkin Park
+MGMT
+Joanna Newsom
+Coldplay
+Fleet Foxes
+The White Stripes
+Converge
+The Mars Volta
+Boris
+Nujabes
+Muse
+Justice
+Kid Cudi
+Vampire Weekend
+Franz Ferdinand 
+Xiu Xiu
+Mastodon
+Amy Winehouse
+Gojira
+Tyler the Creator
+Sleep
+Lady Gaga
+Venetian Snares
+Of Montreal
+Paramore
+Kendrick Lamar
+Death Grips
+Frank Ocean
+Danny Brown
+Earl Sweatshirt
+JPEGMAFIA
+Tame Impala
+Car Seat Headrest
+Playboi Carti
+Travis Scott
+Weyes Blood
+100 Gecs
+Freddie Gibbs
+Pusha T
+Denzel Curry
+Black Midi
+Beach House
+Daughters
+Lana Del Rey
+Taylor Swift
+Ed Sheeran
+Deafheaven
+Billie Eilish
+Drake
+Carly Rae Jepsen
+Beyonce
+FKA Twigs
+Run the Jewels
+Childish Gambino
+Charli XCX
+Ecco2k
+Lil Ugly Mane
+Vince Staples
+Grimes
+SZA
+Machine Girl
+Alex G
+Mitski
+Mac Miller
+A_ap Rocky
+King Gizzard and The Lizard Wizard
+Bladee
+Alvvays
+Jeff Rosenstock
+J Cole
+The Weeknd
+Sun Kil Moon
+Future
+XXXTENTACION
+Injury Reserve
+Clipping
+Ariana Grande
+Black Country New Road
+Magdalena Bay
+Big Thief
+Lil Yachty
+Dua Lipa
+Yves Tumor
+Squid
+Olivia Rodrigo
+The Smile
+Lingua Ignota
+Porter Robinson
+Adrianne Lenker
+Slowthai
+Bruno Mars
+Bad Bunny
+Justin Bieber
+Post Malone
+Adele
+Imagine Dragons
+Dua Lipa
+Doja Cat
+Katy Perry
+Juice WRLD
+One Direction
+Maroon 5
+Shakira
+Selena Gomez
+Pitbull
+
+
