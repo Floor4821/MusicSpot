@@ -17,7 +17,7 @@ def test_connection():
     except Error as e:
         print(e)
 
-def insert(query):
+def insert(query, values=None):
         connection = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -25,12 +25,19 @@ def insert(query):
             database="musicspot"
         )
 
+        print(query)
+
         cursor = connection.cursor()
-        cursor.execute(query)
+        if values == None:
+            cursor.execute(query)
+        else: cursor.execute(query, values)
+
+        id = cursor.lastrowid
         connection.commit()
 
         cursor.close()
         connection.close()
+        return id
 
 def collect(query):
     return 0
