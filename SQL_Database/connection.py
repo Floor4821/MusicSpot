@@ -25,8 +25,6 @@ def insert(query, values=None):
             database="musicspot"
         )
 
-        print(query)
-
         cursor = connection.cursor()
         if values == None:
             cursor.execute(query)

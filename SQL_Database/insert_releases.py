@@ -65,7 +65,7 @@ def insert_products(products, release_id):
         general_insert(table, columns, values)
 
 def insert_releases(releases):
-    for r in releases[0:8]:
+    for r in releases:
         name = r["Name"]
         artist = r["Artist"]
         genre = handle_genre(r["Genres"])
@@ -76,8 +76,11 @@ def insert_releases(releases):
         products = r["Products"]
 
         general_info = (cover, type, artist, date, name, genre)
+        print(f"now inserting: {artist} - {name}")
         release_id = insert_release_general(general_info)
+        print("processing songs...")
         insert_songs(songs, release_id)
+        print("processing products...")
         insert_products(products, release_id)
 
 def list_artists(releases):
