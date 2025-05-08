@@ -95,7 +95,7 @@ namespace MusicSpot
         public void AddProduct(object sender, RoutedEventArgs e)
         {
             var item = (Product)ProductList.SelectedItem;
-            MessageBox.Show(item.MediaString);
+            MessageBox.Show(item.MediaString.ToString());
         }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {

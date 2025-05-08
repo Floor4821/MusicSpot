@@ -22,6 +22,7 @@ namespace MusicSpot
         public RecommendedView()
         {
             InitializeComponent();
+            //RecommendedList.ItemsSource = 
         }
 
         private void RV_Home(object sender, RoutedEventArgs e)

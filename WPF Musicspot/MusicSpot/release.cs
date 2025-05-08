@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using ImageMagick;
 
 namespace MusicSpot
 {
@@ -17,8 +18,8 @@ namespace MusicSpot
         [Key]
         public int ReleaseID { get; set; }
         public string ReleaseName { get; set; }
-        public byte[] Cover { get; set; }
-        public releasetype Releasetype { get; set; }
+        public byte[]? Cover { get; set; }
+        public int Releasetype { get; set; }
         public string Artist { get; set; }
         public DateTime Releasedate { get; set; }
         public int GenreID { get; set; }
@@ -54,13 +55,13 @@ namespace MusicSpot
                 }
             }
         }
+
         public release()
         {
             
         }
-        public release(int releaseid, string releasename,byte[] cover, releasetype rt, string artist, DateTime releasedate, int genreID)
+        public release(string releasename,byte[] cover, int rt, string artist, DateTime releasedate, int genreID)
         {
-            ReleaseID = releaseid;
             ReleaseName = releasename;
             Cover = cover;
             Releasetype = rt;
@@ -68,12 +69,27 @@ namespace MusicSpot
             Releasedate = releasedate;
             GenreID = genreID;
         }
-    }
-    public enum releasetype
-    {
-        Album,
-        EP,
-        Single,
-        Other
+        public ImageSource ConvertWebPToImageSource(byte[] webPBytes)
+        {
+            using (var ms = new MemoryStream(webPBytes))
+            {
+                using (var image = new MagickImage(ms))
+                {
+                    using (var outStream = new MemoryStream())
+                    {
+                        image.Format = MagickFormat.Bmp; // Convert to a compatible format
+                        image.Write(outStream);
+                        outStream.Position = 0;
+
+                        var bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                        bitmap.StreamSource = outStream;
+                        bitmap.EndInit();
+                        return bitmap;
+                    }
+                }
+            }
+        }
     }
 }
