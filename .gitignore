@@ -1,12 +1,12 @@
 # Ignore Visual Studio stuff
-WPF Musicspot/MusicSpot/.vs/
+**/.vs/
 *.user
 *.suo
 *.vcxproj.user
 
 # Ignore build output
-WPF Musicspot/MusicSpot/bin/
-WPF Musicspot/MusicSpot/obj/
+**/bin/
+**/obj/
 
 # Ignore Python cache
 __pycache__/
