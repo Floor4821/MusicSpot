@@ -16,15 +16,15 @@
         <Button Click="RP_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="896,5,458,702"/>
         <Rectangle HorizontalAlignment="Center" Height="629" Margin="0,139,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1458"/>
         <Image Name="ReleasepageCover" HorizontalAlignment="Left" Source="C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Album.jpg" Width="346" RenderTransformOrigin="0.537,0.447" Margin="86,181,0,343"/>
-        <Label Name="ReleaseName" Content="ReleaseName: Data Binding" HorizontalAlignment="Left" Margin="449,181,0,0" VerticalAlignment="Top" Height="105" Width="895" FontSize="72"/>
+        <Label Name="ReleaseName" Content="ReleaseName: Data Binding" HorizontalAlignment="Left" Margin="449,194,0,0" VerticalAlignment="Top" Height="118" Width="1006" FontSize="36"/>
         <Label Name="Artist" Content="Artist: Data Binding" HorizontalAlignment="Left" Margin="449,312,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
         <Label Name="Genre" Content="Genre: Data Binding" HorizontalAlignment="Left" Margin="449,387,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
-        <Label Content="Release Products" HorizontalAlignment="Left" Margin="449,471,0,0" VerticalAlignment="Top" Height="56" Width="386" FontSize="36"/>
+        <Label Content="Release Products" HorizontalAlignment="Left" Margin="767,474,0,0" VerticalAlignment="Top" Height="56" Width="386" FontSize="36"/>
         <ListBox Name="SongList" Background="DarkGray" DisplayMemberPath="Name" Margin="86,532,1127,33"/>
         <Button Click="ReleaseDestroy" Name="DeleteRelease" Visibility="Hidden" Content="Delete" Background="#222222" Foreground="White" FontSize="20" Margin="1242,20,177,717"/>
         <Button Click="ReleaseEdit" Name="EditRelease" Visibility="Hidden" Content="Edit" Background="#222222" Foreground="White" FontSize="20" Margin="1381,20,38,717"/>
         <Label Content="Tracklist" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Margin="86,474,0,0"/>
-        <ListView Name="ProductList" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="449,527,552,34" Background="White" BorderBrush="{Binding ActualHeight, ElementName=ProductList, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
+        <ListView Name="ProductList" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="767,530,234,31" Background="White" BorderBrush="{Binding ActualHeight, ElementName=ProductList, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
             <ListView.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

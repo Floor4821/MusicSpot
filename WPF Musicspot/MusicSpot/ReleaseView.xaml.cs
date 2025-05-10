@@ -80,7 +80,8 @@ namespace MusicSpot
         }
         public void InsertNewRelease(object sender, RoutedEventArgs e)
         {
-
+            Navigation n = new Navigation();
+            n.ShowReleaseManager();
         }
 
         private void SearchReleaseName(object sender, RoutedEventArgs e)
