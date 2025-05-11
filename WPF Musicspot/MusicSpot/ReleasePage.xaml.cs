@@ -101,5 +101,9 @@ namespace MusicSpot
         {
             
         }
+        public void GoBackToReleasePage(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

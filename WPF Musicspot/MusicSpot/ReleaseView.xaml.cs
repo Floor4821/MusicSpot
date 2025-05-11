@@ -20,6 +20,7 @@ namespace MusicSpot
     /// </summary>
     public partial class ReleaseView : Window
     {
+        //public bool KeepAlive { get; set; }
         public ReleaseView()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace MusicSpot
             {
                 InsertRelease.Visibility = Visibility.Visible;
             }
+            //this.KeepAlive = true;
         }
 
         public void Checkbox_Checked(object sender, RoutedEventArgs e)
@@ -86,20 +88,43 @@ namespace MusicSpot
 
         private void SearchReleaseName(object sender, RoutedEventArgs e)
         {
-            string name = ReleaseNameInput.Text;
-            Data d = new Data();
-            List<release> ReleaseFilter = new List<release>();
-            List<release> allreleases = d.GetAllReleases();
-            Regex regex = new Regex(name);
-            foreach (release r in allreleases)
+            using (var d = new Data())
             {
-                if (regex.IsMatch(r.ReleaseName))
+                string name = ReleaseNameInput.Text.ToLower();
+                
+                var genres = GenreSelection.SelectedItems;
+                List<string> SelectedGenreStrings = new List<string>();
+                foreach (var g in genres)
                 {
-                    ReleaseFilter.Add(r);
+                    Genretype mag = g as Genretype;
+                    Genretype Ranoutofnames = d.genretype.FirstOrDefault(x => x.Type == mag.Type);
+                    string GID = Ranoutofnames.Type; SelectedGenreStrings.Add(GID.ToLower());
                 }
-            }
-            ReleaseList.ItemsSource = ReleaseFilter;
+                
+                List<release> ReleaseFilter = new List<release>();
+                List<release> allreleases = d.GetAllReleases();
+                
+                Regex regex = new Regex(name);
+                foreach (release r in allreleases)
+                {
+                    if (GenreSelection.SelectedItems.Count != 0)
+                    {
+                        if (SelectedGenreStrings.Contains(r.GenreString.ToLower()) && regex.IsMatch(r.ReleaseName.ToLower()))
+                        {
+                            ReleaseFilter.Add(r);
+                        }
+                    }
+                    else
+                    {
+                        if (regex.IsMatch(r.ReleaseName.ToLower()))
+                        {
+                            ReleaseFilter.Add(r);
+                        }
+                    }
+                }
+                ReleaseList.ItemsSource = ReleaseFilter;
 
+            }
         }
     }
 }

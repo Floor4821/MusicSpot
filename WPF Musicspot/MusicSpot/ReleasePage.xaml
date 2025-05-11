@@ -16,6 +16,7 @@
         <Button Click="RP_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="896,5,458,702"/>
         <Rectangle HorizontalAlignment="Center" Height="629" Margin="0,139,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1458"/>
         <Image Name="ReleasepageCover" HorizontalAlignment="Left" Source="C:\Users\jamey\Vakken Semester 2\Inspiration Lab\Album.jpg" Width="346" RenderTransformOrigin="0.537,0.447" Margin="86,181,0,343"/>
+        <Image MouseLeftButtonDown="GoBackToReleasePage" Source="https://i.postimg.cc/GtMxWv75/GoBack.png" Margin="7,84,1428,609"></Image>
         <Label Name="ReleaseName" Content="ReleaseName: Data Binding" HorizontalAlignment="Left" Margin="449,194,0,0" VerticalAlignment="Top" Height="118" Width="1006" FontSize="36"/>
         <Label Name="Artist" Content="Artist: Data Binding" HorizontalAlignment="Left" Margin="449,312,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
         <Label Name="Genre" Content="Genre: Data Binding" HorizontalAlignment="Left" Margin="449,387,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>

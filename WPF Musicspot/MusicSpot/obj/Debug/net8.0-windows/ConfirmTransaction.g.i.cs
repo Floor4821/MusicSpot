@@ -61,7 +61,7 @@ namespace MusicSpot {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MusicSpot;component/confirmtransaction.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MusicSpot;V1.0.0.0;component/confirmtransaction.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ConfirmTransaction.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

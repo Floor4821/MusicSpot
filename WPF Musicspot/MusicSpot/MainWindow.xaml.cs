@@ -40,8 +40,6 @@ namespace MusicSpot
             List<release> releases = dt.GetAllReleases();
             NewestReleases.ItemsSource = releases;
             if (AdminCheck.IsAdmin == 1) { AdminLabel.Visibility = Visibility.Visible; }
-            Navigation n = new Navigation();
-            n.ShowReleaseManager();
         }
         public void login(object sender, RoutedEventArgs e)
         {

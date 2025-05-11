@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using ImageMagick;
+using MusicSpot.Classes;
 
 namespace MusicSpot
 {
@@ -55,7 +56,45 @@ namespace MusicSpot
                 }
             }
         }
-
+        [NotMapped]
+        public string GenreString
+        {
+            get
+            {
+                var data = new Data();
+                Genre Releasegenre = data.genre.FirstOrDefault(x => x.GenreID == GenreID);
+                Genretype GT = data.genretype.FirstOrDefault(w => w.ID == Releasegenre.genreObject);
+                return GT.Type;
+            }
+        }
+        [NotMapped]
+        public string SubgenreString
+        {
+            get
+            {
+                var data = new Data();
+                Genre Releasegenre = data.genre.FirstOrDefault(x => x.GenreID == GenreID);
+                SubgenreType SGT = data.subgenretype.FirstOrDefault(w => w.ID == Releasegenre.Subgenre);
+                return SGT.Type;
+            }
+        }
+        [NotMapped]
+        public string ReleaseTypeString
+        {
+            get
+            {
+                var data = new Data();
+                switch (Releasetype)
+                {
+                    case 1:
+                        return "Album";
+                    case 2:
+                        return "EP";
+                    default:
+                        return "Media not defined";
+                }
+            }
+        }
         public release()
         {
             
