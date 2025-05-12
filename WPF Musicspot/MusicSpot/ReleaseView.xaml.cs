@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using MusicSpot.Classes;
 
 namespace MusicSpot
 {
@@ -33,25 +34,14 @@ namespace MusicSpot
             {
                 InsertRelease.Visibility = Visibility.Visible;
             }
-            //this.KeepAlive = true;
-        }
 
-        public void Checkbox_Checked(object sender, RoutedEventArgs e)
-        {
-            if (sender is CheckBox checkBox && checkBox.DataContext is release R)
-            {
-                GenreSelection.SelectedItems.Add(R);
-            }
-        }
-        public void Checkbox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            if (sender is CheckBox checkBox && checkBox.DataContext is release R)
-            {
-                GenreSelection.SelectedItems.Remove(R);
-            }
+            int LastIndex = ListboxIndex.LBI;
+            object item = ReleaseList.Items[LastIndex];
+            ReleaseList.ScrollIntoView(item);
         }
         private void RV_Home(object sender, RoutedEventArgs e)
         {
+            ListboxIndex.LBI = 0;
             Navigation n = new Navigation();
             n.ShowHome();
             this.Close();
@@ -59,6 +49,7 @@ namespace MusicSpot
 
         private void R_Account(object sender, RoutedEventArgs e)
         {
+            ListboxIndex.LBI = 0;
             Navigation n = new Navigation();
             n.ShowAccount();
             if (LogCheck.IsLogged == "true") { this.Close(); }
@@ -67,21 +58,28 @@ namespace MusicSpot
         {
             var item = ReleaseList.SelectedItem;
 
+            object selecteditem = ReleaseList.SelectedItem;
+            int RLindex = ReleaseList.Items.IndexOf(selecteditem);
+            ListboxIndex.LBI = RLindex;
+
             release selectedrelease = (release)item;
 
             ReleasePage RP = new ReleasePage(selectedrelease);
+
             RP.Show();
             this.Close();
         }
 
         private void RV_Recommended(object sender, RoutedEventArgs e)
         {
+            ListboxIndex.LBI = 0;
             Navigation n = new Navigation();
             n.ShowRecommended();
             this.Close();
         }
         public void InsertNewRelease(object sender, RoutedEventArgs e)
         {
+            ListboxIndex.LBI = 0;
             Navigation n = new Navigation();
             n.ShowReleaseManager();
         }
@@ -107,9 +105,10 @@ namespace MusicSpot
                 Regex regex = new Regex(name);
                 foreach (release r in allreleases)
                 {
+                    string currentgenre = r.GenreString;
                     if (GenreSelection.SelectedItems.Count != 0)
                     {
-                        if (SelectedGenreStrings.Contains(r.GenreString.ToLower()) && regex.IsMatch(r.ReleaseName.ToLower()))
+                        if (SelectedGenreStrings.Contains(currentgenre.ToLower()) && regex.IsMatch(r.ReleaseName.ToLower()))
                         {
                             ReleaseFilter.Add(r);
                         }

@@ -195,12 +195,24 @@ namespace MusicSpot
         {
             using (var data = new Data())
             {
-                var ID = data.release.FirstOrDefault(x => x.ReleaseName == releasename);
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                release DeleteRelease = data.release.FirstOrDefault(x => x.ReleaseName == releasename);
+                MessageBoxResult result = MessageBox.Show("Commander, are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
-                    data.release.Remove(ID);
+                    int DelID = DeleteRelease.ReleaseID;
+
+                    List<Product> products = data.product.Where(x => x.ReleaseID == DelID).ToList();
+                    foreach (Product p in products)
+                    {
+                        data.product.Remove(p);
+                    }
                     data.SaveChanges();
+
+                    data.release.Remove(DeleteRelease);
+
+                    data.SaveChanges();
+
+                    MessageBox.Show("Commander, the release has been successfully destroyed", "Successfull deletion", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
