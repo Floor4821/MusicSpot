@@ -147,7 +147,7 @@ namespace MusicSpot
                                 return;
                             }
                             int G_ID = 0;
-                            Genre Exists = d.genre.FirstOrDefault(x => x.GenreID == SelectedSubgenre.ID && x.Subgenre == SelectedSubgenre.ID);
+                            GenreObject Exists = d.genreobject.FirstOrDefault(x => x.Genre == SelectedGenre.ID && x.Subgenre == SelectedSubgenre.ID);
                             if (Exists == null)
                             {
                                 G_ID = d.InsertGenre(SelectedGenre.ID, SelectedSubgenre.ID);

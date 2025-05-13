@@ -34,12 +34,7 @@ namespace MusicSpot
             ReleaseName.Content = "Name: " + r.ReleaseName.ToString();
             Artist.Content ="Artist: " + r.Artist.ToString();
             Data d = new Data();
-            List<string> genres = d.SearchGenre(r); 
-            Genre.Content = "Genre: ";
-            foreach(string s in genres)
-            {
-                Genre.Content += s + " ";
-            }
+            Genre.Content = $"Genre: {r.GenreString}";
 
             int ReleaseID = r.ReleaseID;
             List<Song> songs = d.songlist(ReleaseID);

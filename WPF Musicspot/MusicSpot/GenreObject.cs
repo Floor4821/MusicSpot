@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace MusicSpot.Classes
 {
-    public class Genre
+    public class GenreObject
     {
         [Key]
         public int GenreID { get; set; }
         public int Subgenre { get; set; }
-        public int genreObject { get; set; }
-        public Genre()
+        public int Genre { get; set; }
+        public GenreObject()
         {
-            
+
         }
     }
 }

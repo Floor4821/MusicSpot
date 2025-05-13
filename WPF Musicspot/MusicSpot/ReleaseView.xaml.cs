@@ -21,6 +21,7 @@ namespace MusicSpot
     /// </summary>
     public partial class ReleaseView : Window
     {
+        public List<int> FilteredReleasesID = null;
         //public bool KeepAlive { get; set; }
         public ReleaseView()
         {
@@ -111,14 +112,17 @@ namespace MusicSpot
                         if (SelectedGenreStrings.Contains(currentgenre.ToLower()) && regex.IsMatch(r.ReleaseName.ToLower()))
                         {
                             ReleaseFilter.Add(r);
+                            //FilteredReleasesID.Add(r.ReleaseID);
                         }
+                    }
+                    else if(regex.IsMatch(r.ReleaseName.ToLower()))
+                    {
+                        ReleaseFilter.Add(r);
+                        //FilteredReleasesID.Add(r.ReleaseID);
                     }
                     else
                     {
-                        if (regex.IsMatch(r.ReleaseName.ToLower()))
-                        {
-                            ReleaseFilter.Add(r);
-                        }
+                        //FilteredReleasesID = null;
                     }
                 }
                 ReleaseList.ItemsSource = ReleaseFilter;

@@ -62,8 +62,8 @@ namespace MusicSpot
             get
             {
                 var data = new Data();
-                Genre Releasegenre = data.genre.FirstOrDefault(x => x.GenreID == GenreID);
-                Genretype GT = data.genretype.FirstOrDefault(w => w.ID == Releasegenre.genreObject);
+                GenreObject Releasegenre = data.genreobject.FirstOrDefault(x => x.GenreID == GenreID);
+                Genretype GT = data.genretype.FirstOrDefault(w => w.ID == Releasegenre.Genre);
                 return GT.Type;
             }
         }
@@ -73,7 +73,7 @@ namespace MusicSpot
             get
             {
                 var data = new Data();
-                Genre Releasegenre = data.genre.FirstOrDefault(x => x.GenreID == GenreID);
+                GenreObject Releasegenre = data.genreobject.FirstOrDefault(x => x.GenreID == GenreID);
                 SubgenreType SGT = data.subgenretype.FirstOrDefault(w => w.ID == Releasegenre.Subgenre);
                 return SGT.Type;
             }
