@@ -16,9 +16,8 @@ namespace MusicSpot
         {
             
         }
-        public Song(int songid, string name, int releaseid)
+        public Song(string name, int releaseid)
         {
-            SongID = songid;
             Name = name;
             ReleaseID = releaseid;
         }

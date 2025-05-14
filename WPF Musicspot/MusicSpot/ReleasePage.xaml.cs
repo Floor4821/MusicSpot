@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -33,12 +34,7 @@ namespace MusicSpot
             ReleaseName.Content = "Name: " + r.ReleaseName.ToString();
             Artist.Content ="Artist: " + r.Artist.ToString();
             Data d = new Data();
-            List<string> genres = d.SearchGenre(r); 
-            Genre.Content = "Genre: ";
-            foreach(string s in genres)
-            {
-                Genre.Content += s + " ";
-            }
+            Genre.Content = $"Genre: {r.GenreString}";
 
             int ReleaseID = r.ReleaseID;
             List<Song> songs = d.songlist(ReleaseID);
@@ -95,11 +91,18 @@ namespace MusicSpot
         public void AddProduct(object sender, RoutedEventArgs e)
         {
             var item = (Product)ProductList.SelectedItem;
-            MessageBox.Show(item.MediaString);
+            MessageBox.Show(item.MediaString.ToString());
         }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {
             
         }
+        public void GoBackToReleasePage(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowReleaseView();
+            this.Close();
+        }
+        
     }
 }

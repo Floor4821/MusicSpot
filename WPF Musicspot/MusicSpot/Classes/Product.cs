@@ -34,7 +34,7 @@ namespace MusicSpot
                 }
             }
         }
-        public Product(int price, int stock, int mediatype, int releaseid)
+        public Product(double price, int stock, int mediatype, int releaseid)
         {
             Price = price;
             Stock = stock;
