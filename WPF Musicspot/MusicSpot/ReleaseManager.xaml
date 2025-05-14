@@ -4,18 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicSpot"
+        ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="ReleaseManager" Height="802" Width="1068">
+        Title="ReleaseManager" Height="802" Width="1331">
     <Canvas>
-        <Rectangle HorizontalAlignment="Left" Height="145" Margin="810,170,0,0" Fill="LightGray" VerticalAlignment="Top" Width="231"/>
+        <Rectangle HorizontalAlignment="Left" Height="145" Fill="LightGray" VerticalAlignment="Top" Width="231" Canvas.Left="1074" Canvas.Top="195"/>
 
-        <Label Content="Create new Release/Edit Release" HorizontalAlignment="Left" Margin="48,44,0,0" VerticalAlignment="Top" FontSize="48"/>
-        <Label Content="ReleaseName:" HorizontalAlignment="Left" Margin="48,170,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Label Content="ArtistName:" HorizontalAlignment="Left" Margin="48,260,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Label Content="ReleaseType:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Canvas.Left="52" Canvas.Top="368"/>
-        <Label Content="ReleaseSongs:" HorizontalAlignment="Left" Margin="48,478,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Label Content="Cover:" HorizontalAlignment="Left" Margin="154,583,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <Button Content="Submit Image" Foreground="White" FontSize="20" Height="46" Canvas.Left="273" Canvas.Top="595" Width="202">
+        <Label Name="RM_Label" Content="Create new Release/Edit Release" HorizontalAlignment="Left" Margin="48,44,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Label Content="ReleaseName:" HorizontalAlignment="Left" Margin="48,170,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="ArtistName:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Canvas.Left="71" Canvas.Top="224"/>
+        <Label Content="ReleaseType:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Canvas.Left="50" Canvas.Top="346"/>
+        <Label Content="ReleaseSongs:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Canvas.Left="44" Canvas.Top="408"/>
+        <Label Content="Cover:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Canvas.Left="589" Canvas.Top="710"/>
+        <Button Click="InsertReleaseImage" Content="Submit Image" Foreground="White" FontSize="20" Height="46" Canvas.Left="683" Canvas.Top="710" Width="202" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="#222222" CornerRadius="10">
@@ -27,31 +28,63 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Rectangle HorizontalAlignment="Left" Height="52" Margin="739,170,0,0" Fill="LightGray" VerticalAlignment="Top" Width="71"/>
-        <TextBox Background="LightGray" x:Name="LoginMail" TextWrapping="Wrap" FontSize="22" Canvas.Left="285" Canvas.Top="191" HorizontalAlignment="Left" VerticalAlignment="Center" Width="412"/>
-        <TextBox Background="LightGray" x:Name="LoginMail_Copy" TextWrapping="Wrap" FontSize="22" Canvas.Left="285" Canvas.Top="279" HorizontalAlignment="Left" VerticalAlignment="Center" Width="412"/>
-        <TextBox Background="LightGray" x:Name="LoginMail_Copy1" TextWrapping="Wrap" FontSize="22" Canvas.Left="287" Canvas.Top="381" Width="410"/>
-        <TextBox Background="LightGray" x:Name="LoginMail_Copy2" TextWrapping="Wrap" FontSize="22" Canvas.Left="288" Canvas.Top="491" Width="378" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Content="Vinyl:" HorizontalAlignment="Left" Margin="741,171,0,0" VerticalAlignment="Top" FontSize="24" Height="51" Width="66"/>
-        <Label Content="Stock:" HorizontalAlignment="Left" Margin="823,191,0,0" VerticalAlignment="Top" FontSize="20" Height="44" Width="66"/>
-        <Label Content="Price:" HorizontalAlignment="Left" Margin="828,255,0,0" VerticalAlignment="Top" FontSize="20" Height="44" Width="61"/>
-        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Margin="887,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="28" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Margin="889,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="28" FontSize="18"/>
-        <Rectangle HorizontalAlignment="Left" Height="145" Margin="809,338,0,0" Fill="LightGray" VerticalAlignment="Top" Width="232"/>
-        <Rectangle HorizontalAlignment="Left" Height="52" Margin="750,338,0,0" Fill="LightGray" VerticalAlignment="Top" Width="59"/>
-        <Label Content="CD:" HorizontalAlignment="Left" Margin="757,343,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="47"/>
-        <Label Content="Stock:" HorizontalAlignment="Left" Margin="823,359,0,0" VerticalAlignment="Top" FontSize="20" Height="44" Width="66"/>
-        <Label Content="Price:" HorizontalAlignment="Left" Margin="827,423,0,0" VerticalAlignment="Top" FontSize="20" Height="44" Width="62"/>
-        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Margin="887,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="28" FontSize="18"/>
-        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Margin="889,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="28" FontSize="18"/>
-        <Rectangle HorizontalAlignment="Left" Height="145" Margin="810,512,0,0" Fill="LightGray" VerticalAlignment="Top" Width="231"/>
-        <Rectangle HorizontalAlignment="Left" Height="52" Margin="700,512,0,0" Fill="LightGray" VerticalAlignment="Top" Width="110"/>
-        <Label Content="Cassette:" HorizontalAlignment="Left" Margin="700,513,0,0" VerticalAlignment="Top" FontSize="24" Height="51" Width="107"/>
-        <Label Content="Stock:" HorizontalAlignment="Left" Margin="823,533,0,0" VerticalAlignment="Top" FontSize="20" Height="44" Width="66"/>
-        <Label Content="Price:" HorizontalAlignment="Left" Margin="828,597,0,0" VerticalAlignment="Top" FontSize="20" Height="44" Width="61"/>
-        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Margin="887,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="28" FontSize="18"/>
-        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Margin="889,607,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="26" FontSize="18"/>
-        <Button Content="Submit" Canvas.Left="906" Canvas.Top="709" Height="51" Width="135" FontSize="22"/>
+        <Rectangle HorizontalAlignment="Left" Height="52" Fill="LightGray" VerticalAlignment="Top" Width="71" Canvas.Left="1003" Canvas.Top="195"/>
+        <TextBox Background="LightGray" x:Name="Releasename" TextWrapping="Wrap" FontSize="22" Canvas.Left="216" Canvas.Top="180" HorizontalAlignment="Left" VerticalAlignment="Center" Width="625"/>
+        <TextBox Background="LightGray" x:Name="Artistname" TextWrapping="Wrap" FontSize="22" Canvas.Left="216" Canvas.Top="229" HorizontalAlignment="Left" VerticalAlignment="Center" Width="625"/>
+        <Label Content="Vinyl:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Height="51" Width="66" Canvas.Left="1005" Canvas.Top="196"/>
+        <Label Content="Stock:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="44" Width="66" Canvas.Left="1087" Canvas.Top="216"/>
+        <Label Content="Price:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="44" Width="61" Canvas.Left="1092" Canvas.Top="280"/>
+        <TextBox Name="VinlyStock" TextAlignment="Left" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="28" FontSize="18" Canvas.Left="1151" Canvas.Top="224"/>
+        <TextBox Name="VinylPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="28" FontSize="18" Canvas.Left="1153" Canvas.Top="288"/>
+        <Rectangle HorizontalAlignment="Left" Height="145" Fill="LightGray" VerticalAlignment="Top" Width="232" Canvas.Left="1073" Canvas.Top="363"/>
+        <Rectangle HorizontalAlignment="Left" Height="52" Fill="LightGray" VerticalAlignment="Top" Width="59" Canvas.Left="1014" Canvas.Top="363"/>
+        <Label Content="CD:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Height="42" Width="47" Canvas.Left="1021" Canvas.Top="368"/>
+        <Label Content="Stock:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="44" Width="66" Canvas.Left="1087" Canvas.Top="384"/>
+        <Label Content="Price:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="44" Width="62" Canvas.Left="1091" Canvas.Top="448"/>
+        <TextBox Name="CDStock" TextAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="28" FontSize="18" Canvas.Left="1151" Canvas.Top="392"/>
+        <TextBox Name="CDPrice" TextAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="28" FontSize="18" Canvas.Left="1153" Canvas.Top="456"/>
+        <Rectangle HorizontalAlignment="Left" Height="145" Fill="LightGray" VerticalAlignment="Top" Width="231" Canvas.Left="1074" Canvas.Top="537"/>
+        <Rectangle HorizontalAlignment="Left" Height="52" Fill="LightGray" VerticalAlignment="Top" Width="110" Canvas.Left="964" Canvas.Top="537"/>
+        <Label Content="Cassette:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Height="51" Width="107" Canvas.Left="964" Canvas.Top="538"/>
+        <Label Content="Stock:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="44" Width="66" Canvas.Left="1087" Canvas.Top="558"/>
+        <Label Content="Price:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="44" Width="61" Canvas.Left="1092" Canvas.Top="622"/>
+        <TextBox Name="CassetteStock"  TextAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="87" Height="28" FontSize="18" Canvas.Left="1151" Canvas.Top="566"/>
+        <TextBox Name="CassettePrice" TextAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Height="26" FontSize="18" Canvas.Left="1153" Canvas.Top="632"/>
+        <Button Click="InsertRelease" Content="Submit" Canvas.Left="1170" Canvas.Top="716" Height="51" Width="135" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ListView Name="ReleaseSongs" Height="103" Width="371" d:ItemsSource="{d:SampleData ItemCount=1}" Canvas.Left="218" Canvas.Top="419" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView x:Name="GridSongs">
+                    <GridViewColumn Width="361">
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Add Song" Click="AddColumn_Click" Canvas.Left="514" Canvas.Top="539" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
+        <Expander Height="52" Header="ReleaseType" Canvas.Left="216" Canvas.Top="343" Width="271" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Grid Background="#FFE5E5E5">
+                <Button Margin="0,0,193,0" Content="EP" Click="EP_Status"></Button>
+                <Button Margin="88,0,98,0" Content="Album" Click="Album_Status"/>
+                <Button Margin="186,0,0,0" Content="Other" Click="Other_Status"/>
+            </Grid>
+        </Expander>
+        <Label Content="ReleaseDate:" FontSize="24" Canvas.Left="55" Canvas.Top="284" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Background="LightGray" x:Name="ReleaseDate" TextWrapping="Wrap" FontSize="22" Canvas.Left="218" Canvas.Top="289" Width="623" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ListView Name="GenreSelection" Height="88" Width="177" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="48" Canvas.Top="610" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Genre" Width="150" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Select a Genre" FontSize="24" Canvas.Left="55" Canvas.Top="560" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ListView x:Name="SubgenreSelection" Height="146" Width="281" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="263" Canvas.Top="610" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Subgenre" Width="250" DisplayMemberBinding="{Binding Type}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Select a Subgenre" FontSize="24" Canvas.Left="263" Canvas.Top="563" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Canvas>
 </Window>

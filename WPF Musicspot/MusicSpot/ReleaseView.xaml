@@ -1,6 +1,7 @@
 ﻿<Window x:Class="MusicSpot.ReleaseView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vwp="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicSpot"
@@ -17,26 +18,28 @@
         <ListBox SelectionMode="Multiple" Name="GenreSelection" Margin="86,208,1180,297">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox Content="{Binding Type}" IsChecked="{Binding IsFav}" Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked"/>
+                    <Label Content="{Binding Type}"></Label>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <Label Content="Genre" HorizontalAlignment="Left" Margin="86,129,0,0" VerticalAlignment="Top" FontSize="48"/>
-        <Label Content="ReleaseType" HorizontalAlignment="Left" Margin="86,507,0,0" VerticalAlignment="Top" FontSize="48"/>
-        <ListBox SelectionMode="Multiple" x:Name="ReleaseTypeSelection" Margin="86,581,1180,36">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <CheckBox Content="{Binding ReleaseName}" IsChecked="{Binding IsFav}" Unchecked="Checkbox_Unchecked" Checked="Checkbox_Checked"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
+        <Label Content="Subgenre" HorizontalAlignment="Left" Margin="86,507,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <ListBox SelectionMode="Multiple" x:Name="ReleaseTypeSelection" Margin="86,581,1180,85">
+
+            <ListBoxItem Content="Album" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="-2" Canvas.Top="10"/>
+            <ListBoxItem Content="EP" FontSize="36" HorizontalAlignment="Center" Height="61" Canvas.Left="204" Canvas.Top="5"/>
+
         </ListBox>
         <TextBox Name="ReleaseNameInput" BorderBrush="Black" BorderThickness="2" TextAlignment="Center" Margin="456,120,150,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Height="46" FontSize="36"/>
         <Button IsDefault="True" Click="SearchReleaseName"  Content="Search" HorizontalAlignment="Left" Foreground="White" Background="#222222" Margin="1412,120,0,0" VerticalAlignment="Top" Height="46" Width="112" FontSize="24"/>
-        <Rectangle HorizontalAlignment="Left" Height="578" Margin="456,208,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1078"/>
-        <ListBox x:Name="ReleaseList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="498,264,0,0" Width="1026" SelectionChanged="Show_ReleasePage" Height="486">
+        <Rectangle HorizontalAlignment="Left" Height="608" Margin="456,178,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1078"/>
+        <ListBox x:Name="ReleaseList" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="474,186,0,0" Width="1050" SelectionChanged="Show_ReleasePage" Height="596" VirtualizingPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Standard" ScrollViewer.IsDeferredScrollingEnabled="True">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" Width="1009"/>
+                    <vwp:VirtualizingWrapPanel 
+                    Orientation="Horizontal"
+                    VirtualizingStackPanel.IsVirtualizing="True"
+                    VirtualizingStackPanel.VirtualizationMode="Recycling"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
 

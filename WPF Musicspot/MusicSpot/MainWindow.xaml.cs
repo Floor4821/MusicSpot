@@ -28,6 +28,10 @@ namespace MusicSpot
     {
         public static int AI { get; set; }
     }
+    public static class ListboxIndex
+    {
+        public static int LBI { get; set; } = 0;
+    }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>

@@ -16,6 +16,8 @@ using System.Drawing;
 using MySqlX.XDevAPI.Common;
 using Microsoft.Win32;
 using Microsoft.EntityFrameworkCore.Storage;
+using ImageMagick;
+using MusicSpot.Classes;
 
 namespace MusicSpot
 {
@@ -28,6 +30,8 @@ namespace MusicSpot
         public DbSet<Song> song { get; set; }
         public DbSet<Genretype> genretype { get; set; }
         public DbSet<Product> product { get; set; }
+        public DbSet<SubgenreType> subgenretype { get; set; }
+        public DbSet<GenreObject> genreobject { get; set; }
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -191,12 +195,24 @@ namespace MusicSpot
         {
             using (var data = new Data())
             {
-                var ID = data.release.FirstOrDefault(x => x.ReleaseName == releasename);
-                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                release DeleteRelease = data.release.FirstOrDefault(x => x.ReleaseName == releasename);
+                MessageBoxResult result = MessageBox.Show("Commander, are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
-                    data.release.Remove(ID);
+                    int DelID = DeleteRelease.ReleaseID;
+
+                    List<Product> products = data.product.Where(x => x.ReleaseID == DelID).ToList();
+                    foreach (Product p in products)
+                    {
+                        data.product.Remove(p);
+                    }
                     data.SaveChanges();
+
+                    data.release.Remove(DeleteRelease);
+
+                    data.SaveChanges();
+
+                    MessageBox.Show("Commander, the release has been successfully destroyed", "Successfull deletion", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -242,6 +258,9 @@ namespace MusicSpot
         {
 
         }
+
+
+
         //SQL ENTITYFRAMEWORK CORE
         //___________________________________________________________________________________________
 
@@ -270,20 +289,30 @@ namespace MusicSpot
             }
 
         }
-        public void InsertGenre()
+        public int InsertGenre(int GenreID, int SubgenreID)
         {
             var connection = this.Database.GetDbConnection();
 
-            MySqlCommand commandDatabase = new MySqlCommand("INSERT INTO musicspot.genre (genre, subgenre) VALUES (2, 2);", (MySqlConnection)connection);
+            MySqlCommand DuplicateCheck = new MySqlCommand("SELECT genre, subgenre FROM musicspot.genre;", (MySqlConnection)connection);
+
+            MySqlCommand commandDatabase = new MySqlCommand("INSERT INTO musicspot.genre (genre, subgenre) VALUES (@GenreID, @SubgenreID);", (MySqlConnection)connection);
+            commandDatabase.Parameters.AddWithValue("@GenreID", GenreID);
+            commandDatabase.Parameters.AddWithValue("@SubgenreID", SubgenreID);
             try
             {
                 connection.Open();
                 commandDatabase.ExecuteNonQuery();
+
+                long theid = commandDatabase.LastInsertedId;
+
                 connection.Close();
+
+                return (int)theid;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message, "ERROR");
+                return -1;
             }
         }
         public List<string> SearchGenre(release r)
@@ -298,8 +327,10 @@ namespace MusicSpot
                 List<string> genres = new List<string>();
 
                 MySqlCommand commandDatabase = new MySqlCommand($"SELECT GT.Type FROM musicspot.genretype " +
-                    $"AS GT INNER JOIN musicspot.release AS MR " +
-                    $"ON GT.ID = MR.genreID WHERE '{r.ReleaseID}' = MR.releaseID;", (MySqlConnection)connection);
+                    $"AS GT INNER JOIN musicspot.genre AS GR " +
+                    $"ON GT.ID = GR.genreObject WHERE GR.genreID = '{r.GenreID}';", (MySqlConnection)connection);
+
+                //WHERE '{r.ReleaseID}' = MR.releaseID
                 MySqlDataReader reader = commandDatabase.ExecuteReader();
                 while (reader.Read())
                 {
@@ -314,6 +345,7 @@ namespace MusicSpot
             }
             
         }
+        
         //RAW SQL QUERRIES
         //_____________________________________________________________________________________________________
     }
