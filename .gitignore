@@ -1,12 +1,12 @@
 # Ignore Visual Studio stuff
-.vs/
+**/.vs/
 *.user
 *.suo
 *.vcxproj.user
 
 # Ignore build output
-bin/
-obj/
+**/bin/
+**/obj/
 
 # Ignore Python cache
 __pycache__/
@@ -15,3 +15,12 @@ __pycache__/
 # Ignore system files
 .DS_Store
 Thumbs.db
+
+# Ignore these fucking annoying shits
+.vs/
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
