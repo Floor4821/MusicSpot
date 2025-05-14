@@ -38,8 +38,13 @@ namespace MusicSpot
 
             if(BMI is null)
             {
-                var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "defaultpfp.png");
-                BitmapImage bitmap = new BitmapImage(new Uri(path));
+                //fetches default pfp
+                string url = "https://i.postimg.cc/fRn91Yp2/defaultpfp.png";
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(url);
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
                 profilepicture.Source = bitmap;
             }
             else
