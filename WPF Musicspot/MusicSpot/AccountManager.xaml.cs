@@ -47,13 +47,25 @@ namespace MusicSpot
             n.ShowHome();
             this.Close();
         }
+        public void AM_Account(object sender, RoutedEventArgs e)
+        {
+            Navigation n = new Navigation();
+            n.ShowAccountManager();
+        }
         public void EditProfile(object sender, RoutedEventArgs e)
         {
             UserAccount items = (UserAccount)ProfileList.SelectedItem;
-            int userid = items.AccountID;
-            Manage_User a = new Manage_User(userid);
-            a.Show();
-            this.Close();
+            if (items != null)
+            {
+                int userid = items.AccountID;
+                Manage_User a = new Manage_User(userid);
+                a.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Commander, please select the item before editing it", "Selection error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public void CreateNewAccount(object sender, RoutedEventArgs e)
