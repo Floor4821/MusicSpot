@@ -53,14 +53,14 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <ListBox x:Name="Wishlist" Margin="21,179,1119,52">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Wishlist" Margin="21,179,1119,52" SelectionChanged="Wishlist_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="361" Height="134">
                         <StackPanel Orientation="Vertical">
                             <Canvas Height="100">
-                                <Label Content="ProductName: " Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
-                                <Label Content="{Binding ReleaseName}" Canvas.Left="10" Canvas.Top="54" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="457"/>
+                                <Label Content="{Binding ReleaseName}" HorizontalAlignment="Center" Canvas.Top="10" VerticalAlignment="Top"/>
+                                <Label Content="{Binding MediaString}" FontWeight ="Bold" HorizontalAlignment="Center" Canvas.Top="50" VerticalAlignment="Top"/>
                             </Canvas>
                         </StackPanel>
                     </Border>

@@ -26,12 +26,21 @@ namespace MusicSpot
     public class Data: DbContext
     {
         public DbSet<release> release { get; set; }
+
         public DbSet<UserAccount> account { get; set; }
+
         public DbSet<Song> song { get; set; }
+
         public DbSet<Genretype> genretype { get; set; }
+
         public DbSet<Product> product { get; set; }
+
         public DbSet<SubgenreType> subgenretype { get; set; }
+
         public DbSet<GenreObject> genreobject { get; set; }
+
+        public DbSet<Wishlist> wishlist { get; set; }
+
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -63,6 +72,32 @@ namespace MusicSpot
         {
             optionsBuilder.UseMySQL(connectionstring);
         }
+        public void AddToWishlist(int productID)
+        {
+            int accountID = AccountID.AI;
+            
+            MessageBox.Show($"{accountID.ToString()} and {productID.ToString()}");
+            using (Data d = new Data())
+            {
+                Wishlist toAdd = new Wishlist(accountID, productID);
+                d.wishlist.Add(toAdd);
+                d.SaveChanges();
+            }
+        }
+        public List<Product> GetWishlist(int accountID)
+        {
+        
+            Data d = new Data();
+            List<Product> wishlist = new List<Product>();
+            List<int> productIDs = d.wishlist.Where(x => x.AccountID == accountID).Select(x => x.ProductID).ToList();
+            foreach(int ID in productIDs)
+            {
+                wishlist.Add(d.product.FirstOrDefault(x => x.ProductID == ID));
+            }
+            return wishlist;
+
+        }
+
         public void testconnection()
         {
             using (var context = new Data())
@@ -254,7 +289,7 @@ namespace MusicSpot
         {
 
         }
-        public void AddToLikeList(int accountid, int releaseid)
+        public void AddToLikeList(int accountID, int releaseID)
         {
 
         }

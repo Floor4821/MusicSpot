@@ -34,6 +34,18 @@ namespace MusicSpot
                 }
             }
         }
+
+        [NotMapped]
+
+        public string ReleaseName
+        {
+            get
+            {
+                Data d = new Data();
+                string releaseName = d.release.Where(x => x.ReleaseID == ReleaseID).Select(x => x.ReleaseName).FirstOrDefault();
+                return releaseName;
+            }
+        }
         public Product(double price, int stock, int mediatype, int releaseid)
         {
             Price = price;

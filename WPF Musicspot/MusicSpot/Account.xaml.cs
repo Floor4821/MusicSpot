@@ -36,6 +36,9 @@ namespace MusicSpot
 
             BitmapImage BMI = dt.pfp();
 
+            List<Product> wishlist = dt.GetWishlist(accountid);
+            Wishlist.ItemsSource = wishlist;
+
             if(BMI is null)
             {
                 //fetches default pfp
@@ -98,6 +101,11 @@ namespace MusicSpot
             Navigation n = new Navigation();
             n.ShowAccount();
             this.Close();
+        }
+
+        private void Wishlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

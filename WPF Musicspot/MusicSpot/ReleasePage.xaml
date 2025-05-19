@@ -20,12 +20,12 @@
         <Label Name="ReleaseName" Content="ReleaseName: Data Binding" HorizontalAlignment="Left" Margin="449,194,0,0" VerticalAlignment="Top" Height="118" Width="1006" FontSize="36"/>
         <Label Name="Artist" Content="Artist: Data Binding" HorizontalAlignment="Left" Margin="449,312,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
         <Label Name="Genre" Content="Genre: Data Binding" HorizontalAlignment="Left" Margin="449,387,0,0" VerticalAlignment="Top" Height="56" Width="364" FontSize="36"/>
-        <Label Content="Release Products" HorizontalAlignment="Left" Margin="767,474,0,0" VerticalAlignment="Top" Height="56" Width="386" FontSize="36"/>
+        <Label Content="Release Products" HorizontalAlignment="Left" Margin="729,475,0,0" VerticalAlignment="Top" Height="56" Width="386" FontSize="36"/>
         <ListBox Name="SongList" Background="DarkGray" DisplayMemberPath="Name" Margin="86,532,1127,33"/>
         <Button Click="ReleaseDestroy" Name="DeleteRelease" Visibility="Hidden" Content="Delete" Background="#222222" Foreground="White" FontSize="20" Margin="1242,20,177,717"/>
         <Button Click="ReleaseEdit" Name="EditRelease" Visibility="Hidden" Content="Edit" Background="#222222" Foreground="White" FontSize="20" Margin="1381,20,38,717"/>
         <Label Content="Tracklist" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Margin="86,474,0,0"/>
-        <ListView Name="ProductList" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="767,530,234,31" Background="White" BorderBrush="{Binding ActualHeight, ElementName=ProductList, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
+        <ListView Name="ProductList" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="729,543,225,18" Background="White" BorderBrush="{Binding ActualHeight, ElementName=ProductList, Mode=OneWay}" RenderTransformOrigin="0.5,0.5" SelectionChanged="ProductList_SelectionChanged">
             <ListView.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -56,6 +56,14 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    <GridViewColumn Header="Wishlist" Width="70">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="+" Width="50" Click="AddToWishlist"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
                 </GridView>
             </ListView.View>
         </ListView>

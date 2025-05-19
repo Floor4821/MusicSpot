@@ -93,6 +93,22 @@ namespace MusicSpot
             var item = (Product)ProductList.SelectedItem;
             MessageBox.Show(item.MediaString.ToString());
         }
+
+        public void AddToWishlist(object sender, RoutedEventArgs e)
+        {
+            Product item = (Product)ProductList.SelectedItem;
+            if(item == null)
+            {
+                MessageBox.Show("No item selected", "Selection error");
+            }
+            else
+            {
+                Data d = new Data();
+                int productID = item.ProductID;
+                d.AddToWishlist(productID);
+
+            }
+        }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {
             
@@ -103,6 +119,10 @@ namespace MusicSpot
             n.ShowReleaseView();
             this.Close();
         }
-        
+
+        private void ProductList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
