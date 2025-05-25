@@ -111,7 +111,10 @@ namespace MusicSpot
         }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {
-            
+            Data d = new Data();
+            int releaseID = CurrentReleaseID;
+            d.AddToLikeList(releaseID);
+
         }
         public void GoBackToReleasePage(object sender, RoutedEventArgs e)
         {

@@ -39,6 +39,9 @@ namespace MusicSpot
             List<Product> wishlist = dt.GetWishlist(accountid);
             Wishlist.ItemsSource = wishlist;
 
+            List<release> likedlist = dt.GetLikedList(accountid);
+            Likedlist.ItemsSource = likedlist;
+
             if(BMI is null)
             {
                 //fetches default pfp

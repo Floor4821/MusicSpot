@@ -68,6 +68,5 @@
             </ListView.View>
         </ListView>
         <Image MouseLeftButtonDown="LikeRelease" Source="https://i.postimg.cc/tR2CwC8X/Thumbsup.png" Margin="1352,641,67,41"></Image>
-
     </Grid>
 </Window>

@@ -41,6 +41,8 @@ namespace MusicSpot
 
         public DbSet<Wishlist> wishlist { get; set; }
 
+        public DbSet<Likedlist> likedlist { get; set; }
+
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -71,31 +73,6 @@ namespace MusicSpot
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL(connectionstring);
-        }
-        public void AddToWishlist(int productID)
-        {
-            int accountID = AccountID.AI;
-            
-            MessageBox.Show($"{accountID.ToString()} and {productID.ToString()}");
-            using (Data d = new Data())
-            {
-                Wishlist toAdd = new Wishlist(accountID, productID);
-                d.wishlist.Add(toAdd);
-                d.SaveChanges();
-            }
-        }
-        public List<Product> GetWishlist(int accountID)
-        {
-        
-            Data d = new Data();
-            List<Product> wishlist = new List<Product>();
-            List<int> productIDs = d.wishlist.Where(x => x.AccountID == accountID).Select(x => x.ProductID).ToList();
-            foreach(int ID in productIDs)
-            {
-                wishlist.Add(d.product.FirstOrDefault(x => x.ProductID == ID));
-            }
-            return wishlist;
-
         }
 
         public void testconnection()
@@ -285,12 +262,60 @@ namespace MusicSpot
                 return products;
             }
         }
+
+        public void AddToWishlist(int productID)
+        {
+            int accountID = AccountID.AI;
+
+            MessageBox.Show($"{accountID.ToString()} and {productID.ToString()}");
+            using (Data d = new Data())
+            {
+                Wishlist toAdd = new Wishlist(accountID, productID);
+                d.wishlist.Add(toAdd);
+                d.SaveChanges();
+            }
+        }
+        public List<Product> GetWishlist(int accountID)
+        {
+
+            Data d = new Data();
+            List<Product> wishlist = new List<Product>();
+            List<int> productIDs = d.wishlist.Where(x => x.AccountID == accountID).Select(x => x.ProductID).ToList();
+            foreach (int ID in productIDs)
+            {
+                wishlist.Add(d.product.FirstOrDefault(x => x.ProductID == ID));
+            }
+            return wishlist;
+
+        }
         public void AddProductToCart()
         {
 
         }
-        public void AddToLikeList(int accountID, int releaseID)
+        public void AddToLikeList(int releaseID)
         {
+            int accountID = AccountID.AI;
+
+            MessageBox.Show($"account {accountID.ToString()}, release {releaseID.ToString()}");
+
+            using (Data d = new Data())
+            {
+                Likedlist toAdd = new Likedlist(accountID, releaseID);
+                d.likedlist.Add(toAdd);
+                d.SaveChanges();
+            }
+        }
+        public List<release> GetLikedList(int accountID)
+        {
+
+            Data d = new Data();
+            List<release> likedList = new List<release>();
+            List<int> productIDs = d.likedlist.Where(x => x.AccountID == accountID).Select(x => x.ReleaseID).ToList();
+            foreach (int ID in productIDs)
+            {
+                likedList.Add(d.release.FirstOrDefault(x => x.ReleaseID == ID));
+            }
+            return likedList;
 
         }
 
