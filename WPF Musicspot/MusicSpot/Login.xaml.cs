@@ -41,7 +41,7 @@ namespace MusicSpot
             else
             {
                 string storedhash = LoginUser.Password;
-                bool hashcheck = VerifyPassword(password, storedhash);
+                bool hashcheck = d.VerifyPassword(password, storedhash);
                 if (hashcheck)
                 {
                     MessageBox.Show("You are logged in", "Successfull login", MessageBoxButton.OK, MessageBoxImage.Information);

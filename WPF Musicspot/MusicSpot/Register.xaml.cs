@@ -43,6 +43,7 @@ namespace MusicSpot
         }
         private void CreateAccount(object sender, RoutedEventArgs e)
         {
+            Data data = new Data();
             string name = RegisterName.Text;
             string mail = RegisterMail.Text;
             string password = RegisterPass.Password;
@@ -55,14 +56,12 @@ namespace MusicSpot
             string[] passcheck = PasswordCheck(password);
             if (passcheck[0] == "Correct")
             {
-                hashedpassword = HashPassword(password);
+                hashedpassword = data.HashPassword(password);
                 UserAccount UA = new UserAccount(name, mail, hashedpassword, 0, pfp);
-
-                using (var data = new Data())
-                {
-                    data.account.Add(UA);
-                    data.SaveChanges();
-                }
+                
+                data.account.Add(UA);
+                data.SaveChanges();
+                
                 MessageBox.Show("Account has been successfully created", "Success", MessageBoxButton.OK);
             }
             else
@@ -93,20 +92,6 @@ namespace MusicSpot
                 return ["Password must contain at least 1 special character", "No special characters detected"];
             }
             return ["Correct"];
-        }
-        static string HashPassword(string password)
-        {
-            HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
-            byte[] salt = RandomNumberGenerator.GetBytes(KeySize);
-
-            byte[] hash = Rfc2898DeriveBytes.Pbkdf2(
-                Encoding.UTF8.GetBytes(password),
-                salt,
-                Iterations,
-                hashAlgorithm,
-                KeySize);
-
-            return $"{Convert.ToHexString(salt)}.{Convert.ToHexString(hash)}";
         }
     }
 }
