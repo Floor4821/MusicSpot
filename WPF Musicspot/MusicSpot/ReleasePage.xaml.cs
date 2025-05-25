@@ -77,8 +77,9 @@ namespace MusicSpot
 
         public void ReleaseEdit(object sender, RoutedEventArgs e)
         {
-            Navigation n = new Navigation();
-            n.ShowReleaseManager();
+            ReleaseManager RM = new ReleaseManager(CurrentReleaseID);
+            RM.Show();
+            this.Close();
         }
         public void ReleaseDestroy(object sender, RoutedEventArgs e)
         {
@@ -90,8 +91,15 @@ namespace MusicSpot
         }
         public void AddProduct(object sender, RoutedEventArgs e)
         {
-            var item = (Product)ProductList.SelectedItem;
-            MessageBox.Show(item.MediaString.ToString());
+            Product item = (Product)ProductList.SelectedItem;
+            if (item != null)
+            {
+                MessageBox.Show(item.MediaString.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Select the product before adding it", "Selection error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {

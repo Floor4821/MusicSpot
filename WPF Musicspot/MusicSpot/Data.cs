@@ -18,6 +18,8 @@ using Microsoft.Win32;
 using Microsoft.EntityFrameworkCore.Storage;
 using ImageMagick;
 using MusicSpot.Classes;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace MusicSpot
 {
@@ -25,6 +27,9 @@ namespace MusicSpot
     //_________________________________________________________________________________
     public class Data: DbContext
     {
+        const int KeySize = 64;
+        const int Iterations = 350000;
+
         public DbSet<release> release { get; set; }
         public DbSet<UserAccount> account { get; set; }
         public DbSet<Song> song { get; set; }
@@ -32,6 +37,7 @@ namespace MusicSpot
         public DbSet<Product> product { get; set; }
         public DbSet<SubgenreType> subgenretype { get; set; }
         public DbSet<GenreObject> genreobject { get; set; }
+        public DbSet<Wishlist> wishlist { get; set; }
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -63,6 +69,41 @@ namespace MusicSpot
         {
             optionsBuilder.UseMySQL(connectionstring);
         }
+        public bool VerifyPassword(string password, string storedHash)
+        {
+            var parts = storedHash.Split('.');
+            if (parts.Length != 2)
+                return false;
+
+            byte[] salt = Convert.FromHexString(parts[0]);
+            byte[] hash = Convert.FromHexString(parts[1]);
+
+            HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
+
+            byte[] hashToCheck = Rfc2898DeriveBytes.Pbkdf2(
+                Encoding.UTF8.GetBytes(password),
+                salt,
+                Iterations,
+                hashAlgorithm,
+                hash.Length);
+
+            return CryptographicOperations.FixedTimeEquals(hash, hashToCheck);
+        }
+        public string HashPassword(string password)
+        {
+            HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
+            byte[] salt = RandomNumberGenerator.GetBytes(KeySize);
+
+            byte[] hash = Rfc2898DeriveBytes.Pbkdf2(
+                Encoding.UTF8.GetBytes(password),
+                salt,
+                Iterations,
+                hashAlgorithm,
+                KeySize);
+
+            return $"{Convert.ToHexString(salt)}.{Convert.ToHexString(hash)}";
+        }
+
         public void testconnection()
         {
             using (var context = new Data())

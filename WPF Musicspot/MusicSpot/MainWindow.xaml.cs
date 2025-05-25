@@ -41,7 +41,7 @@ namespace MusicSpot
         {
             InitializeComponent();
             Data dt = new Data();
-            List<release> releases = dt.GetAllReleases();
+            List<release> releases = dt.release.OrderByDescending(r => r.Releasedate).Take(10).ToList();
             NewestReleases.ItemsSource = releases;
             if (AdminCheck.IsAdmin == 1) { AdminLabel.Visibility = Visibility.Visible; }
         }
@@ -88,6 +88,14 @@ namespace MusicSpot
             Navigation n = new Navigation();
             n.ShowHome();
             this.Close();
+        }
+
+        private void InsertWhishlist(object sender, RoutedEventArgs e)
+        {
+            Data d = new Data();
+            Wishlist wl = new Wishlist(1, 266);
+            d.wishlist.Add(wl);
+            d.SaveChanges();
         }
         /*
 var client = new HttpClient();

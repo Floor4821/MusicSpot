@@ -19,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace MusicSpot
 {
@@ -27,6 +28,8 @@ namespace MusicSpot
     /// </summary>
     public partial class Register : Window
     {
+        const int KeySize = 64;
+        const int Iterations = 350000;
         public byte[] ProfilePicture = null;
         public Register()
         {
@@ -38,28 +41,13 @@ namespace MusicSpot
             byte[] stuff = d.PFP();
             ProfilePicture = stuff;
         }
-        /*public bool CheckMail(string email)
-        {
-            try
-            {
-                var mail = new MailAddress(email);
-                using (var client = new SmtpClient(mail.Host))
-                {
-                    client.Port = 25;
-                    client.Send(new MailMessage("jamey.verlinden@gmail.com", mail.ToString(), "Verification Email", "This is a verification email."));
-                }
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }*/
         private void CreateAccount(object sender, RoutedEventArgs e)
         {
+            Data data = new Data();
             string name = RegisterName.Text;
             string mail = RegisterMail.Text;
             string password = RegisterPass.Password;
+            string hashedpassword = "";
             byte[] pfp = ProfilePicture;
             if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(mail) || String.IsNullOrEmpty(password))
             {
@@ -68,13 +56,12 @@ namespace MusicSpot
             string[] passcheck = PasswordCheck(password);
             if (passcheck[0] == "Correct")
             {
-                UserAccount UA = new UserAccount(name, mail, password, 0, pfp);
-
-                using (var data = new Data())
-                {
-                    data.account.Add(UA);
-                    data.SaveChanges();
-                }
+                hashedpassword = data.HashPassword(password);
+                UserAccount UA = new UserAccount(name, mail, hashedpassword, 0, pfp);
+                
+                data.account.Add(UA);
+                data.SaveChanges();
+                
                 MessageBox.Show("Account has been successfully created", "Success", MessageBoxButton.OK);
             }
             else

@@ -58,6 +58,7 @@ namespace MusicSpot
             string UN = Username.Text;
             string UM = Email.Text;
             string UP = Password.Password;
+            string hashedpass = "";
             if (ID == 0)
             {
                 if (string.IsNullOrWhiteSpace(UN) || string.IsNullOrWhiteSpace(UM) || string.IsNullOrWhiteSpace(UP))
@@ -68,7 +69,8 @@ namespace MusicSpot
                 {
                     using (var context = new Data())
                     {
-                        UserAccount UA = new UserAccount(UN, UM, UP, permission, ImagePFP);
+                        hashedpass = context.HashPassword(UP);
+                        UserAccount UA = new UserAccount(UN, UM, hashedpass, permission, ImagePFP);
                         context.account.Add(UA);
                         context.SaveChanges();
                     }
@@ -92,7 +94,8 @@ namespace MusicSpot
                     }
                     if (!string.IsNullOrWhiteSpace(UP))
                     {
-                        user.Password = UP;
+                        string Hash = context.HashPassword(UP);
+                        user.Password = Hash;
                     }
                     if (ImagePFP != null)
                     {

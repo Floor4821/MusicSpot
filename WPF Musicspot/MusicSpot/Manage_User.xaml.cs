@@ -27,7 +27,7 @@ namespace MusicSpot
         public int CurrentAccount = 0;
         public Manage_User(int accountid)
         {
-            var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "album.png");
+            var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "defaultpfp.png");
             CurrentAccount = accountid;
             InitializeComponent();
             Data d = new Data();
