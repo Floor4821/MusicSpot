@@ -13,7 +13,7 @@
         <Button Click="AM_Home" Background="Transparent" BorderBrush="Transparent" Content="Home" FontSize="36" Margin="10,5,1372,702"/>
         <Button Click="AM_Releases" Background="Transparent" BorderBrush="Transparent" Content="Releases" FontSize="36" Margin="247,5,1113,702"/>
         <Button Click="AM_Recommended" Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="519,5,767,702"/>
-        <Button Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="896,5,458,702"/>
+        <Button Click="AM_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="896,5,458,702"/>
         <Grid Margin="62,121,54,62" Background="LightGray">
             <ListView Name="ProfileList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,10,10">
                 <ListView.View>

@@ -55,5 +55,10 @@ namespace MusicSpot
             ReleaseManager RM = new ReleaseManager();
             RM.Show();
         }
+        public void ShowAccountManager()
+        {
+            AccountManager AM = new AccountManager();
+            AM.Show();
+        }
     }
 }
