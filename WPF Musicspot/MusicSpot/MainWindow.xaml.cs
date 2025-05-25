@@ -89,6 +89,14 @@ namespace MusicSpot
             n.ShowHome();
             this.Close();
         }
+
+        private void InsertWhishlist(object sender, RoutedEventArgs e)
+        {
+            Data d = new Data();
+            Wishlist wl = new Wishlist(1, 266);
+            d.wishlist.Add(wl);
+            d.SaveChanges();
+        }
         /*
 var client = new HttpClient();
 var request = new HttpRequestMessage

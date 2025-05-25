@@ -32,6 +32,7 @@ namespace MusicSpot
         public DbSet<Product> product { get; set; }
         public DbSet<SubgenreType> subgenretype { get; set; }
         public DbSet<GenreObject> genreobject { get; set; }
+        public DbSet<Wishlist> wishlist { get; set; }
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
