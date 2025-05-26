@@ -31,13 +31,26 @@ namespace MusicSpot
         const int Iterations = 350000;
 
         public DbSet<release> release { get; set; }
+
         public DbSet<UserAccount> account { get; set; }
+
         public DbSet<Song> song { get; set; }
+
         public DbSet<Genretype> genretype { get; set; }
+
         public DbSet<Product> product { get; set; }
+
         public DbSet<SubgenreType> subgenretype { get; set; }
+
         public DbSet<GenreObject> genreobject { get; set; }
+
         public DbSet<Wishlist> wishlist { get; set; }
+
+        public DbSet<Likedlist> likedlist { get; set; }
+
+        public DbSet<Purchase> purchase { get; set; }
+
+        public DbSet<PurchaseProduct> purchaseproduct { get; set; }
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -285,19 +298,131 @@ namespace MusicSpot
         }
         public List<Product> GetProductsByID(int RelID)
         {
-            using (var data = new Data())
+            using (var context = new Data())
             {
-                List<Product> products = data.product.Where(x => x.ReleaseID == RelID).ToList();
+                List<Product> products = context.product.Where(x => x.ReleaseID == RelID).ToList();
                 return products;
             }
         }
-        public void AddProductToCart()
-        {
 
+        public void AddToWishlist(int accountID, int productID)
+        {
+            using (var context = new Data())
+            {
+                Wishlist toAdd = new Wishlist(accountID, productID);
+                context.wishlist.Add(toAdd);
+                context.SaveChanges();
+            }
         }
-        public void AddToLikeList(int accountid, int releaseid)
+        public List<Product> GetWishlist(int accountID)
+        {
+            using (var context = new Data())
+            {
+                List<Product> wishlist = new List<Product>();
+                List<int> productIDs = context.wishlist.Where(x => x.AccountID == accountID).Select(x => x.ProductID).ToList();
+                foreach (int ID in productIDs)
+                {
+                    wishlist.Add(context.product.FirstOrDefault(x => x.ProductID == ID));
+                }
+                return wishlist;
+            }
+        }
+        public int FindPurchase(int accountID)
+        {
+            using(var context = new Data())
+            {
+                int purchaseID = context.purchase
+                    .Where(x => x.Processed == false && x.AccountID == accountID)
+                    .Select(x => (int)x.PurchaseID).FirstOrDefault();
+                return purchaseID;
+            }
+        }
+        public void AddProductToCart(int accountID, int productID)
+        {
+            using (var context = new Data())
+            {
+                int purchaseID = FindPurchase(accountID);
+
+                if (purchaseID == 0)
+                {
+                    Purchase purchase = new Purchase(false, accountID);
+                    context.purchase.Add(purchase);
+                    context.SaveChanges();
+
+                    purchaseID = purchase.PurchaseID;
+
+                }
+
+                PurchaseProduct pp = new PurchaseProduct(purchaseID, productID);
+                context.purchaseproduct.Add(pp);
+                context.SaveChanges();
+            }
+        }
+        public List<Product> GetShoppingCart(int accountID)
+        {
+            using (var context = new Data())
+            {
+                List<Product> shoppingCart = new List<Product>();
+                int purchaseID = FindPurchase(accountID);
+                if (purchaseID == 0)
+                {
+                    List<Product> empty = new List<Product>();
+                    return empty;
+                }
+
+                List<int> productIDs = context.purchaseproduct
+                    .Where(x => x.PurchaseID == purchaseID)
+                    .Select(x => (int)x.ProductID).ToList();
+                foreach (int p in productIDs)
+                {
+                    shoppingCart.Add(context.product.FirstOrDefault(x => x.ProductID == p));
+                }
+                return shoppingCart;
+            }
+        }
+        public double ConfirmTransaction(int accountID)
+        {
+            int purchaseID = FindPurchase(accountID);
+            using (var context = new Data())
+            {
+                List<Product> shoppingCart = GetShoppingCart(accountID);
+                double paid = 0;
+                foreach (Product p in shoppingCart)
+                {
+                    paid += p.Price;
+                }
+                DateTime date = DateTime.Now;
+
+                Purchase transaction = context.purchase.FirstOrDefault(x => x.PurchaseID == purchaseID);
+                transaction.Processed = true;
+                transaction.Paid = paid;
+                transaction.Date = date;
+                context.SaveChanges();
+                return paid;
+            }
+        }
+        public void AddToLikeList(int accountID, int releaseID)
         {
 
+            using (var context = new Data())
+            {
+                Likedlist toAdd = new Likedlist(accountID, releaseID);
+                context.likedlist.Add(toAdd);
+                context.SaveChanges();
+            }
+        }
+        public List<release> GetLikedList(int accountID)
+        {
+            using (var context = new Data())
+            {
+                List<release> likedList = new List<release>();
+                List<int> productIDs = context.likedlist.Where(x => x.AccountID == accountID).Select(x => x.ReleaseID).ToList();
+                foreach (int ID in productIDs)
+                {
+                    likedList.Add(context.release.FirstOrDefault(x => x.ReleaseID == ID));
+                }
+                return likedList;
+            }
         }
 
 

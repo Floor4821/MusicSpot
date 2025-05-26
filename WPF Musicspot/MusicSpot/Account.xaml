@@ -22,14 +22,14 @@
         <Label x:Name="AccountPass" Content="Password:" HorizontalAlignment="Left" Margin="1133,325,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
         <Image Source="https://i.postimg.cc/25XcsbjM/Cart.jpg" Margin="863,438,570,255"/>
         <Rectangle HorizontalAlignment="Left" Stroke="Transparent" Fill="LightGray" Width="607" RenderTransformOrigin="0.502,0.711" Margin="864,542,0,52"/>
-        <ListBox Name="ShoppingCart" Margin="888,560,83,70">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="ShoppingCart" Margin="888,560,83,70">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="531">
                         <StackPanel Orientation="Vertical">
                             <Canvas Height="100">
-                                <Label Content="ProductName: " Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"></Label>
-                                <Label Content="{Binding ReleaseName}" Canvas.Left="10" Canvas.Top="54" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="457"/>
+                                <Label Content="{Binding ReleaseName}" Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"></Label>
+                                <Label Content="{Binding MediaString}" Canvas.Left="10" Canvas.Top="54" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="457"/>
                             </Canvas>
                         </StackPanel>
                     </Border>
@@ -53,14 +53,14 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <ListBox x:Name="Wishlist" Margin="21,179,1119,52">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Wishlist" Margin="21,179,1119,52" SelectionChanged="Wishlist_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="361" Height="134">
+                    <Border BorderThickness="2" BorderBrush="Black" Padding="15" Width="361" Height="134">
                         <StackPanel Orientation="Vertical">
                             <Canvas Height="100">
-                                <Label Content="ProductName: " Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
-                                <Label Content="{Binding ReleaseName}" Canvas.Left="10" Canvas.Top="54" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="457"/>
+                                <Label Content="{Binding ReleaseName}" FontSize="18" HorizontalAlignment="Left" Canvas.Top="10" VerticalAlignment="Center" Height="40" Width="123" Canvas.Left="10"/>
+                                <Label Content="{Binding MediaString}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Canvas.Top="64" VerticalAlignment="Center" Canvas.Left="10"/>
                             </Canvas>
                         </StackPanel>
                     </Border>
@@ -72,14 +72,14 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <ListBox x:Name="Likelist" Margin="435,179,702,52">
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Likedlist" Margin="435,179,702,52">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="363" Height="134">
+                    <Border BorderThickness="2" BorderBrush="Black" Padding="15" Width="363" Height="134">
                         <StackPanel Orientation="Vertical">
                             <Canvas Height="100">
-                                <Label Content="ProductName: " Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"/>
-                                <Label Content="{Binding ReleaseName}" Canvas.Left="10" Canvas.Top="54" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="457"/>
+                                <Label Content="{Binding ReleaseName}" FontSize="18" HorizontalAlignment="Left" Canvas.Top="10" VerticalAlignment="Center" Height="40" Width="123" Canvas.Left="10"/>
+                                <Label Content="{Binding Artist}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Canvas.Top="64" VerticalAlignment="Center" Canvas.Left="10"/>
                             </Canvas>
                         </StackPanel>
                     </Border>

@@ -19,12 +19,11 @@ namespace MusicSpot
     /// </summary>
     public partial class Account : Window
     {
+        public int accountID = AccountID.AI;
         public Account()
         {
             InitializeComponent();
             Data dt = new Data();
-            List<release> releases = dt.GetAllReleases();
-            ShoppingCart.ItemsSource = releases;
 
             int accountid = AccountID.AI;
 
@@ -35,6 +34,15 @@ namespace MusicSpot
             AccountMail.Content = "EMAIL: " + userinfo["Email"];
 
             BitmapImage BMI = dt.pfp();
+
+            List<Product> wishlist = dt.GetWishlist(accountid);
+            Wishlist.ItemsSource = wishlist;
+
+            List<release> likedlist = dt.GetLikedList(accountid);
+            Likedlist.ItemsSource = likedlist;
+
+            List<Product> shoppingCart = dt.GetShoppingCart(accountid);
+            ShoppingCart.ItemsSource = shoppingCart;
 
             if(BMI is null)
             {
@@ -82,8 +90,16 @@ namespace MusicSpot
         }
         public void ConfirmTransaction(object sender, RoutedEventArgs e)
         {
-            Navigation n = new Navigation();
-            n.ShowTrans();
+            Data d = new Data();
+            double paid = d.ConfirmTransaction(accountID);
+            MessageBox.Show($"Transaction succesfully processed: You paid €{paid}");
+            ((Account)Application.Current.MainWindow.Content).RefreshShoppingCart();
+        }
+        public void RefreshShoppingCart()
+        {
+            Data d = new Data();
+            List<Product> shoppingCart = d.GetShoppingCart(accountID);
+            ShoppingCart.ItemsSource = shoppingCart;
         }
 
         private void A_Recommended(object sender, RoutedEventArgs e)
@@ -98,6 +114,11 @@ namespace MusicSpot
             Navigation n = new Navigation();
             n.ShowAccount();
             this.Close();
+        }
+
+        private void Wishlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

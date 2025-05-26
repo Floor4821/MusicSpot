@@ -22,7 +22,7 @@
         <Label x:Name="AccountPass" Content="" HorizontalAlignment="Left" Margin="1116,323,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
         <Image Source="https://i.postimg.cc/25XcsbjM/Cart.jpg" Margin="863,438,570,255"/>
         <Rectangle HorizontalAlignment="Left" Stroke="Transparent" Fill="LightGray" Width="607" RenderTransformOrigin="0.502,0.711" Margin="864,542,0,52"/>
-        <ListBox Name="UserCart" Margin="888,560,83,70">
+        <ListBox Name="UserShoppingCart" Margin="888,560,83,70">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="531">
@@ -60,7 +60,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <ListBox x:Name="UserLikelist" Margin="435,179,702,52">
+        <ListBox x:Name="UserLikedlist" Margin="435,179,702,52">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="363" Height="134">

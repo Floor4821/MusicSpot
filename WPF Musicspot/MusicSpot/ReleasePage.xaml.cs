@@ -22,6 +22,7 @@ namespace MusicSpot
     public partial class ReleasePage : Window
     {
         public int CurrentReleaseID = 0;
+        public int CurrentAccountID = AccountID.AI;
         public ReleasePage(release r)
         {
             InitializeComponent();
@@ -94,6 +95,9 @@ namespace MusicSpot
             Product item = (Product)ProductList.SelectedItem;
             if (item != null)
             {
+                Data d = new Data();
+                int productID = item.ProductID;
+                d.AddProductToCart(CurrentAccountID, productID);
                 MessageBox.Show(item.MediaString.ToString());
             }
             else
@@ -101,9 +105,28 @@ namespace MusicSpot
                 MessageBox.Show("Select the product before adding it", "Selection error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        public void AddToWishlist(object sender, RoutedEventArgs e)
+        {
+            Product item = (Product)ProductList.SelectedItem;
+            if(item == null)
+            {
+                MessageBox.Show("No item selected", "Selection error");
+            }
+            else
+            {
+                Data d = new Data();
+                int productID = item.ProductID;
+                d.AddToWishlist(CurrentAccountID, productID);
+
+            }
+        }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {
-            
+            Data d = new Data();
+            int releaseID = CurrentReleaseID;
+            d.AddToLikeList(CurrentAccountID, releaseID);
+
         }
         public void GoBackToReleasePage(object sender, RoutedEventArgs e)
         {
@@ -111,6 +134,10 @@ namespace MusicSpot
             n.ShowReleaseView();
             this.Close();
         }
-        
+
+        private void ProductList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
