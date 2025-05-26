@@ -19,6 +19,7 @@ namespace MusicSpot
     /// </summary>
     public partial class Account : Window
     {
+        public int accountID = AccountID.AI;
         public Account()
         {
             InitializeComponent();
@@ -90,14 +91,13 @@ namespace MusicSpot
         public void ConfirmTransaction(object sender, RoutedEventArgs e)
         {
             Data d = new Data();
-            double paid = d.ConfirmTransaction();
+            double paid = d.ConfirmTransaction(accountID);
             MessageBox.Show($"Transaction succesfully processed: You paid €{paid}");
             ((Account)Application.Current.MainWindow.Content).RefreshShoppingCart();
         }
         public void RefreshShoppingCart()
         {
             Data d = new Data();
-            int accountID = AccountID.AI;
             List<Product> shoppingCart = d.GetShoppingCart(accountID);
             ShoppingCart.ItemsSource = shoppingCart;
         }

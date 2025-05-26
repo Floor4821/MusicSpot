@@ -22,6 +22,7 @@ namespace MusicSpot
     public partial class ReleasePage : Window
     {
         public int CurrentReleaseID = 0;
+        public int CurrentAccountID = AccountID.AI;
         public ReleasePage(release r)
         {
             InitializeComponent();
@@ -96,7 +97,7 @@ namespace MusicSpot
             {
                 Data d = new Data();
                 int productID = item.ProductID;
-                d.AddProductToCart(productID);
+                d.AddProductToCart(CurrentAccountID, productID);
                 MessageBox.Show(item.MediaString.ToString());
             }
             else
@@ -116,7 +117,7 @@ namespace MusicSpot
             {
                 Data d = new Data();
                 int productID = item.ProductID;
-                d.AddToWishlist(productID);
+                d.AddToWishlist(CurrentAccountID, productID);
 
             }
         }
@@ -124,7 +125,7 @@ namespace MusicSpot
         {
             Data d = new Data();
             int releaseID = CurrentReleaseID;
-            d.AddToLikeList(releaseID);
+            d.AddToLikeList(CurrentAccountID, releaseID);
 
         }
         public void GoBackToReleasePage(object sender, RoutedEventArgs e)

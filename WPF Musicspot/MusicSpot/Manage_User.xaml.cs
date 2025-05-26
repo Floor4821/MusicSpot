@@ -15,6 +15,7 @@ using System.IO;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
+using MusicSpot.Classes;
 
 namespace MusicSpot
 {
@@ -36,6 +37,15 @@ namespace MusicSpot
             AccountName.Content = "Username: " + pen["Username"];
             AccountMail.Content = "Email: " + pen["Email"];
             AccountPass.Content = "Password: " + pen["Password"];
+
+            List<Product> wishlist = d.GetWishlist(accountid);
+            UserWishlist.ItemsSource = wishlist;
+
+            List<release> likedlist = d.GetLikedList(accountid);
+            UserLikedlist.ItemsSource = likedlist;
+
+            List<Product> shoppingCart = d.GetShoppingCart(accountid);
+            UserShoppingCart.ItemsSource = shoppingCart;
 
             /*BitmapImage BMI = d.pfp(accountid);
 

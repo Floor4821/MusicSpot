@@ -298,80 +298,72 @@ namespace MusicSpot
         }
         public List<Product> GetProductsByID(int RelID)
         {
-            using (var data = new Data())
+            using (var context = new Data())
             {
-                List<Product> products = data.product.Where(x => x.ReleaseID == RelID).ToList();
+                List<Product> products = context.product.Where(x => x.ReleaseID == RelID).ToList();
                 return products;
             }
         }
 
-        public void AddToWishlist(int productID)
+        public void AddToWishlist(int accountID, int productID)
         {
-            int accountID = AccountID.AI;
-
-            using (Data d = new Data())
+            using (var context = new Data())
             {
                 Wishlist toAdd = new Wishlist(accountID, productID);
-                d.wishlist.Add(toAdd);
-                d.SaveChanges();
+                context.wishlist.Add(toAdd);
+                context.SaveChanges();
             }
         }
         public List<Product> GetWishlist(int accountID)
         {
-
-            Data d = new Data();
-            List<Product> wishlist = new List<Product>();
-            List<int> productIDs = d.wishlist.Where(x => x.AccountID == accountID).Select(x => x.ProductID).ToList();
-            foreach (int ID in productIDs)
+            using (var context = new Data())
             {
-                wishlist.Add(d.product.FirstOrDefault(x => x.ProductID == ID));
+                List<Product> wishlist = new List<Product>();
+                List<int> productIDs = context.wishlist.Where(x => x.AccountID == accountID).Select(x => x.ProductID).ToList();
+                foreach (int ID in productIDs)
+                {
+                    wishlist.Add(context.product.FirstOrDefault(x => x.ProductID == ID));
+                }
+                return wishlist;
             }
-            return wishlist;
-
         }
-        public int FindPurchase()
+        public int FindPurchase(int accountID)
         {
-            int accountID = AccountID.AI;
-            using(Data d = new Data())
+            using(var context = new Data())
             {
-                int purchaseID = d.purchase
+                int purchaseID = context.purchase
                     .Where(x => x.Processed == false && x.AccountID == accountID)
                     .Select(x => (int)x.PurchaseID).FirstOrDefault();
                 return purchaseID;
             }
-
         }
-        public void AddProductToCart(int productID)
+        public void AddProductToCart(int accountID, int productID)
         {
-            int accountID = AccountID.AI;
-
-            using (Data d = new Data())
+            using (var context = new Data())
             {
-                int purchaseID = FindPurchase();
+                int purchaseID = FindPurchase(accountID);
 
                 if (purchaseID == 0)
                 {
                     Purchase purchase = new Purchase(false, accountID);
-                    d.purchase.Add(purchase);
-                    d.SaveChanges();
+                    context.purchase.Add(purchase);
+                    context.SaveChanges();
 
                     purchaseID = purchase.PurchaseID;
 
                 }
 
                 PurchaseProduct pp = new PurchaseProduct(purchaseID, productID);
-                d.purchaseproduct.Add(pp);
-                d.SaveChanges();
+                context.purchaseproduct.Add(pp);
+                context.SaveChanges();
             }
         }
         public List<Product> GetShoppingCart(int accountID)
         {
-            System.Diagnostics.Debug.WriteLine("test");
-
             using (var context = new Data())
             {
                 List<Product> shoppingCart = new List<Product>();
-                int purchaseID = FindPurchase();
+                int purchaseID = FindPurchase(accountID);
                 if (purchaseID == 0)
                 {
                     List<Product> empty = new List<Product>();
@@ -388,10 +380,9 @@ namespace MusicSpot
                 return shoppingCart;
             }
         }
-        public double ConfirmTransaction()
+        public double ConfirmTransaction(int accountID)
         {
-            int accountID = AccountID.AI;
-            int purchaseID = FindPurchase();
+            int purchaseID = FindPurchase(accountID);
             using (var context = new Data())
             {
                 List<Product> shoppingCart = GetShoppingCart(accountID);
@@ -400,38 +391,38 @@ namespace MusicSpot
                 {
                     paid += p.Price;
                 }
+                DateTime date = DateTime.Now;
 
                 Purchase transaction = context.purchase.FirstOrDefault(x => x.PurchaseID == purchaseID);
                 transaction.Processed = true;
                 transaction.Paid = paid;
+                transaction.Date = date;
                 context.SaveChanges();
                 return paid;
             }
         }
-        public void AddToLikeList(int releaseID)
+        public void AddToLikeList(int accountID, int releaseID)
         {
-            int accountID = AccountID.AI;
 
-            using (Data d = new Data())
+            using (var context = new Data())
             {
                 Likedlist toAdd = new Likedlist(accountID, releaseID);
-                d.likedlist.Add(toAdd);
-                d.SaveChanges();
+                context.likedlist.Add(toAdd);
+                context.SaveChanges();
             }
         }
         public List<release> GetLikedList(int accountID)
         {
-            System.Diagnostics.Debug.WriteLine("WPF Debug test");
-
-            Data d = new Data();
-            List<release> likedList = new List<release>();
-            List<int> productIDs = d.likedlist.Where(x => x.AccountID == accountID).Select(x => x.ReleaseID).ToList();
-            foreach (int ID in productIDs)
+            using (var context = new Data())
             {
-                likedList.Add(d.release.FirstOrDefault(x => x.ReleaseID == ID));
+                List<release> likedList = new List<release>();
+                List<int> productIDs = context.likedlist.Where(x => x.AccountID == accountID).Select(x => x.ReleaseID).ToList();
+                foreach (int ID in productIDs)
+                {
+                    likedList.Add(context.release.FirstOrDefault(x => x.ReleaseID == ID));
+                }
+                return likedList;
             }
-            return likedList;
-
         }
 
 
