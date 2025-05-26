@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicSpot.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,10 @@ namespace MusicSpot
         public RecommendedView()
         {
             InitializeComponent();
-            //RecommendedList.ItemsSource = 
+            int accountID = AccountID.AI;
+            Recommended r = new Recommended();
+            List<release> recommended = r.SendRecommended(accountID);
+            Recommended.ItemsSource = recommended;
         }
 
         private void RV_Home(object sender, RoutedEventArgs e)
@@ -51,6 +55,22 @@ namespace MusicSpot
             Navigation n = new Navigation();
             n.ShowAccount();
             if (LogCheck.IsLogged == "true") { this.Close(); }
+        }
+
+        public void Show_RecommendedPage(object sender, RoutedEventArgs e)
+        {
+            var item = Recommended.SelectedItem;
+
+            object selecteditem = Recommended.SelectedItem;
+            int RLindex = Recommended.Items.IndexOf(selecteditem);
+            ListboxIndex.LBI = RLindex;
+
+            release selectedrelease = (release)item;
+
+            ReleasePage RP = new ReleasePage(selectedrelease);
+
+            RP.Show();
+            this.Close();
         }
     }
 }
