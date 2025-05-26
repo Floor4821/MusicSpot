@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using MusicSpot;
+using MusicSpot.Classes;
 using MySqlConnector;
 
 namespace MusicSpot
@@ -41,8 +42,16 @@ namespace MusicSpot
         {
             InitializeComponent();
             Data dt = new Data();
+            Recommended r = new Recommended();
             List<release> releases = dt.release.OrderByDescending(r => r.Releasedate).Take(10).ToList();
             NewestReleases.ItemsSource = releases;
+            if (LogCheck.IsLogged != "false")
+            {
+                int accountID = AccountID.AI;
+                List<release> recommended = r.SendRecommended(accountID).Take(10).ToList();
+                Recommended.ItemsSource = recommended;
+            }
+
             if (AdminCheck.IsAdmin == 1) { AdminLabel.Visibility = Visibility.Visible; }
         }
         public void login(object sender, RoutedEventArgs e)
@@ -50,6 +59,14 @@ namespace MusicSpot
             Login login = new Login();
             login.Show();
         }
+        public void RefreshRecs()
+        {
+            Recommended r = new Recommended();
+            int accountID = AccountID.AI;
+            List<release> recommended = r.SendRecommended(accountID).Take(10).ToList();
+            Recommended.ItemsSource = recommended;
+        }
+
         public void Register(object sender, RoutedEventArgs e)
         {
             Register register = new Register();
@@ -97,26 +114,10 @@ namespace MusicSpot
             d.wishlist.Add(wl);
             d.SaveChanges();
         }
-        /*
-var client = new HttpClient();
-var request = new HttpRequestMessage
-{
-Method = HttpMethod.Get,
-RequestUri = new Uri("https://spotify23.p.rapidapi.com/search/?q=Smells%20like%20teen%20spirit&type=multi&offset=0&limit=10&numberOfTopResults=5"),
-Headers =
-{
-{ "x-rapidapi-key", "00f8a3d412mshae13d562b6987c6p169362jsn20c5892a8c91" },
-{ "x-rapidapi-host", "spotify23.p.rapidapi.com" },
-},
-};
-using (var response = await client.SendAsync(request))
-{
-response.EnsureSuccessStatusCode();
-var body = await response.Content.ReadAsStringAsync();
-JObject jsonResponse = JObject.Parse(body);
-var urlcover = jsonResponse["albums"]?["items"]?[0]?["data"]?["coverArt"]?["sources"]?[0]?["url"]?.ToString();
 
-}
-*/
+        private void Recommended_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

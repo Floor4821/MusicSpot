@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicSpot"
+        xmlns:vwp="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
         WindowState="Maximized"
         mc:Ignorable="d"
         Title="RecommendedView" Height="802" Width="1534">
@@ -17,7 +18,29 @@
         <Rectangle Stroke="Black" Fill="LightGray" Margin="0,89,0,608"/>
         <Label Content="Recommended To You" HorizontalAlignment="Center" Margin="0,97,0,0" VerticalAlignment="Top" FontSize="48"/>
         <Rectangle HorizontalAlignment="Left" Height="482" Margin="329,259,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1163"/>
-        <ListBox Name="RecommendedList" ItemsSource="{Binding releaseName}" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="379,288,80,89"/>
+        <ListBox x:Name="Recommended" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="474,186,0,0" Width="1050" SelectionChanged="Show_RecommendedPage" Height="596" VirtualizingPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Standard" ScrollViewer.IsDeferredScrollingEnabled="True">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <vwp:VirtualizingWrapPanel 
+             Orientation="Horizontal"
+             VirtualizingStackPanel.IsVirtualizing="True"
+             VirtualizingStackPanel.VirtualizationMode="Recycling"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="Gray" Padding="40" CornerRadius="5">
+                        <StackPanel>
+                            <Canvas Height="60" Width="140">
+                                <TextBlock HorizontalAlignment="Left" Text="{Binding ReleaseName}" Width="163" Canvas.Left="-20" Canvas.Top="54"/>
+                                <Image Name="ReleaseviewCover" HorizontalAlignment="Left" Source="{Binding CoverImage}" Height="51" Width="60" RenderTransformOrigin="0.537,0.447" Canvas.Left="-20" Canvas.Top="-1"/>
+                            </Canvas>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,339,1313,125"/>
         <Label Content="Sort By" HorizontalAlignment="Left" Margin="39,259,0,0" VerticalAlignment="Top" FontSize="36"/>
 
