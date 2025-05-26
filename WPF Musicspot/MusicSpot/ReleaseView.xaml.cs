@@ -129,5 +129,9 @@ namespace MusicSpot
 
             }
         }
+        public void SearchArtist(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

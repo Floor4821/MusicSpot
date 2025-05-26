@@ -16,7 +16,7 @@
         <Button Background="Transparent" BorderBrush="Transparent" Content="Recommended" FontSize="36" Margin="864,5,422,708" Click="A_Recommended"/>
         <Button Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,708" Click="A_Account"/>
         <Rectangle HorizontalAlignment="Left" Height="277" Margin="864,145,0,0" Fill="LightCyan" VerticalAlignment="Top" Width="607"/>
-        <Image Name="profilepicture" Width="150" Height="150" Margin="888,231,419,396"/>
+        <Image Name="profilepicture" Margin="904,225,434,387"/>
         <Label x:Name="AccountName" Content="" HorizontalAlignment="Left" Margin="900,176,0,0" VerticalAlignment="Top" FontSize="24" Width="534"/>
         <Label x:Name="AccountMail" Content="Email:" HorizontalAlignment="Left" Margin="1133,265,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
         <Label x:Name="AccountPass" Content="Password:" HorizontalAlignment="Left" Margin="1133,325,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
@@ -94,5 +94,7 @@
         <Label x:Name="AccountName_Copy" Content="Your Wishlist" HorizontalAlignment="Left" Margin="86,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
         <Label x:Name="AccountName_Copy1" Content="Your Likelist" HorizontalAlignment="Left" Margin="524,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
         <Button Content="Logout" Background="Black" Click="Logout" Foreground="White" FontSize="20" Margin="1381,386,66,374"></Button>
+        <Button Content="Change Account" Background="Black" Foreground="White" HorizontalAlignment="Left" Margin="1335,101,0,0" VerticalAlignment="Top" Height="39" Width="136" Click="UserChangesAccount" FontSize="16"/>
+        <Button Content="Delete Account" Background="Black" Foreground="White" HorizontalAlignment="Left" Margin="1179,101,0,0" VerticalAlignment="Top" Height="39" Width="136" FontSize="16"/>
     </Grid>
 </Window>

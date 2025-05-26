@@ -110,5 +110,12 @@ namespace MusicSpot
         {
 
         }
+
+        private void UserChangesAccount(object sender, RoutedEventArgs e)
+        {
+            int CurrentUserID = AccountID.AI;
+            ChangeAccount CA = new ChangeAccount(CurrentUserID, 0);
+            CA.Show();
+        }
     }
 }

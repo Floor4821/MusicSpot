@@ -22,10 +22,12 @@ namespace MusicSpot
         public int permission = 0;
         public byte[] ImagePFP = null;
         public int ID = 0;
-        public ChangeAccount(int userid = 0)
+        public int Enable_AdminView = 1;
+        public ChangeAccount(int userid = 0, int IsThisAdmin = 1)
         {
             InitializeComponent();
             ID = userid;
+            Enable_AdminView = IsThisAdmin;
             if (userid == 0)
             {
                 EditorUpdate.Content = "Insert new user";
@@ -33,6 +35,10 @@ namespace MusicSpot
             else
             {
                 EditorUpdate.Content = $"Edit user {ID.ToString()}";
+            }
+            if (IsThisAdmin == 1)
+            {
+                AccessExpander.Visibility = Visibility.Visible;
             }
         }
         public void NewPFP(object sender, MouseButtonEventArgs e)
@@ -83,6 +89,7 @@ namespace MusicSpot
             {
                 using (var context = new Data())
                 {
+                    bool validinsertcheck = true;
                     var user = context.account.FirstOrDefault(x => x.AccountID == ID);
                     if (!string.IsNullOrWhiteSpace(UN))
                     {
@@ -94,8 +101,16 @@ namespace MusicSpot
                     }
                     if (!string.IsNullOrWhiteSpace(UP))
                     {
-                        string Hash = context.HashPassword(UP);
-                        user.Password = Hash;
+                        string[] ValidPass = context.PasswordCheck(UP);
+                        if (ValidPass[0] == "Correct")
+                        {
+                            string Hash = context.HashPassword(UP);
+                            user.Password = Hash;
+                        }
+                        else
+                        {
+                            MessageBox.Show(ValidPass[0], ValidPass[1]);
+                        }
                     }
                     if (ImagePFP != null)
                     {

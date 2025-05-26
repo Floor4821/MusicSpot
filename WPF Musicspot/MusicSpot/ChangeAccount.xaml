@@ -16,7 +16,7 @@
         <TextBox Name="Email" HorizontalAlignment="Left" Margin="159,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402" FontSize="24"/>
         <PasswordBox Name="Password" HorizontalAlignment="Left" Margin="159,189,0,0" VerticalAlignment="Top" Width="402" FontSize="24"/>
         <Label Content="Permission:" HorizontalAlignment="Left" Margin="25,256,0,0" VerticalAlignment="Top" Height="44" Width="129" FontSize="24"/>
-        <Expander HorizontalAlignment="Left" Height="88" Header="Set Permission" Margin="159,270,0,0" VerticalAlignment="Top" Width="127" IsExpanded="True">
+        <Expander Name="AccessExpander" Visibility="Hidden" HorizontalAlignment="Left" Height="88" Header="Set Permission" Margin="159,270,0,0" VerticalAlignment="Top" Width="127" IsExpanded="True">
             <Canvas Width="122">
                 <Button Click="ConfirmAdmin" Content="Admin" VerticalAlignment="Center" Width="107" Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center"/>
                 <Button Click="ConfirmUser" Content="User" Width="107" Canvas.Left="10" Canvas.Top="38" HorizontalAlignment="Center" VerticalAlignment="Top"/>

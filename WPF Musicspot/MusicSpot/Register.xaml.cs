@@ -20,6 +20,8 @@ using System.IO;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Net;
+using System.Linq.Expressions;
 
 namespace MusicSpot
 {
@@ -41,7 +43,7 @@ namespace MusicSpot
             byte[] stuff = d.PFP();
             ProfilePicture = stuff;
         }
-        private void CreateAccount(object sender, RoutedEventArgs e)
+        public void CreateAccount(object sender, RoutedEventArgs e)
         {
             Data data = new Data();
             string name = RegisterName.Text;
@@ -53,45 +55,70 @@ namespace MusicSpot
             {
                 MessageBox.Show("Missing values. Please ensure all fields are satisfied.", "Failed to create new account", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            string[] passcheck = PasswordCheck(password);
-            if (passcheck[0] == "Correct")
+            UserAccount MailCheck = data.account.FirstOrDefault(x => x.Email == mail);
+            if (MailCheck is null)
             {
-                hashedpassword = data.HashPassword(password);
-                UserAccount UA = new UserAccount(name, mail, hashedpassword, 0, pfp);
-                
-                data.account.Add(UA);
-                data.SaveChanges();
-                
-                MessageBox.Show("Account has been successfully created", "Success", MessageBoxButton.OK);
+                string[] passcheck = data.PasswordCheck(password);
+                if (passcheck[0] == "Correct")
+                {
+                    try
+                    {
+                        //bool sendemail = SendEmailUsingOutlook(mail, password, name);
+
+                        hashedpassword = data.HashPassword(password);
+                        UserAccount UA = new UserAccount(name, mail, hashedpassword, 0, pfp);
+
+                        data.account.Add(UA);
+                        data.SaveChanges();
+
+                        MessageBox.Show("Account has been successfully created", "Success", MessageBoxButton.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Something went wrong; please try again");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(passcheck[0], "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
             else
             {
-                MessageBox.Show(passcheck[0], "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Email address is already taken", "Invalid Email", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        public string[] PasswordCheck(string pass)
+        
+        /*public bool SendEmailUsingOutlook(string useremail, string password, string username)
         {
-            Regex DigitCheck = new Regex(@"\d");
-            Regex LowercaseCheck = new Regex(@"[a-z]");
-            Regex UppercaseCheck = new Regex(@"[A-Z]");
-            Regex SpecialCheck = new Regex(@"\W");
-            if (pass.Length < 8)
+            string to = useremail;
+            string from = "jamey.verlinden@outlook.com";
+            string OutlookPass = "kZM1LF=_Oy~n#hP8PA=1}?e~I~m,oH;a#V,p[5(iU";
+
+            MailMessage message = new MailMessage(from, to)
             {
-                return ["Password must be at least 8 characters long", "Invalid Length"];
-            }
-            else if (!LowercaseCheck.IsMatch(pass))
+                Subject = "Account successfully made in Musicspot",
+                Body = "Your account has been successfully been added to Musicspot.\n" +
+                $"Your username: {username}\n" +
+                $"Your password: {password}"
+            };
+
+            SmtpClient client = new SmtpClient("smtp.office365.com", 587)
             {
-                return ["Password must contain at least 1 lowercase character", "Invalid case"];
-            }
-            else if (!UppercaseCheck.IsMatch(pass))
+                EnableSsl = true,
+                Credentials = new NetworkCredential(from, OutlookPass)
+            };
+
+            try
             {
-                return ["Password must contain at least 1 uppercase character", "Invalid case"];
+                client.Send(message);
+                return true;
             }
-            else if (!SpecialCheck.IsMatch(pass))
+            catch (Exception ex)
             {
-                return ["Password must contain at least 1 special character", "No special characters detected"];
+                MessageBox.Show(ex.ToString());
+                return false;
             }
-            return ["Correct"];
-        }
+        }*/
     }
 }

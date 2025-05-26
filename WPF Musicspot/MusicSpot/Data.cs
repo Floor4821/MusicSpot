@@ -20,6 +20,7 @@ using ImageMagick;
 using MusicSpot.Classes;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace MusicSpot
 {
@@ -43,7 +44,6 @@ namespace MusicSpot
         public DbSet<SubgenreType> subgenretype { get; set; }
 
         public DbSet<GenreObject> genreobject { get; set; }
-        public DbSet<Wishlist> wishlist { get; set; }
 
         public DbSet<Wishlist> wishlist { get; set; }
 
@@ -358,7 +358,30 @@ namespace MusicSpot
             return likedList;
 
         }
-
+        public string[] PasswordCheck(string pass)
+        {
+            Regex DigitCheck = new Regex(@"\d");
+            Regex LowercaseCheck = new Regex(@"[a-z]");
+            Regex UppercaseCheck = new Regex(@"[A-Z]");
+            Regex SpecialCheck = new Regex(@"\W");
+            if (pass.Length < 8)
+            {
+                return ["Password must be at least 8 characters long", "Invalid Length"];
+            }
+            else if (!LowercaseCheck.IsMatch(pass))
+            {
+                return ["Password must contain at least 1 lowercase character", "Invalid case"];
+            }
+            else if (!UppercaseCheck.IsMatch(pass))
+            {
+                return ["Password must contain at least 1 uppercase character", "Invalid case"];
+            }
+            else if (!SpecialCheck.IsMatch(pass))
+            {
+                return ["Password must contain at least 1 special character", "No special characters detected"];
+            }
+            return ["Correct"];
+        }
 
 
         //SQL ENTITYFRAMEWORK CORE
