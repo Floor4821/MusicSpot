@@ -94,6 +94,9 @@ namespace MusicSpot
             Product item = (Product)ProductList.SelectedItem;
             if (item != null)
             {
+                Data d = new Data();
+                int productID = item.ProductID;
+                d.AddProductToCart(productID);
                 MessageBox.Show(item.MediaString.ToString());
             }
             else

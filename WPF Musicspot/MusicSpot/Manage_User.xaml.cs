@@ -37,7 +37,7 @@ namespace MusicSpot
             AccountMail.Content = "Email: " + pen["Email"];
             AccountPass.Content = "Password: " + pen["Password"];
 
-            BitmapImage BMI = d.pfp(accountid);
+            /*BitmapImage BMI = d.pfp(accountid);
 
             if (BMI is null)
             {
@@ -47,7 +47,7 @@ namespace MusicSpot
             else
             {
                 profilepicture.Source = BMI;
-            }
+            }*/
         }
 
         private void Edit_Profile(object sender, RoutedEventArgs e)

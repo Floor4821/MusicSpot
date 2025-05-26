@@ -43,12 +43,14 @@ namespace MusicSpot
         public DbSet<SubgenreType> subgenretype { get; set; }
 
         public DbSet<GenreObject> genreobject { get; set; }
-        public DbSet<Wishlist> wishlist { get; set; }
 
         public DbSet<Wishlist> wishlist { get; set; }
 
         public DbSet<Likedlist> likedlist { get; set; }
 
+        public DbSet<Purchase> purchase { get; set; }
+
+        public DbSet<PurchaseProduct> purchaseproduct { get; set; }
 
         private string connectionstring = "datasource = 127.0.0.1;" +
             "port = 3307;" +
@@ -307,7 +309,6 @@ namespace MusicSpot
         {
             int accountID = AccountID.AI;
 
-            MessageBox.Show($"{accountID.ToString()} and {productID.ToString()}");
             using (Data d = new Data())
             {
                 Wishlist toAdd = new Wishlist(accountID, productID);
@@ -328,15 +329,88 @@ namespace MusicSpot
             return wishlist;
 
         }
-        public void AddProductToCart()
+        public int FindPurchase()
         {
+            int accountID = AccountID.AI;
+            using(Data d = new Data())
+            {
+                int purchaseID = d.purchase
+                    .Where(x => x.Processed == false && x.AccountID == accountID)
+                    .Select(x => (int)x.PurchaseID).FirstOrDefault();
+                return purchaseID;
+            }
 
+        }
+        public void AddProductToCart(int productID)
+        {
+            int accountID = AccountID.AI;
+
+            using (Data d = new Data())
+            {
+                int purchaseID = FindPurchase();
+
+                if (purchaseID == 0)
+                {
+                    Purchase purchase = new Purchase(false, accountID);
+                    d.purchase.Add(purchase);
+                    d.SaveChanges();
+
+                    purchaseID = purchase.PurchaseID;
+
+                }
+
+                PurchaseProduct pp = new PurchaseProduct(purchaseID, productID);
+                d.purchaseproduct.Add(pp);
+                d.SaveChanges();
+            }
+        }
+        public List<Product> GetShoppingCart(int accountID)
+        {
+            System.Diagnostics.Debug.WriteLine("test");
+
+            using (var context = new Data())
+            {
+                List<Product> shoppingCart = new List<Product>();
+                int purchaseID = FindPurchase();
+                if (purchaseID == 0)
+                {
+                    List<Product> empty = new List<Product>();
+                    return empty;
+                }
+
+                List<int> productIDs = context.purchaseproduct
+                    .Where(x => x.PurchaseID == purchaseID)
+                    .Select(x => (int)x.ProductID).ToList();
+                foreach (int p in productIDs)
+                {
+                    shoppingCart.Add(context.product.FirstOrDefault(x => x.ProductID == p));
+                }
+                return shoppingCart;
+            }
+        }
+        public double ConfirmTransaction()
+        {
+            int accountID = AccountID.AI;
+            int purchaseID = FindPurchase();
+            using (var context = new Data())
+            {
+                List<Product> shoppingCart = GetShoppingCart(accountID);
+                double paid = 0;
+                foreach (Product p in shoppingCart)
+                {
+                    paid += p.Price;
+                }
+
+                Purchase transaction = context.purchase.FirstOrDefault(x => x.PurchaseID == purchaseID);
+                transaction.Processed = true;
+                transaction.Paid = paid;
+                context.SaveChanges();
+                return paid;
+            }
         }
         public void AddToLikeList(int releaseID)
         {
             int accountID = AccountID.AI;
-
-            MessageBox.Show($"account {accountID.ToString()}, release {releaseID.ToString()}");
 
             using (Data d = new Data())
             {
@@ -347,6 +421,7 @@ namespace MusicSpot
         }
         public List<release> GetLikedList(int accountID)
         {
+            System.Diagnostics.Debug.WriteLine("WPF Debug test");
 
             Data d = new Data();
             List<release> likedList = new List<release>();

@@ -23,8 +23,6 @@ namespace MusicSpot
         {
             InitializeComponent();
             Data dt = new Data();
-            List<release> releases = dt.GetAllReleases();
-            ShoppingCart.ItemsSource = releases;
 
             int accountid = AccountID.AI;
 
@@ -41,6 +39,9 @@ namespace MusicSpot
 
             List<release> likedlist = dt.GetLikedList(accountid);
             Likedlist.ItemsSource = likedlist;
+
+            List<Product> shoppingCart = dt.GetShoppingCart(accountid);
+            ShoppingCart.ItemsSource = shoppingCart;
 
             if(BMI is null)
             {
@@ -88,8 +89,17 @@ namespace MusicSpot
         }
         public void ConfirmTransaction(object sender, RoutedEventArgs e)
         {
-            Navigation n = new Navigation();
-            n.ShowTrans();
+            Data d = new Data();
+            double paid = d.ConfirmTransaction();
+            MessageBox.Show($"Transaction succesfully processed: You paid €{paid}");
+            ((Account)Application.Current.MainWindow.Content).RefreshShoppingCart();
+        }
+        public void RefreshShoppingCart()
+        {
+            Data d = new Data();
+            int accountID = AccountID.AI;
+            List<Product> shoppingCart = d.GetShoppingCart(accountID);
+            ShoppingCart.ItemsSource = shoppingCart;
         }
 
         private void A_Recommended(object sender, RoutedEventArgs e)
