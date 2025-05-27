@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using MusicSpot.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,7 +80,6 @@ namespace MusicSpot
             Data d = new Data();
             double paid = d.ConfirmTransaction(accountID);
             MessageBox.Show($"Transaction succesfully processed: You paid €{paid}");
-            ((Account)Application.Current.MainWindow.Content).RefreshShoppingCart();
         }
         public void RefreshShoppingCart()
         {
@@ -104,6 +105,94 @@ namespace MusicSpot
         private void Wishlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        public void RemoveFromLikelist(object sender, RoutedEventArgs e)
+        {
+            Data d = new Data();
+            int acID = AccountID.AI;
+            var selectedlikes = Likedlist.SelectedItems;
+            if (selectedlikes.Count == 0)
+            {
+                MessageBox.Show("Nothing was selected", "Insufficient requirements");
+            }
+            else
+            {
+                foreach (var stuff in selectedlikes)
+                {
+                    release r = stuff as release; int relID = r.ReleaseID;
+
+                    Likedlist LL = new Likedlist(acID, r.ReleaseID);
+
+                    Likedlist RemoveThisLL = d.likedlist.FirstOrDefault(x => x.ReleaseID == LL.ReleaseID && x.AccountID == LL.AccountID);
+
+                    d.likedlist.Remove(RemoveThisLL);
+                    d.SaveChanges();
+
+                }
+                MessageBox.Show("Selection has been deleted from your account", "Deletion successfull");
+            }
+        }
+
+        private void RemoveFromWishlist(object sender, RoutedEventArgs e)
+        {
+            Data d = new Data();
+            int acID = AccountID.AI;
+            var selectedlikes = Wishlist.SelectedItems;
+            if (selectedlikes.Count == 0)
+            {
+                MessageBox.Show("Nothing was selected", "Insufficient requirements");
+            }
+            else
+            {
+                foreach (var stuff in selectedlikes)
+                {
+                    Product P = stuff as Product;
+
+                    Wishlist WL = new Wishlist(acID, P.ProductID);
+
+                    Wishlist RemoveThisWL = d.wishlist.FirstOrDefault(x => x.ProductID == WL.ProductID && x.AccountID == acID);
+
+                    d.wishlist.Remove(RemoveThisWL);
+                    d.SaveChanges();
+
+                }
+                MessageBox.Show("Selection has been deleted from your account", "Deletion successfull");
+            }
+        }
+
+        private void RemoveFromTransactions(object sender, RoutedEventArgs e)
+        {
+            /*Data d = new Data();
+            int acID = AccountID.AI;
+            var selectedlikes = ShoppingCart.SelectedItems;
+            if (selectedlikes.Count == 0)
+            {
+                MessageBox.Show("Nothing was selected", "Insufficient requirements");
+            }
+            else
+            {
+                foreach (var stuff in selectedlikes)
+                {
+                    MessageBox.Show(stuff.ToString());
+                    Product P = stuff as Product;
+
+                    Purchase WL = new Purchase(acID, P.ProductID);
+
+                    Wishlist RemoveThisWL = d.wishlist.FirstOrDefault(x => x.ProductID == WL.ProductID && x.AccountID == acID);
+
+                    d.wishlist.Remove(RemoveThisWL);
+                    d.SaveChanges();
+
+                }
+                MessageBox.Show("Selection has been deleted from your account", "Deletion successfull");
+            }*/
+        }
+
+        public void ChageAccountSettings(object sender, RoutedEventArgs e)
+        {
+            ChangeAccount CA = new ChangeAccount(accountID, "Hi_Anthony_;)");
+            CA.Show();
         }
     }
 }

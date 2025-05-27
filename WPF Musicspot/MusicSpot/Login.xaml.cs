@@ -59,25 +59,5 @@ namespace MusicSpot
                 }
             }
         }
-        static bool VerifyPassword(string password, string storedHash)
-        {
-            var parts = storedHash.Split('.');
-            if (parts.Length != 2)
-                return false;
-
-            byte[] salt = Convert.FromHexString(parts[0]);
-            byte[] hash = Convert.FromHexString(parts[1]);
-
-            HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
-
-            byte[] hashToCheck = Rfc2898DeriveBytes.Pbkdf2(
-                Encoding.UTF8.GetBytes(password),
-                salt,
-                Iterations,
-                hashAlgorithm,
-                hash.Length);
-
-            return CryptographicOperations.FixedTimeEquals(hash, hashToCheck);
-        }
     }
 }

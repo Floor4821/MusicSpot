@@ -267,7 +267,7 @@ namespace MusicSpot
 
                     data.SaveChanges();
 
-                    MessageBox.Show("Commander, the release has been successfully destroyed", "Successfull deletion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("The release has been successfully destroyed", "Successfull deletion", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -316,11 +316,18 @@ namespace MusicSpot
 
         public void AddToWishlist(int accountID, int productID)
         {
-            using (var context = new Data())
+            if (AccountID.AI != 0)
             {
-                Wishlist toAdd = new Wishlist(accountID, productID);
-                context.wishlist.Add(toAdd);
-                context.SaveChanges();
+                using (var context = new Data())
+                {
+                    Wishlist toAdd = new Wishlist(accountID, productID);
+                    context.wishlist.Add(toAdd);
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Log in to add products to your wishlist", "Account access required", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         public List<Product> GetWishlist(int accountID)
@@ -348,23 +355,30 @@ namespace MusicSpot
         }
         public void AddProductToCart(int accountID, int productID)
         {
-            using (var context = new Data())
+            if (AccountID.AI != 0)
             {
-                int purchaseID = FindPurchase(accountID);
-
-                if (purchaseID == 0)
+                using (var context = new Data())
                 {
-                    Purchase purchase = new Purchase(false, accountID);
-                    context.purchase.Add(purchase);
+                    int purchaseID = FindPurchase(accountID);
+
+                    if (purchaseID == 0)
+                    {
+                        Purchase purchase = new Purchase(false, accountID);
+                        context.purchase.Add(purchase);
+                        context.SaveChanges();
+
+                        purchaseID = purchase.PurchaseID;
+
+                    }
+
+                    PurchaseProduct pp = new PurchaseProduct(purchaseID, productID);
+                    context.purchaseproduct.Add(pp);
                     context.SaveChanges();
-
-                    purchaseID = purchase.PurchaseID;
-
                 }
-
-                PurchaseProduct pp = new PurchaseProduct(purchaseID, productID);
-                context.purchaseproduct.Add(pp);
-                context.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Log in to add products to your cart", "Account access required", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         public List<Product> GetShoppingCart(int accountID)
@@ -412,12 +426,18 @@ namespace MusicSpot
         }
         public void AddToLikeList(int accountID, int releaseID)
         {
-
-            using (var context = new Data())
+            if (AccountID.AI != 0)
             {
-                Likedlist toAdd = new Likedlist(accountID, releaseID);
-                context.likedlist.Add(toAdd);
-                context.SaveChanges();
+                using (var context = new Data())
+                {
+                    Likedlist toAdd = new Likedlist(accountID, releaseID);
+                    context.likedlist.Add(toAdd);
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Log in to add releases to your Likelist", "Account access required", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         public List<release> GetLikedList(int accountID)

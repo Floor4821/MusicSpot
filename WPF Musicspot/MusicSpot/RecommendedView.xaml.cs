@@ -25,8 +25,38 @@ namespace MusicSpot
             InitializeComponent();
             int accountID = AccountID.AI;
             Recommended r = new Recommended();
-            List<release> recommended = r.SendRecommended(accountID);
-            Recommended.ItemsSource = recommended;
+            if (accountID == 0)
+            {
+                MessageBox.Show("Recommendationlist is not accessible; please log in to your account to view your recommendations", "No account permissions");
+            }
+            else
+            {
+                Data d = new Data();
+                List<Likedlist> UserLikelist = d.likedlist.Where(x => x.AccountID == accountID).ToList();
+                List<string> genres = new List<string>();
+                int uniquecount = 0;
+                foreach(Likedlist Like in UserLikelist)
+                {
+                    release Likegenre = d.release.FirstOrDefault(x => x.ReleaseID == Like.ReleaseID);
+                    GenreObject thegenre = d.genreobject.FirstOrDefault(y => y.GenreID == Likegenre.GenreID);
+                    if (!genres.Contains(thegenre.Genre.ToString()))
+                    {
+                        genres.Add(thegenre.Genre.ToString());
+                        uniquecount += 1;
+                    }
+                }
+                if (uniquecount <= 1)
+                {
+                    MessageBox.Show("You have not liked any releases yet or not enough to make accurate recommendations. Thus no recommendations can be shown", "Unable to load recommendationlist", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
+                {
+                    List<release> recommended = r.SendRecommended(accountID);
+                    
+                    Recommended.ItemsSource = recommended;
+                    
+                }
+            }
         }
 
         private void RV_Home(object sender, RoutedEventArgs e)
@@ -61,13 +91,9 @@ namespace MusicSpot
         {
             var item = Recommended.SelectedItem;
 
-            object selecteditem = Recommended.SelectedItem;
-            int RLindex = Recommended.Items.IndexOf(selecteditem);
-            ListboxIndex.LBI = RLindex;
-
             release selectedrelease = (release)item;
 
-            ReleasePage RP = new ReleasePage(selectedrelease);
+            ReleasePage RP = new ReleasePage(selectedrelease, "rec");
 
             RP.Show();
             this.Close();

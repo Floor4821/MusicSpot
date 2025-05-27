@@ -49,6 +49,7 @@ namespace MusicSpot
 
             BitmapImage BMI = d.pfp(accountid);
             profilepicture.Source = BMI;
+            
         }
 
         private void Edit_Profile(object sender, RoutedEventArgs e)

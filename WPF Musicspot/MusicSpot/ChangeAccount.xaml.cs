@@ -22,7 +22,7 @@ namespace MusicSpot
         public int permission = 0;
         public byte[] ImagePFP = null;
         public int ID = 0;
-        public ChangeAccount(int userid = 0)
+        public ChangeAccount(int userid = 0, string permission = "admin")
         {
             InitializeComponent();
             ID = userid;
@@ -33,6 +33,15 @@ namespace MusicSpot
             else
             {
                 EditorUpdate.Content = $"Edit user {ID.ToString()}";
+            }
+            if(permission == "admin")
+            {
+                PermissionExpander.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                PermissionExpander.Visibility = Visibility.Hidden;
+                PermissionLabel.Visibility = Visibility.Hidden;
             }
         }
         public void NewPFP(object sender, MouseButtonEventArgs e)
