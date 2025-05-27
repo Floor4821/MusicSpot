@@ -33,8 +33,6 @@ namespace MusicSpot
             AccountPass.Content = "PASSWORD: " + userinfo["Password"];
             AccountMail.Content = "EMAIL: " + userinfo["Email"];
 
-            BitmapImage BMI = dt.pfp();
-
             List<Product> wishlist = dt.GetWishlist(accountid);
             Wishlist.ItemsSource = wishlist;
 
@@ -44,22 +42,9 @@ namespace MusicSpot
             List<Product> shoppingCart = dt.GetShoppingCart(accountid);
             ShoppingCart.ItemsSource = shoppingCart;
 
-            if(BMI is null)
-            {
-                //fetches default pfp
-                string url = "https://i.postimg.cc/fRn91Yp2/defaultpfp.png";
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(url);
-                bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                bitmap.EndInit();
-                profilepicture.Source = bitmap;
-            }
-            else
-            {
-                profilepicture.Source = BMI;
-            }
-            //AccountName.Content = AccountID.AI.ToString();
+            BitmapImage BMI = dt.pfp();
+            profilepicture.Source = BMI;
+
         }
         public void A_Releases(object sender, RoutedEventArgs e)
         {
