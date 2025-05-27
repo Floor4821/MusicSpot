@@ -38,6 +38,8 @@ namespace MusicSpot
             Artist.Content ="Artist: " + r.Artist.ToString();
             Data d = new Data();
             Genre.Content = $"Genre: {r.GenreString}";
+            Subgenre.Content = $"Subgenre: {r.SubgenreString}";
+            ReleaseDate.Content = $"Release Date: {r.Releasedate.ToString("yyyy-MM-dd")}";
 
             int ReleaseID = r.ReleaseID;
             List<Song> songs = d.songlist(ReleaseID);
