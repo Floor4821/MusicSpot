@@ -49,33 +49,14 @@ namespace MusicSpot
                     AdminCheck.IsAdmin = isadmin;
                     LogCheck.IsLogged = "true";
                     AccountID.AI = LoginUser.AccountID;
-                    ((MainWindow)Application.Current.MainWindow).RefreshRecs();
+                    this.Close();
+                    //((MainWindow)Application.Current.MainWindow).RefreshRecs();
                 }
                 if (LogCheck.IsLogged == "false")
                 {
                     MessageBox.Show("Failed login attempt. Try again or make a new account", "Failed login", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-        }
-        static bool VerifyPassword(string password, string storedHash)
-        {
-            var parts = storedHash.Split('.');
-            if (parts.Length != 2)
-                return false;
-
-            byte[] salt = Convert.FromHexString(parts[0]);
-            byte[] hash = Convert.FromHexString(parts[1]);
-
-            HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
-
-            byte[] hashToCheck = Rfc2898DeriveBytes.Pbkdf2(
-                Encoding.UTF8.GetBytes(password),
-                salt,
-                Iterations,
-                hashAlgorithm,
-                hash.Length);
-
-            return CryptographicOperations.FixedTimeEquals(hash, hashToCheck);
         }
     }
 }

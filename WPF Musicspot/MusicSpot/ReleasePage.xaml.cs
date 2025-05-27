@@ -23,7 +23,9 @@ namespace MusicSpot
     {
         public int CurrentReleaseID = 0;
         public int CurrentAccountID = AccountID.AI;
-        public ReleasePage(release r)
+        public string OriginPage = "";
+
+        public ReleasePage(release r, string originpage = "rel")
         {
             InitializeComponent();
             CurrentReleaseID = r.ReleaseID;
@@ -46,6 +48,7 @@ namespace MusicSpot
             List<Product> products = d.GetProductsByID(r.ReleaseID);
 
             ProductList.ItemsSource = products;
+            OriginPage = originpage;
         }
 
         private void RP_Home(object sender, RoutedEventArgs e)
@@ -98,7 +101,7 @@ namespace MusicSpot
                 Data d = new Data();
                 int productID = item.ProductID;
                 d.AddProductToCart(CurrentAccountID, productID);
-                MessageBox.Show(item.MediaString.ToString());
+                MessageBox.Show("Item has been added to your shoppingcart");
             }
             else
             {
@@ -118,7 +121,7 @@ namespace MusicSpot
                 Data d = new Data();
                 int productID = item.ProductID;
                 d.AddToWishlist(CurrentAccountID, productID);
-
+                MessageBox.Show("Item has been added to your wishlist");
             }
         }
         public void LikeRelease(object sender, RoutedEventArgs e)
@@ -126,13 +129,21 @@ namespace MusicSpot
             Data d = new Data();
             int releaseID = CurrentReleaseID;
             d.AddToLikeList(CurrentAccountID, releaseID);
-
+            MessageBox.Show("Item has been added to your likelist");
         }
         public void GoBackToReleasePage(object sender, RoutedEventArgs e)
         {
             Navigation n = new Navigation();
-            n.ShowReleaseView();
-            this.Close();
+            if (OriginPage == "rec")
+            {
+                n.ShowRecommended();
+                this.Close();
+            }
+            else
+            {
+                n.ShowReleaseView();
+                this.Close();
+            }
         }
 
         private void ProductList_SelectionChanged(object sender, SelectionChangedEventArgs e)

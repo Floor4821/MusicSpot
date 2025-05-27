@@ -17,8 +17,7 @@
         <Button Click="RV_Account" Background="Transparent" BorderBrush="Transparent" Content="Account" FontSize="36" Margin="1343,5,10,702"/>
         <Rectangle Stroke="Black" Fill="LightGray" Margin="0,89,0,608"/>
         <Label Content="Recommended To You" HorizontalAlignment="Center" Margin="0,97,0,0" VerticalAlignment="Top" FontSize="48"/>
-        <Rectangle HorizontalAlignment="Left" Height="482" Margin="329,259,0,0" Fill="LightGray" VerticalAlignment="Top" Width="1163"/>
-        <ListBox x:Name="Recommended" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="474,186,0,0" Width="1050" SelectionChanged="Show_RecommendedPage" Height="596" VirtualizingPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Standard" ScrollViewer.IsDeferredScrollingEnabled="True">
+        <ListBox x:Name="Recommended" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="86,183,0,0" Width="1348" SelectionChanged="Show_RecommendedPage" Height="596" VirtualizingPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Standard" ScrollViewer.IsDeferredScrollingEnabled="True">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <vwp:VirtualizingWrapPanel 
@@ -41,8 +40,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,339,1313,125"/>
-        <Label Content="Sort By" HorizontalAlignment="Left" Margin="39,259,0,0" VerticalAlignment="Top" FontSize="36"/>
 
     </Grid>
 </Window>

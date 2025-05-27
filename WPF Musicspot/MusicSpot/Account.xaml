@@ -22,7 +22,7 @@
         <Label x:Name="AccountPass" Content="Password:" HorizontalAlignment="Left" Margin="1133,325,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
         <Image Source="https://i.postimg.cc/25XcsbjM/Cart.jpg" Margin="863,438,570,255"/>
         <Rectangle HorizontalAlignment="Left" Stroke="Transparent" Fill="LightGray" Width="607" RenderTransformOrigin="0.502,0.711" Margin="864,542,0,52"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="ShoppingCart" Margin="888,560,83,70">
+        <ListBox SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="ShoppingCart" Margin="888,560,83,70">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="531">
@@ -53,7 +53,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Wishlist" Margin="21,179,1119,52" SelectionChanged="Wishlist_SelectionChanged">
+        <ListBox SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Wishlist" Margin="21,179,1119,108" SelectionChanged="Wishlist_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="15" Width="361" Height="134">
@@ -72,7 +72,7 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Likedlist" Margin="435,179,702,52">
+        <ListBox SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Likedlist" Margin="435,179,702,108">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="15" Width="363" Height="134">
@@ -91,8 +91,13 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Label x:Name="AccountName_Copy" Content="Your Wishlist" HorizontalAlignment="Left" Margin="86,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
-        <Label x:Name="AccountName_Copy1" Content="Your Likelist" HorizontalAlignment="Left" Margin="524,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
+        <Label x:Name="AccountName_Copy" Content="Your Wishlist" HorizontalAlignment="Left" Margin="21,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
+        <Label x:Name="AccountName_Copy1" Content="Your Likelist" HorizontalAlignment="Left" Margin="435,101,0,0" VerticalAlignment="Top" FontSize="36" Width="220"/>
         <Button Content="Logout" Background="Black" Click="Logout" Foreground="White" FontSize="20" Margin="1381,386,66,374"></Button>
+        <Button Click="RemoveFromLikelist" Content="Remove From List" HorizontalAlignment="Center" Margin="0,717,0,0" VerticalAlignment="Top" Height="36" Width="104"/>
+        <Button Click="RemoveFromWishlist" Content="Remove From List" HorizontalAlignment="Left" Margin="311,717,0,0" VerticalAlignment="Top" Height="36" Width="104"/>
+        <Button Click="RemoveFromTransactions" Content="Remove From List" HorizontalAlignment="Left" Margin="1364,750,0,0" VerticalAlignment="Top" Height="26" Width="104"/>
+        <Button Click="ChageAccountSettings" Content="Change Settings" HorizontalAlignment="Left" Margin="1367,97,0,0" VerticalAlignment="Top" Height="37" Width="104"/>
+        <Button Content="Delete Account" HorizontalAlignment="Left" Margin="1248,96,0,0" VerticalAlignment="Top" Height="39" Width="104"/>
     </Grid>
 </Window>

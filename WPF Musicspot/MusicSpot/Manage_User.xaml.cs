@@ -47,7 +47,7 @@ namespace MusicSpot
             List<Product> shoppingCart = d.GetShoppingCart(accountid);
             UserShoppingCart.ItemsSource = shoppingCart;
 
-            /*BitmapImage BMI = d.pfp(accountid);
+            BitmapImage BMI = d.pfp(accountid);
 
             if (BMI is null)
             {
@@ -57,7 +57,7 @@ namespace MusicSpot
             else
             {
                 profilepicture.Source = BMI;
-            }*/
+            }
         }
 
         private void Edit_Profile(object sender, RoutedEventArgs e)

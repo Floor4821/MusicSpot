@@ -48,8 +48,32 @@ namespace MusicSpot
             if (LogCheck.IsLogged != "false")
             {
                 int accountID = AccountID.AI;
-                List<release> recommended = r.SendRecommended(accountID).Take(10).ToList();
-                Recommended.ItemsSource = recommended;
+                if (accountID != 0)
+                {
+                    Data d = new Data();
+                    List<Likedlist> UserLikelist = d.likedlist.Where(x => x.AccountID == accountID).ToList();
+                    List<string> genres = new List<string>();
+                    int uniquecount = 0;
+                    foreach (Likedlist Like in UserLikelist)
+                    {
+                        release Likegenre = d.release.FirstOrDefault(x => x.ReleaseID == Like.ReleaseID);
+                        GenreObject thegenre = d.genreobject.FirstOrDefault(y => y.GenreID == Likegenre.GenreID);
+                        if (!genres.Contains(thegenre.Genre.ToString()))
+                        {
+                            genres.Add(thegenre.Genre.ToString());
+                            uniquecount += 1;
+                        }
+                    }
+                    if (uniquecount >= 2)
+                    {
+                        List<release> recommended = r.SendRecommended(accountID).Take(10).ToList();
+
+                        Recommended.ItemsSource = recommended;
+
+                    }
+                }
+                //List<release> recommended = r.SendRecommended(accountID).Take(10).ToList();
+                //Recommended.ItemsSource = recommended;
             }
 
             if (AdminCheck.IsAdmin == 1) { AdminLabel.Visibility = Visibility.Visible; }
