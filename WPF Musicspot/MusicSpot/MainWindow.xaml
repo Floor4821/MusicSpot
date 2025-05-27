@@ -59,7 +59,7 @@
                     </Button.Template>
                 </Button>
                 <Label Content="Top 10 Newest Releases" HorizontalAlignment="Left" Margin="48,189,0,0" VerticalAlignment="Top" Height="61" Width="404" FontSize="36"/>
-                <ListBox Name="NewestReleases" SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=20}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,255,0,0" Width="1403" SelectionChanged="NewestReleases_SelectionChanged">
+                <ListBox Name="NewestReleases" SelectionChanged="Show_ReleasePage" d:ItemsSource="{d:SampleData ItemCount=20}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,255,0,0" Width="1403">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -80,7 +80,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <Label Content="Recommended To You" HorizontalAlignment="Left" Margin="48,447,0,0" VerticalAlignment="Top" Height="61" Width="360" FontSize="36"/>
-                <ListBox x:Name="Recommended" SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=20}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,516,0,0" Width="1403" Height="163" SelectionChanged="Recommended_SelectionChanged">
+                <ListBox x:Name="Recommended" SelectionChanged="Show_ReleasePage" d:ItemsSource="{d:SampleData ItemCount=20}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,516,0,0" Width="1403" Height="163">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal"/>

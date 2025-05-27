@@ -24,10 +24,12 @@ namespace MusicSpot
         public int CurrentReleaseID = 0;
         public int CurrentAccountID = AccountID.AI;
         public string OriginPage = "";
+        public Window PreviousWindow;
 
-        public ReleasePage(release r, string originpage = "rel")
+        public ReleasePage(release r, Window previousWindow, string originpage = "rel")
         {
             InitializeComponent();
+            PreviousWindow = previousWindow;
             CurrentReleaseID = r.ReleaseID;
             if (AdminCheck.IsAdmin == 1) 
             {
@@ -135,17 +137,8 @@ namespace MusicSpot
         }
         public void GoBackToReleasePage(object sender, RoutedEventArgs e)
         {
-            Navigation n = new Navigation();
-            if (OriginPage == "rec")
-            {
-                n.ShowRecommended();
-                this.Close();
-            }
-            else
-            {
-                n.ShowReleaseView();
-                this.Close();
-            }
+            PreviousWindow.Show();
+            this.Hide();
         }
 
         private void ProductList_SelectionChanged(object sender, SelectionChangedEventArgs e)

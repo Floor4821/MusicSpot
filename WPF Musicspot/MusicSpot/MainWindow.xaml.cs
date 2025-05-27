@@ -38,6 +38,7 @@ namespace MusicSpot
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -139,9 +140,22 @@ namespace MusicSpot
             d.SaveChanges();
         }
 
-        private void Recommended_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void Show_ReleasePage(object sender, RoutedEventArgs e)
         {
+            if (sender is ListBox listBox && listBox.SelectedItem is release selectedRelease)
+            {
+                var currentWindow = this;
+                int RLindex = listBox.Items.IndexOf(selectedRelease);
+                ListboxIndex.LBI = RLindex;
 
+                ReleasePage RP = new ReleasePage(selectedRelease, previousWindow: currentWindow);
+                RP.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Please select a release from the list.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }
