@@ -58,6 +58,7 @@ namespace MusicSpot
         public void Show_ReleasePage(object sender, RoutedEventArgs e)
         {
             var item = ReleaseList.SelectedItem;
+            var currentWindow = this;
 
             object selecteditem = ReleaseList.SelectedItem;
             int RLindex = ReleaseList.Items.IndexOf(selecteditem);
@@ -65,10 +66,10 @@ namespace MusicSpot
 
             release selectedrelease = (release)item;
 
-            ReleasePage RP = new ReleasePage(selectedrelease);
+            ReleasePage RP = new ReleasePage(selectedrelease, previousWindow: currentWindow);
 
             RP.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void RV_Recommended(object sender, RoutedEventArgs e)

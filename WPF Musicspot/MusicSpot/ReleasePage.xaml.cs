@@ -24,10 +24,12 @@ namespace MusicSpot
         public int CurrentReleaseID = 0;
         public int CurrentAccountID = AccountID.AI;
         public string OriginPage = "";
+        public Window PreviousWindow;
 
-        public ReleasePage(release r, string originpage = "rel")
+        public ReleasePage(release r, Window previousWindow, string originpage = "rel")
         {
             InitializeComponent();
+            PreviousWindow = previousWindow;
             CurrentReleaseID = r.ReleaseID;
             if (AdminCheck.IsAdmin == 1) 
             {
@@ -38,6 +40,8 @@ namespace MusicSpot
             Artist.Content ="Artist: " + r.Artist.ToString();
             Data d = new Data();
             Genre.Content = $"Genre: {r.GenreString}";
+            Subgenre.Content = $"Subgenre: {r.SubgenreString}";
+            ReleaseDate.Content = $"Release Date: {r.Releasedate.ToString("yyyy-MM-dd")}";
 
             int ReleaseID = r.ReleaseID;
             List<Song> songs = d.songlist(ReleaseID);
@@ -133,17 +137,8 @@ namespace MusicSpot
         }
         public void GoBackToReleasePage(object sender, RoutedEventArgs e)
         {
-            Navigation n = new Navigation();
-            if (OriginPage == "rec")
-            {
-                n.ShowRecommended();
-                this.Close();
-            }
-            else
-            {
-                n.ShowReleaseView();
-                this.Close();
-            }
+            PreviousWindow.Show();
+            this.Hide();
         }
 
         private void ProductList_SelectionChanged(object sender, SelectionChangedEventArgs e)

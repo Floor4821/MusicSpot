@@ -90,13 +90,14 @@ namespace MusicSpot
         public void Show_RecommendedPage(object sender, RoutedEventArgs e)
         {
             var item = Recommended.SelectedItem;
+            var currentWindow = this;
 
             release selectedrelease = (release)item;
 
-            ReleasePage RP = new ReleasePage(selectedrelease, "rec");
+            ReleasePage RP = new ReleasePage(selectedrelease, previousWindow: currentWindow, "rec");
 
             RP.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
