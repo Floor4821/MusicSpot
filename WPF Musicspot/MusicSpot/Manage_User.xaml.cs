@@ -48,16 +48,8 @@ namespace MusicSpot
             UserShoppingCart.ItemsSource = shoppingCart;
 
             BitmapImage BMI = d.pfp(accountid);
-
-            if (BMI is null)
-            {
-                BitmapImage bitmap = new BitmapImage(new Uri(path, UriKind.Absolute));
-                profilepicture.Source = bitmap;
-            }
-            else
-            {
-                profilepicture.Source = BMI;
-            }
+            profilepicture.Source = BMI;
+            
         }
 
         private void Edit_Profile(object sender, RoutedEventArgs e)

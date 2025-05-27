@@ -11,11 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Microsoft.Win32; 
-using System.Windows.Media.Imaging; 
 using System.IO;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
@@ -30,14 +26,16 @@ namespace MusicSpot
     {
         const int KeySize = 64;
         const int Iterations = 350000;
-        public byte[] ProfilePicture = null;
-        public Register()
+        public Data d = new Data();
+        public byte[] ProfilePicture;
+  
+    public Register()
         {
             InitializeComponent();
+            ProfilePicture = d.GetDefaultPfp();
         }
         public void AddPfp(object sender, RoutedEventArgs e)
         {
-            Data d = new Data();
             byte[] stuff = d.PFP();
             ProfilePicture = stuff;
         }
