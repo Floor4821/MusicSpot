@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MySql.Data.MySqlClient; 
+using MySql.Data.MySqlClient;
+using System.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -270,6 +271,14 @@ namespace MusicSpot
                 }
             }
         }
+        public byte[] GetDefaultPfp()
+        {
+            string url = "https://i.postimg.cc/fRn91Yp2/defaultpfp.png";
+            using (WebClient client = new WebClient())
+            {
+                return client.DownloadData(url);
+            }
+        }
         public byte[] PFP()
         {
             var dlg = new OpenFileDialog();
@@ -286,7 +295,7 @@ namespace MusicSpot
             }
             else
             {
-                return null;
+                return GetDefaultPfp();
             }
         }
         public List<Genretype> GetGenretype()

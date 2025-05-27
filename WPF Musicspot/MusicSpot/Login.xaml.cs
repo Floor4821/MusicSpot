@@ -49,7 +49,9 @@ namespace MusicSpot
                     AdminCheck.IsAdmin = isadmin;
                     LogCheck.IsLogged = "true";
                     AccountID.AI = LoginUser.AccountID;
-                    ((MainWindow)Application.Current.MainWindow).RefreshRecs();
+                    // ((MainWindow)Application.Current.MainWindow).RefreshRecs();
+
+                    this.Close();
                 }
                 if (LogCheck.IsLogged == "false")
                 {
