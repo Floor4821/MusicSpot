@@ -424,6 +424,35 @@ namespace MusicSpot
                 return paid;
             }
         }
+
+        public void RemoveFromCart(int accountID, int productID)
+        {
+            int purchaseID = FindPurchase(accountID);
+            using (var context = new Data())
+            {
+                var item = context.purchaseproduct.FirstOrDefault(x => x.PurchaseID == purchaseID && x.ProductID == productID);
+                if (item != null)
+                {
+                    context.purchaseproduct.Remove(item);
+                    context.SaveChanges();
+                }
+            }
+        }
+        public double ToPay(int accountID)
+        {
+            int purchaseID = FindPurchase(accountID);
+            using (var context = new Data())
+            {
+                List<Product> shoppingCart = GetShoppingCart(accountID);
+                double paid = 0;
+                foreach (Product p in shoppingCart)
+                {
+                    paid += p.Price;
+                }
+
+                return paid;
+            }
+        }
         public void AddToLikeList(int accountID, int releaseID)
         {
             if (AccountID.AI != 0)
