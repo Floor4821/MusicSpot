@@ -19,7 +19,6 @@
         <Image Name="profilepicture" Width="150" Height="150" Margin="888,231,419,396"/>
         <Label x:Name="AccountName" Content="" HorizontalAlignment="Left" Margin="900,176,0,0" VerticalAlignment="Top" FontSize="24" Width="534"/>
         <Label x:Name="AccountMail" Content="Email:" HorizontalAlignment="Left" Margin="1133,265,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
-        <Label x:Name="AccountPass" Content="Password:" HorizontalAlignment="Left" Margin="1133,325,0,0" VerticalAlignment="Top" FontSize="20" Width="318"/>
         <Image Source="https://i.postimg.cc/25XcsbjM/Cart.jpg" Margin="863,438,570,255"/>
         <Rectangle HorizontalAlignment="Left" Stroke="Transparent" Fill="LightGray" Width="607" RenderTransformOrigin="0.502,0.711" Margin="864,542,0,52"/>
         <ListBox SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="ShoppingCart" Margin="888,560,83,70">
@@ -28,7 +27,7 @@
                     <Border BorderThickness="2" BorderBrush="Black" Padding="25" Width="531">
                         <StackPanel Orientation="Vertical">
                             <Canvas Height="100">
-                                <Label Content="{Binding ReleaseName}" Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22"></Label>
+                                <Label Content="{Binding ReleaseName}" Canvas.Left="10" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" Width="443"></Label>
                                 <Label Content="{Binding MediaString}" Canvas.Left="10" Canvas.Top="54" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Width="457"/>
                             </Canvas>
                         </StackPanel>
@@ -59,8 +58,8 @@
                     <Border BorderThickness="2" BorderBrush="Black" Padding="15" Width="361" Height="134">
                         <StackPanel Orientation="Vertical">
                             <Canvas Height="100">
-                                <Label Content="{Binding ReleaseName}" FontSize="18" HorizontalAlignment="Left" Canvas.Top="10" VerticalAlignment="Center" Height="40" Width="123" Canvas.Left="10"/>
-                                <Label Content="{Binding MediaString}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Canvas.Top="64" VerticalAlignment="Center" Canvas.Left="10"/>
+                                <Label Content="{Binding ReleaseName}" FontSize="18" HorizontalAlignment="Left" Canvas.Top="10" VerticalAlignment="Center" Height="40" Width="300" Canvas.Left="10"/>
+                                <Label Content="{Binding MediaString}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Canvas.Top="64" VerticalAlignment="Center" Canvas.Left="10" Width="177"/>
                             </Canvas>
                         </StackPanel>
                     </Border>
@@ -72,14 +71,14 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <ListBox SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Likedlist" Margin="435,179,702,108">
+        <ListBox SelectionMode="Multiple" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="Likedlist" Margin="435,179,702,108" SelectionChanged="Likedlist_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="2" BorderBrush="Black" Padding="15" Width="363" Height="134">
                         <StackPanel Orientation="Vertical">
                             <Canvas Height="100">
-                                <Label Content="{Binding ReleaseName}" FontSize="18" HorizontalAlignment="Left" Canvas.Top="10" VerticalAlignment="Center" Height="40" Width="123" Canvas.Left="10"/>
-                                <Label Content="{Binding Artist}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Canvas.Top="64" VerticalAlignment="Center" Canvas.Left="10"/>
+                                <Label Content="{Binding ReleaseName}" FontSize="18" HorizontalAlignment="Left" Canvas.Top="10" VerticalAlignment="Center" Height="40" Width="300" Canvas.Left="10"/>
+                                <Label Content="{Binding Artist}" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Canvas.Top="64" VerticalAlignment="Center" Canvas.Left="10" Width="301"/>
                             </Canvas>
                         </StackPanel>
                     </Border>
@@ -99,5 +98,6 @@
         <Button Click="RemoveFromTransactions" Content="Remove From List" HorizontalAlignment="Left" Margin="1364,750,0,0" VerticalAlignment="Top" Height="26" Width="104"/>
         <Button Click="ChageAccountSettings" Content="Change Settings" HorizontalAlignment="Left" Margin="1367,97,0,0" VerticalAlignment="Top" Height="37" Width="104"/>
         <Button Content="Delete Account" HorizontalAlignment="Left" Margin="1248,96,0,0" VerticalAlignment="Top" Height="39" Width="104"/>
+        <Label x:Name="ToPay" Content="To Pay: Data" HorizontalAlignment="Left" Margin="968,469,0,0" VerticalAlignment="Top" FontSize="20" Width="181"/>
     </Grid>
 </Window>

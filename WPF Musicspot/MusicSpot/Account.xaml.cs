@@ -30,10 +30,11 @@ namespace MusicSpot
             int accountid = AccountID.AI;
 
             Dictionary<string, string> userinfo = dt.PEN(accountid);
+            double toPay = dt.ToPay(accountid);
 
             AccountName.Content = "USERNAME: " + userinfo["Username"];
-            AccountPass.Content = "PASSWORD: " + userinfo["Password"];
             AccountMail.Content = "EMAIL: " + userinfo["Email"];
+            ToPay.Content = $"To Pay: €{toPay}";
 
             List<Product> wishlist = dt.GetWishlist(accountid);
             Wishlist.ItemsSource = wishlist;
@@ -163,36 +164,41 @@ namespace MusicSpot
 
         private void RemoveFromTransactions(object sender, RoutedEventArgs e)
         {
-            /*Data d = new Data();
-            int acID = AccountID.AI;
-            var selectedlikes = ShoppingCart.SelectedItems;
-            if (selectedlikes.Count == 0)
+
+            int accountID = AccountID.AI;
+            var cartSelection = ShoppingCart.SelectedItems;
+            if (cartSelection.Count == 0)
             {
                 MessageBox.Show("Nothing was selected", "Insufficient requirements");
             }
             else
             {
-                foreach (var stuff in selectedlikes)
+                foreach (var p in cartSelection)
                 {
-                    MessageBox.Show(stuff.ToString());
-                    Product P = stuff as Product;
+                    MessageBox.Show(p.ToString());
+                    Product product = p as Product;
+                    int productID = product.ProductID;
+                    
 
-                    Purchase WL = new Purchase(acID, P.ProductID);
-
-                    Wishlist RemoveThisWL = d.wishlist.FirstOrDefault(x => x.ProductID == WL.ProductID && x.AccountID == acID);
-
-                    d.wishlist.Remove(RemoveThisWL);
-                    d.SaveChanges();
+                    using (Data d = new Data())
+                    {
+                        d.RemoveFromCart(accountID, productID);
+                    }
 
                 }
                 MessageBox.Show("Selection has been deleted from your account", "Deletion successfull");
-            }*/
+            }
         }
 
         public void ChageAccountSettings(object sender, RoutedEventArgs e)
         {
             ChangeAccount CA = new ChangeAccount(accountID, "Hi_Anthony_;)");
             CA.Show();
+        }
+
+        private void Likedlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
