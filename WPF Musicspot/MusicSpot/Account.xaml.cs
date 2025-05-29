@@ -191,6 +191,34 @@ namespace MusicSpot
             ChangeAccount CA = new ChangeAccount(accountID, "Hi_Anthony_;)");
             CA.Show();
         }
+        public void DeleteAccount(object sender, RoutedEventArgs e)
+        {
+            Data d = new Data();
+            Navigation n = new Navigation();
+            int deleteaccountID = AccountID.AI;
+            MessageBoxResult MBR = MessageBox.Show("Are you sure you want to delete your account? This decision is irreversible", "Are you sure about that?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (MBR == MessageBoxResult.Yes)
+            {
+                UserAccount DeleteUA = d.account.FirstOrDefault(x => x.AccountID == deleteaccountID);
+                List<Wishlist> DeleteWishlist = d.wishlist.Where(y => y.AccountID == DeleteUA.AccountID).ToList();
+                List<Purchase> DeletePurchase = d.purchase.Where(z => z.AccountID == DeleteUA.AccountID).ToList();
+                List<Likedlist> DeleteLikedlist = d.likedlist.Where(q => q.AccountID == DeleteUA.AccountID).ToList();
+
+                d.wishlist.RemoveRange(DeleteWishlist);
+                d.purchase.RemoveRange(DeletePurchase);
+                d.likedlist.RemoveRange(DeleteLikedlist);
+                d.SaveChanges();
+                
+                d.account.Remove(DeleteUA);
+                d.SaveChanges();
+
+                LogCheck.IsLogged = "false";
+                MessageBox.Show("Your account has been deleted");
+
+                n.ShowHome();
+                this.Close();
+            }
+        }
 
         private void Likedlist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

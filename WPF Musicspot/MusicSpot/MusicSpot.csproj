@@ -9,10 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="images\**" />
-    <EmbeddedResource Remove="images\**" />
-    <None Remove="images\**" />
-    <Page Remove="images\**" />
+    <None Remove="Images\AddPfp.png" />
+    <None Remove="Images\album.png" />
+    <None Remove="Images\Cart.jpg" />
+    <None Remove="Images\defaultpfp.png" />
+    <None Remove="Images\Thumbsup.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,14 @@
     <PackageReference Include="MySqlConnector" Version="2.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="VirtualizingWrapPanel" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddPfp.png" />
+    <Resource Include="Images\album.png" />
+    <Resource Include="Images\Cart.jpg" />
+    <Resource Include="Images\defaultpfp.png" />
+    <Resource Include="Images\Thumbsup.png" />
   </ItemGroup>
 
 </Project>
