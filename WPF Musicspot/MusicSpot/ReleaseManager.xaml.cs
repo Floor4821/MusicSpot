@@ -22,7 +22,7 @@ namespace MusicSpot
     /// </summary>
     public partial class ReleaseManager : Window
     {
-        public int Status = 3;
+        public int Status = 1;
         public int NewReleaseID = 999;
         public byte[] COVER = null;
         public int editrelease = 0;
@@ -160,6 +160,7 @@ namespace MusicSpot
                             }
                             release newrelease = new release(RN, COVER, Status, AN, ReleaseTime, G_ID);
                             d.release.Add(newrelease);
+                            MessageBox.Show(G_ID.ToString());
 
                             d.SaveChanges();
 
@@ -209,7 +210,87 @@ namespace MusicSpot
             }
             else
             {
+                Data d = new Data();
+                Product vinylE = d.product.FirstOrDefault(v => v.ReleaseID == editrelease & v.Mediatype == 1);
+                Product cassetteE = d.product.FirstOrDefault(v => v.ReleaseID == editrelease & v.Mediatype == 3);
+                Product CDE = d.product.FirstOrDefault(v => v.ReleaseID == editrelease & v.Mediatype == 2);
 
+                release UpdateRelease = d.release.FirstOrDefault(x => x.ReleaseID == editrelease);
+                MessageBox.Show(UpdateRelease.ReleaseName);
+
+                UpdateRelease.ReleaseName = "TESTING";
+                d.SaveChanges();
+
+                /*string RN = Releasename.Text;
+                string AN = Artistname.Text;
+                bool temp = DateTime.TryParse(ReleaseDate.Text, out DateTime ReleaseTime);
+                int RT = Status;
+
+                string VP = VinylPrice.Text;
+                string VS = VinlyStock.Text;
+
+                string CP = CassettePrice.Text;
+                string CS = CassetteStock.Text;
+
+                string CD_P = CDPrice.Text;
+                string CD_S = CDStock.Text;
+
+                bool Vinyl1 = double.TryParse(VP, out double v1);
+                bool Vinyl2 = int.TryParse(VS, out int v2);
+
+                bool Cassette1 = double.TryParse(CP, out double c1);
+                bool Cassette2 = int.TryParse(CS, out int c2);
+
+                bool CD1 = double.TryParse(CD_P, out double cd1);
+                bool CD2 = int.TryParse(CD_S, out int cd2);
+
+                if (!string.IsNullOrWhiteSpace(RN))
+                {
+                    UpdateRelease.ReleaseName = RN;
+                }
+                if (!string.IsNullOrWhiteSpace(AN))
+                {
+                    UpdateRelease.Artist = AN;
+                }
+                if (temp)
+                {
+                    UpdateRelease.Releasedate = ReleaseTime;
+                }
+                if (!string.IsNullOrWhiteSpace(RT.ToString()))
+                {
+                    UpdateRelease.Releasetype = RT;
+                }
+                if (COVER != null)
+                {
+                    UpdateRelease.Cover = COVER;
+                }
+                //
+                if (Vinyl1)
+                {
+                    vinylE.Price = v1;
+                }
+                if (Vinyl2)
+                {
+                    vinylE.Stock = v2;
+                }
+                if (Cassette1)
+                {
+                    cassetteE.Price = c1;
+                }
+                if (Cassette2)
+                {
+                    cassetteE.Stock = c2;
+                }
+                if (CD1)
+                {
+                    CDE.Price = cd1;
+                }
+                if (CD2)
+                {
+                    CDE.Stock = cd2;
+                }
+                d.SaveChanges();
+                MessageBox.Show("Release has been updated");*/
             }
         }
         public void InsertReleaseImage(object sender, RoutedEventArgs e)

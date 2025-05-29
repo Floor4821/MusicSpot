@@ -523,9 +523,9 @@ namespace MusicSpot
         {
             var connection = this.Database.GetDbConnection();
 
-            MySqlCommand DuplicateCheck = new MySqlCommand("SELECT genre, subgenre FROM musicspot.genre;", (MySqlConnection)connection);
+            MySqlCommand DuplicateCheck = new MySqlCommand("SELECT genre, subgenre FROM musicspot.genreobject;", (MySqlConnection)connection);
 
-            MySqlCommand commandDatabase = new MySqlCommand("INSERT INTO musicspot.genre (genre, subgenre) VALUES (@GenreID, @SubgenreID);", (MySqlConnection)connection);
+            MySqlCommand commandDatabase = new MySqlCommand("INSERT INTO musicspot.genreobject (genre, subgenre) VALUES (@GenreID, @SubgenreID);", (MySqlConnection)connection);
             commandDatabase.Parameters.AddWithValue("@GenreID", GenreID);
             commandDatabase.Parameters.AddWithValue("@SubgenreID", SubgenreID);
             try
