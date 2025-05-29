@@ -10,7 +10,7 @@
     <Canvas Margin="0,0,0,-6">
         <TextBlock TextWrapping="Wrap" FontSize="36" Canvas.Left="102" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Center" Width="332"><Run Language="nl-be" Text="Create new Account"/></TextBlock>
         <TextBlock TextWrapping="Wrap" FontSize="24" Canvas.Left="113" Canvas.Top="85"><Run Text="Add Profile Picture"/><Run Language="nl-be" Text=" (Optional)"/></TextBlock>
-        <Image MouseLeftButtonDown="AddPfp" Source="\Images\AddPfp.png" Height="278" Canvas.Left="132" Canvas.Top="119" Width="272" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Image MouseLeftButtonDown="AddPfp" Source="https://i.postimg.cc/xThL7S2g/AddPfp.png" Height="278" Canvas.Left="132" Canvas.Top="119" Width="272" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock TextWrapping="Wrap" Height="35" Width="112" FontSize="24" Canvas.Left="39" Canvas.Top="425" HorizontalAlignment="Left" VerticalAlignment="Center"><Run Language="nl-be" Text="Username"/><Run Text=":"/></TextBlock>
         <TextBox Name="RegisterName" TextWrapping="Wrap" Width="334" Canvas.Left="160" Canvas.Top="427" Height="31" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock x:Name="LoginEmail" TextWrapping="Wrap" Height="35" Width="111" FontSize="24" Canvas.Left="44" Canvas.Top="524" HorizontalAlignment="Center" VerticalAlignment="Top"><Run Language="nl-be" Text="Password"/><Run Text=":"/></TextBlock>
