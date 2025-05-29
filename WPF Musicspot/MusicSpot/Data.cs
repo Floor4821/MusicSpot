@@ -178,7 +178,7 @@ namespace MusicSpot
                 int accountid = AccountID.AI;
                 using (var context = new Data())
                 {
-                    var A = context.account.FirstOrDefault(current_ID => current_ID.AccountID == AccountID.AI);
+                    var A = context.account.FirstOrDefault(a => a.AccountID == AccountID.AI);
                     UserAccount UA = (UserAccount)A;
                     byte[] bytearray = UA.Profilepic;
                     try
@@ -207,7 +207,7 @@ namespace MusicSpot
                 int accountid = check;
                 using (var context = new Data())
                 {
-                    var A = context.account.FirstOrDefault(current_ID => current_ID.AccountID == accountid);
+                    var A = context.account.FirstOrDefault(a => a.AccountID == accountid);
                     UserAccount UA = (UserAccount)A;
                     byte[] bytearray = UA.Profilepic;
                     try
@@ -245,7 +245,7 @@ namespace MusicSpot
         {
             using (var context = new Data())
             {
-                var songs = context.song.Where(x => x.ReleaseID == ReleaseID).ToList();
+                var songs = context.song.Where(s => s.ReleaseID == ReleaseID).ToList();
                 return songs;
             }
         }
@@ -253,13 +253,13 @@ namespace MusicSpot
         {
             using (var context = new Data())
             {
-                release DeleteRelease = context.release.FirstOrDefault(x => x.ReleaseName == releasename);
+                release DeleteRelease = context.release.FirstOrDefault(r => r.ReleaseName == releasename);
                 MessageBoxResult result = MessageBox.Show("Commander, are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
                     int DelID = DeleteRelease.ReleaseID;
 
-                    List<Product> products = context.product.Where(x => x.ReleaseID == DelID).ToList();
+                    List<Product> products = context.product.Where(p => p.ReleaseID == DelID).ToList();
                     foreach (Product p in products)
                     {
                         context.product.Remove(p);
@@ -312,7 +312,7 @@ namespace MusicSpot
         {
             using (var context = new Data())
             {
-                List<Product> products = context.product.Where(x => x.ReleaseID == RelID).ToList();
+                List<Product> products = context.product.Where(p => p.ReleaseID == RelID).ToList();
                 return products;
             }
         }
@@ -338,10 +338,10 @@ namespace MusicSpot
             using (var context = new Data())
             {
                 List<Product> wishlist = new List<Product>();
-                List<int> productIDs = context.wishlist.Where(x => x.AccountID == accountID).Select(x => x.ProductID).ToList();
+                List<int> productIDs = context.wishlist.Where(w => w.AccountID == accountID).Select(w => w.ProductID).ToList();
                 foreach (int ID in productIDs)
                 {
-                    wishlist.Add(context.product.FirstOrDefault(x => x.ProductID == ID));
+                    wishlist.Add(context.product.FirstOrDefault(p => p.ProductID == ID));
                 }
                 return wishlist;
             }
@@ -351,8 +351,8 @@ namespace MusicSpot
             using(var context = new Data())
             {
                 int purchaseID = context.purchase
-                    .Where(x => x.Processed == false && x.AccountID == accountID)
-                    .Select(x => (int)x.PurchaseID).FirstOrDefault();
+                    .Where(p => p.Processed == false && p.AccountID == accountID)
+                    .Select(p => (int)p.PurchaseID).FirstOrDefault();
                 return purchaseID;
             }
         }
@@ -397,11 +397,11 @@ namespace MusicSpot
                 }
 
                 List<int> productIDs = context.purchaseproduct
-                    .Where(x => x.PurchaseID == purchaseID)
-                    .Select(x => (int)x.ProductID).ToList();
-                foreach (int p in productIDs)
+                    .Where(pp => pp.PurchaseID == purchaseID)
+                    .Select(pp => (int)pp.ProductID).ToList();
+                foreach (int pID in productIDs)
                 {
-                    shoppingCart.Add(context.product.FirstOrDefault(x => x.ProductID == p));
+                    shoppingCart.Add(context.product.FirstOrDefault(p => p.ProductID == pID));
                 }
                 return shoppingCart;
             }
@@ -413,13 +413,16 @@ namespace MusicSpot
             {
                 List<Product> shoppingCart = GetShoppingCart(accountID);
                 double paid = 0;
-                foreach (Product p in shoppingCart)
+                foreach (Product sc in shoppingCart)
                 {
-                    paid += p.Price;
+                    var product = context.product.FirstOrDefault(p => p.ProductID == sc.ProductID);
+                    paid += sc.Price;
+                    product.Stock--;
+                    context.SaveChanges();
                 }
                 DateTime date = DateTime.Now;
 
-                Purchase transaction = context.purchase.FirstOrDefault(x => x.PurchaseID == purchaseID);
+                Purchase transaction = context.purchase.FirstOrDefault(p => p.PurchaseID == purchaseID);
                 transaction.Processed = true;
                 transaction.Paid = paid;
                 transaction.Date = date;
@@ -433,7 +436,7 @@ namespace MusicSpot
             int purchaseID = FindPurchase(accountID);
             using (var context = new Data())
             {
-                var item = context.purchaseproduct.FirstOrDefault(x => x.PurchaseID == purchaseID && x.ProductID == productID);
+                var item = context.purchaseproduct.FirstOrDefault(pp => pp.PurchaseID == purchaseID && pp.ProductID == productID);
                 if (item != null)
                 {
                     context.purchaseproduct.Remove(item);
@@ -477,10 +480,10 @@ namespace MusicSpot
             using (var context = new Data())
             {
                 List<release> likedList = new List<release>();
-                List<int> productIDs = context.likedlist.Where(x => x.AccountID == accountID).Select(x => x.ReleaseID).ToList();
+                List<int> productIDs = context.likedlist.Where(ll => ll.AccountID == accountID).Select(ll => ll.ReleaseID).ToList();
                 foreach (int ID in productIDs)
                 {
-                    likedList.Add(context.release.FirstOrDefault(x => x.ReleaseID == ID));
+                    likedList.Add(context.release.FirstOrDefault(r => r.ReleaseID == ID));
                 }
                 return likedList;
             }
