@@ -19,11 +19,12 @@ namespace MusicSpot
     /// </summary>
     public partial class AccountManager : Window
     {
+        private Data d = new Data();
+
         public AccountManager()
         {
             InitializeComponent();
-            Data D = new Data();
-            List<UserAccount> AllAccount = D.GetAllUsers();
+            List<UserAccount> AllAccount = d.GetAllUsers();
             ProfileList.ItemsSource = AllAccount;
         }
 

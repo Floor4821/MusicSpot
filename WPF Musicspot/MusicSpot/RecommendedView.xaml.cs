@@ -20,6 +20,7 @@ namespace MusicSpot
     /// </summary>
     public partial class RecommendedView : Window
     {
+        private Data d = new Data();
         public RecommendedView()
         {
             InitializeComponent();
@@ -31,7 +32,6 @@ namespace MusicSpot
             }
             else
             {
-                Data d = new Data();
                 List<Likedlist> UserLikelist = d.likedlist.Where(x => x.AccountID == accountID).ToList();
                 List<string> genres = new List<string>();
                 int uniquecount = 0;

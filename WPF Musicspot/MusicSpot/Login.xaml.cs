@@ -23,6 +23,8 @@ namespace MusicSpot
     {
         const int KeySize = 64;
         const int Iterations = 350000;
+        private Data d = new Data();
+
         public Login()
         {
             InitializeComponent();
@@ -32,7 +34,6 @@ namespace MusicSpot
         {
             string mail = LoginMail.Text;
             string password = LoginPassword.Password;
-            Data d = new Data();
             UserAccount LoginUser = d.account.FirstOrDefault(m => m.Email == mail);
             if (LoginUser == null)
             {

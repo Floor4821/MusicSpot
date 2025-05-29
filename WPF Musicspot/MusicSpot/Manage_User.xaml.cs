@@ -26,12 +26,12 @@ namespace MusicSpot
     public partial class Manage_User : Window
     {
         public int CurrentAccount = 0;
+        private Data d = new Data();
         public Manage_User(int accountid)
         {
             var path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "defaultpfp.png");
             CurrentAccount = accountid;
             InitializeComponent();
-            Data d = new Data();
             Dictionary<string, string> pen = d.PEN(accountid);
 
             AccountName.Content = "Username: " + pen["Username"];
@@ -60,8 +60,6 @@ namespace MusicSpot
 
         private void Delete_Profile(object sender, RoutedEventArgs e)
         {
-            Data d = new Data();
-
             MessageBoxResult MBR =  MessageBox.Show("Are you sure you want to delete this account?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if(MBR == MessageBoxResult.Yes)
             {

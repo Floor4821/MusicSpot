@@ -38,20 +38,18 @@ namespace MusicSpot
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private Data d = new Data();
         public MainWindow()
         {
             InitializeComponent();
-            Data dt = new Data();
             Recommended r = new Recommended();
-            List<release> releases = dt.release.OrderByDescending(r => r.Releasedate).Take(10).ToList();
+            List<release> releases = d.release.OrderByDescending(r => r.Releasedate).Take(10).ToList();
             NewestReleases.ItemsSource = releases;
             if (LogCheck.IsLogged != "false")
             {
                 int accountID = AccountID.AI;
                 if (accountID != 0)
                 {
-                    Data d = new Data();
                     List<Likedlist> UserLikelist = d.likedlist.Where(x => x.AccountID == accountID).ToList();
                     List<string> genres = new List<string>();
                     int uniquecount = 0;
@@ -134,7 +132,6 @@ namespace MusicSpot
 
         private void InsertWhishlist(object sender, RoutedEventArgs e)
         {
-            Data d = new Data();
             Wishlist wl = new Wishlist(1, 266);
             d.wishlist.Add(wl);
             d.SaveChanges();

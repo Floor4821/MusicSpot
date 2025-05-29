@@ -22,30 +22,30 @@ namespace MusicSpot
     public partial class Account : Window
     {
         public int accountID = AccountID.AI;
+        private Data d = new Data();
         public Account()
         {
             InitializeComponent();
-            Data dt = new Data();
 
             int accountid = AccountID.AI;
 
-            Dictionary<string, string> userinfo = dt.PEN(accountid);
-            double toPay = dt.ToPay(accountid);
+            Dictionary<string, string> userinfo = d.PEN(accountid);
+            double toPay = d.ToPay(accountid);
 
             AccountName.Content = "USERNAME: " + userinfo["Username"];
             AccountMail.Content = "EMAIL: " + userinfo["Email"];
             ToPay.Content = $"To Pay: €{toPay}";
 
-            List<Product> wishlist = dt.GetWishlist(accountid);
+            List<Product> wishlist = d.GetWishlist(accountid);
             Wishlist.ItemsSource = wishlist;
 
-            List<release> likedlist = dt.GetLikedList(accountid);
+            List<release> likedlist = d.GetLikedList(accountid);
             Likedlist.ItemsSource = likedlist;
 
-            List<Product> shoppingCart = dt.GetShoppingCart(accountid);
+            List<Product> shoppingCart = d.GetShoppingCart(accountid);
             ShoppingCart.ItemsSource = shoppingCart;
 
-            BitmapImage BMI = dt.pfp();
+            BitmapImage BMI = d.pfp();
             profilepicture.Source = BMI;
 
         }
@@ -78,13 +78,11 @@ namespace MusicSpot
         }
         public void ConfirmTransaction(object sender, RoutedEventArgs e)
         {
-            Data d = new Data();
             double paid = d.ConfirmTransaction(accountID);
             MessageBox.Show($"Transaction succesfully processed: You paid €{paid}");
         }
         public void RefreshShoppingCart()
         {
-            Data d = new Data();
             List<Product> shoppingCart = d.GetShoppingCart(accountID);
             ShoppingCart.ItemsSource = shoppingCart;
         }
@@ -110,7 +108,6 @@ namespace MusicSpot
 
         public void RemoveFromLikelist(object sender, RoutedEventArgs e)
         {
-            Data d = new Data();
             int acID = AccountID.AI;
             var selectedlikes = Likedlist.SelectedItems;
             if (selectedlikes.Count == 0)
@@ -137,7 +134,6 @@ namespace MusicSpot
 
         private void RemoveFromWishlist(object sender, RoutedEventArgs e)
         {
-            Data d = new Data();
             int acID = AccountID.AI;
             var selectedlikes = Wishlist.SelectedItems;
             if (selectedlikes.Count == 0)
@@ -162,7 +158,7 @@ namespace MusicSpot
             }
         }
 
-        private void RemoveFromTransactions(object sender, RoutedEventArgs e)
+        public void RemoveFromTransactions(object sender, RoutedEventArgs e)
         {
 
             int accountID = AccountID.AI;

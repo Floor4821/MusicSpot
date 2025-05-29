@@ -22,11 +22,11 @@ namespace MusicSpot
     public partial class ReleaseView : Window
     {
         public List<int> FilteredReleasesID = null;
+        private Data d = new Data();
         //public bool KeepAlive { get; set; }
         public ReleaseView()
         {
             InitializeComponent();
-            Data d = new Data();
             List<release> allreleases = d.GetAllReleases();
             List<Genretype> GenreTypes = d.GetGenretype();
             GenreSelection.ItemsSource = GenreTypes;
@@ -88,47 +88,43 @@ namespace MusicSpot
 
         private void SearchReleaseName(object sender, RoutedEventArgs e)
         {
-            using (var d = new Data())
+            string name = ReleaseNameInput.Text.ToLower();
+                
+            var genres = GenreSelection.SelectedItems;
+            List<string> SelectedGenreStrings = new List<string>();
+            foreach (var g in genres)
             {
-                string name = ReleaseNameInput.Text.ToLower();
+                Genretype mag = g as Genretype;
+                Genretype Ranoutofnames = d.genretype.FirstOrDefault(x => x.Type == mag.Type);
+                string GID = Ranoutofnames.Type; SelectedGenreStrings.Add(GID.ToLower());
+            }
                 
-                var genres = GenreSelection.SelectedItems;
-                List<string> SelectedGenreStrings = new List<string>();
-                foreach (var g in genres)
+            List<release> ReleaseFilter = new List<release>();
+            List<release> allreleases = d.GetAllReleases();
+                
+            Regex regex = new Regex(name);
+            foreach (release r in allreleases)
+            {
+                string currentgenre = r.GenreString;
+                if (GenreSelection.SelectedItems.Count != 0)
                 {
-                    Genretype mag = g as Genretype;
-                    Genretype Ranoutofnames = d.genretype.FirstOrDefault(x => x.Type == mag.Type);
-                    string GID = Ranoutofnames.Type; SelectedGenreStrings.Add(GID.ToLower());
-                }
-                
-                List<release> ReleaseFilter = new List<release>();
-                List<release> allreleases = d.GetAllReleases();
-                
-                Regex regex = new Regex(name);
-                foreach (release r in allreleases)
-                {
-                    string currentgenre = r.GenreString;
-                    if (GenreSelection.SelectedItems.Count != 0)
-                    {
-                        if (SelectedGenreStrings.Contains(currentgenre.ToLower()) && regex.IsMatch(r.ReleaseName.ToLower()))
-                        {
-                            ReleaseFilter.Add(r);
-                            //FilteredReleasesID.Add(r.ReleaseID);
-                        }
-                    }
-                    else if(regex.IsMatch(r.ReleaseName.ToLower()))
+                    if (SelectedGenreStrings.Contains(currentgenre.ToLower()) && regex.IsMatch(r.ReleaseName.ToLower()))
                     {
                         ReleaseFilter.Add(r);
                         //FilteredReleasesID.Add(r.ReleaseID);
                     }
-                    else
-                    {
-                        //FilteredReleasesID = null;
-                    }
                 }
-                ReleaseList.ItemsSource = ReleaseFilter;
-
+                else if(regex.IsMatch(r.ReleaseName.ToLower()))
+                {
+                    ReleaseFilter.Add(r);
+                    //FilteredReleasesID.Add(r.ReleaseID);
+                }
+                else
+                {
+                    //FilteredReleasesID = null;
+                }
             }
+            ReleaseList.ItemsSource = ReleaseFilter;         
         }
     }
 }

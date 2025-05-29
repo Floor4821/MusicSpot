@@ -25,6 +25,7 @@ namespace MusicSpot
         public int CurrentAccountID = AccountID.AI;
         public string OriginPage = "";
         public Window PreviousWindow;
+        private Data d = new Data();
 
         public ReleasePage(release r, Window previousWindow, string originpage = "rel")
         {
@@ -38,7 +39,6 @@ namespace MusicSpot
             }
             ReleaseName.Content = "Name: " + r.ReleaseName.ToString();
             Artist.Content ="Artist: " + r.Artist.ToString();
-            Data d = new Data();
             Genre.Content = $"Genre: {r.GenreString}";
             Subgenre.Content = $"Subgenre: {r.SubgenreString}";
             ReleaseDate.Content = $"Release Date: {r.Releasedate.ToString("yyyy-MM-dd")}";
@@ -94,7 +94,6 @@ namespace MusicSpot
             string RN = ReleaseName.Content.ToString();
             string CorrectName = (string)RN.Split(": ")[1];
 
-            Data d = new Data();
             d.ReleaseDel(CorrectName);
         }
         public void AddProduct(object sender, RoutedEventArgs e)
@@ -102,7 +101,6 @@ namespace MusicSpot
             Product item = (Product)ProductList.SelectedItem;
             if (item != null)
             {
-                Data d = new Data();
                 int productID = item.ProductID;
                 d.AddProductToCart(CurrentAccountID, productID);
                 MessageBox.Show("Item has been added to your shoppingcart");
@@ -122,7 +120,6 @@ namespace MusicSpot
             }
             else
             {
-                Data d = new Data();
                 int productID = item.ProductID;
                 d.AddToWishlist(CurrentAccountID, productID);
                 MessageBox.Show("Item has been added to your wishlist");
@@ -130,7 +127,6 @@ namespace MusicSpot
         }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {
-            Data d = new Data();
             int releaseID = CurrentReleaseID;
             d.AddToLikeList(CurrentAccountID, releaseID);
             MessageBox.Show("Item has been added to your likelist");

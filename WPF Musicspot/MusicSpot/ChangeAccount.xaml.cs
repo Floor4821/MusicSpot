@@ -22,6 +22,8 @@ namespace MusicSpot
         public int permission = 0;
         public byte[] ImagePFP = null;
         public int ID = 0;
+        private Data d = new Data();
+
         public ChangeAccount(int userid = 0, string permission = "admin")
         {
             InitializeComponent();
@@ -46,7 +48,6 @@ namespace MusicSpot
         }
         public void NewPFP(object sender, MouseButtonEventArgs e)
         {
-            Data d = new Data();
             byte[] image = d.PFP();
             ImagePFP = image;
         }

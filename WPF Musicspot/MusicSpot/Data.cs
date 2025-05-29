@@ -134,7 +134,10 @@ namespace MusicSpot
         }
         public List<release> GetAllReleases()
         {
-            return release.ToList();
+            using (var context = new Data())
+            {
+                return context.release.ToList();
+            }
         }
         public List<UserAccount> GetAllUsers()
         {
@@ -173,9 +176,9 @@ namespace MusicSpot
             if(check == 0)
             {
                 int accountid = AccountID.AI;
-                using (var CONTEXT = new Data())
+                using (var context = new Data())
                 {
-                    var A = CONTEXT.account.FirstOrDefault(current_ID => current_ID.AccountID == AccountID.AI);
+                    var A = context.account.FirstOrDefault(current_ID => current_ID.AccountID == AccountID.AI);
                     UserAccount UA = (UserAccount)A;
                     byte[] bytearray = UA.Profilepic;
                     try
@@ -202,9 +205,9 @@ namespace MusicSpot
             else
             {
                 int accountid = check;
-                using (var CONTEXT = new Data())
+                using (var context = new Data())
                 {
-                    var A = CONTEXT.account.FirstOrDefault(current_ID => current_ID.AccountID == accountid);
+                    var A = context.account.FirstOrDefault(current_ID => current_ID.AccountID == accountid);
                     UserAccount UA = (UserAccount)A;
                     byte[] bytearray = UA.Profilepic;
                     try
@@ -231,41 +234,41 @@ namespace MusicSpot
         }
         public void DeleteAccount(int ID)
         {
-            using (var data = new Data())
+            using (var context = new Data())
             {
-                var delete_me = data.account.FirstOrDefault(x => x.AccountID == ID);
-                data.account.Remove(delete_me);
-                data.SaveChanges();
+                var delete_me = context.account.FirstOrDefault(x => x.AccountID == ID);
+                context.account.Remove(delete_me);
+                context.SaveChanges();
             }
         }
         public List<Song> songlist(int ReleaseID)
         {
-            using (var data = new Data())
+            using (var context = new Data())
             {
-                var songs = data.song.Where(x => x.ReleaseID == ReleaseID).ToList();
+                var songs = context.song.Where(x => x.ReleaseID == ReleaseID).ToList();
                 return songs;
             }
         }
         public void ReleaseDel(string releasename)
         {
-            using (var data = new Data())
+            using (var context = new Data())
             {
-                release DeleteRelease = data.release.FirstOrDefault(x => x.ReleaseName == releasename);
+                release DeleteRelease = context.release.FirstOrDefault(x => x.ReleaseName == releasename);
                 MessageBoxResult result = MessageBox.Show("Commander, are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
                     int DelID = DeleteRelease.ReleaseID;
 
-                    List<Product> products = data.product.Where(x => x.ReleaseID == DelID).ToList();
+                    List<Product> products = context.product.Where(x => x.ReleaseID == DelID).ToList();
                     foreach (Product p in products)
                     {
-                        data.product.Remove(p);
+                        context.product.Remove(p);
                     }
-                    data.SaveChanges();
+                    context.SaveChanges();
 
-                    data.release.Remove(DeleteRelease);
+                    context.release.Remove(DeleteRelease);
 
-                    data.SaveChanges();
+                    context.SaveChanges();
 
                     MessageBox.Show("The release has been successfully destroyed", "Successfull deletion", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -300,9 +303,9 @@ namespace MusicSpot
         }
         public List<Genretype> GetGenretype()
         {
-            using (var data = new Data())
+            using (var context = new Data())
             {
-                return data.genretype.ToList();
+                return context.genretype.ToList();
             }
         }
         public List<Product> GetProductsByID(int RelID)

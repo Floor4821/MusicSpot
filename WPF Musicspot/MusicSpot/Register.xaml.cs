@@ -26,7 +26,7 @@ namespace MusicSpot
     {
         const int KeySize = 64;
         const int Iterations = 350000;
-        public Data d = new Data();
+        private Data d = new Data();
         public byte[] ProfilePicture;
   
     public Register()
@@ -41,7 +41,6 @@ namespace MusicSpot
         }
         private void CreateAccount(object sender, RoutedEventArgs e)
         {
-            Data data = new Data();
             string name = RegisterName.Text;
             string mail = RegisterMail.Text;
             string password = RegisterPass.Password;
@@ -54,11 +53,11 @@ namespace MusicSpot
             string[] passcheck = PasswordCheck(password);
             if (passcheck[0] == "Correct")
             {
-                hashedpassword = data.HashPassword(password);
+                hashedpassword = d.HashPassword(password);
                 UserAccount UA = new UserAccount(name, mail, hashedpassword, 0, pfp);
-                
-                data.account.Add(UA);
-                data.SaveChanges();
+
+                d.account.Add(UA);
+                d.SaveChanges();
                 
                 MessageBox.Show("Account has been successfully created", "Success", MessageBoxButton.OK);
             }
