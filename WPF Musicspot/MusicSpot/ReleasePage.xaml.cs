@@ -34,7 +34,6 @@ namespace MusicSpot
 
             if (AdminCheck.IsAdmin == 1)
             {
-                DeleteRelease.Visibility = Visibility.Visible;
                 EditRelease.Visibility = Visibility.Visible;
             }
             CurrentReleaseID = r.ReleaseID;
@@ -89,13 +88,14 @@ namespace MusicSpot
             ReleaseManager RM = new ReleaseManager(CurrentReleaseID);
             RM.Show();
         }
-        public void ReleaseDestroy(object sender, RoutedEventArgs e)
+        //Meh, deleting releases; when are we ever gonna do that right?
+        /*public void ReleaseDestroy(object sender, RoutedEventArgs e)
         {
             string RN = ReleaseName.Content.ToString();
             string CorrectName = (string)RN.Split(": ")[1];
 
             d.ReleaseDel(CorrectName);
-        }
+        }*/
         public void AddProduct(object sender, RoutedEventArgs e)
         {
             Product item = (Product)ProductList.SelectedItem;
@@ -103,7 +103,6 @@ namespace MusicSpot
             {
                 int productID = item.ProductID;
                 d.AddProductToCart(CurrentAccountID, productID);
-                MessageBox.Show("Item has been added to your shoppingcart");
             }
             else
             {
@@ -122,14 +121,12 @@ namespace MusicSpot
             {
                 int productID = item.ProductID;
                 d.AddToWishlist(CurrentAccountID, productID);
-                MessageBox.Show("Item has been added to your wishlist");
             }
         }
         public void LikeRelease(object sender, RoutedEventArgs e)
         {
             int releaseID = CurrentReleaseID;
             d.AddToLikeList(CurrentAccountID, releaseID);
-            MessageBox.Show("Item has been added to your likelist");
         }
         public void GoBackToReleasePage(object sender, RoutedEventArgs e)
         {

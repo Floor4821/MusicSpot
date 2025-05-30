@@ -14,7 +14,7 @@
         <Label Content="ReleaseName:" HorizontalAlignment="Left" Margin="48,170,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="ArtistName:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" Canvas.Left="71" Canvas.Top="224"/>
         <Label Content="ReleaseType:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Canvas.Left="50" Canvas.Top="346"/>
-        <Label Content="ReleaseSongs:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Canvas.Left="44" Canvas.Top="408"/>
+        <Label Name="Hide1" Content="ReleaseSongs:" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Canvas.Left="44" Canvas.Top="408"/>
         <Label Content="Cover:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Canvas.Left="589" Canvas.Top="710"/>
         <Button Click="InsertReleaseImage" Content="Submit Image" Foreground="White" FontSize="20" Height="46" Canvas.Left="683" Canvas.Top="710" Width="202" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Template>
@@ -59,7 +59,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Add Song" Click="AddColumn_Click" Canvas.Left="514" Canvas.Top="539" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
+        <Button Name="Hide3" Content="Add Song" Click="AddColumn_Click" Canvas.Left="514" Canvas.Top="539" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
         <Expander Height="52" Header="ReleaseType" Canvas.Left="216" Canvas.Top="343" Width="271" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Grid Background="#FFE5E5E5">
                 <Button Margin="0,0,193,0" Content="EP" Click="EP_Status"></Button>
@@ -76,7 +76,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Select a Genre" FontSize="24" Canvas.Left="55" Canvas.Top="560" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Name="Hide4" Content="Select a Genre" FontSize="24" Canvas.Left="55" Canvas.Top="560" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <ListView x:Name="SubgenreSelection" Height="146" Width="281" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="263" Canvas.Top="610" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ListView.View>
                 <GridView>
@@ -84,7 +84,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Select a Subgenre" FontSize="24" Canvas.Left="263" Canvas.Top="563" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Name="Hide5" Content="Select a Subgenre" FontSize="24" Canvas.Left="263" Canvas.Top="563" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Canvas>
 </Window>
