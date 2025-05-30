@@ -31,14 +31,15 @@ namespace MusicSpot
         {
             InitializeComponent();
             PreviousWindow = previousWindow;
-            CurrentReleaseID = r.ReleaseID;
-            if (AdminCheck.IsAdmin == 1) 
+
+            if (AdminCheck.IsAdmin == 1)
             {
                 DeleteRelease.Visibility = Visibility.Visible;
                 EditRelease.Visibility = Visibility.Visible;
             }
+            CurrentReleaseID = r.ReleaseID;
             ReleaseName.Content = "Name: " + r.ReleaseName.ToString();
-            Artist.Content ="Artist: " + r.Artist.ToString();
+            Artist.Content = "Artist: " + r.Artist.ToString();
             Genre.Content = $"Genre: {r.GenreString}";
             Subgenre.Content = $"Subgenre: {r.SubgenreString}";
             ReleaseDate.Content = $"Release Date: {r.Releasedate.ToString("yyyy-MM-dd")}";
@@ -87,7 +88,6 @@ namespace MusicSpot
         {
             ReleaseManager RM = new ReleaseManager(CurrentReleaseID);
             RM.Show();
-            this.Close();
         }
         public void ReleaseDestroy(object sender, RoutedEventArgs e)
         {

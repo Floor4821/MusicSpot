@@ -58,7 +58,6 @@ namespace MusicSpot
         public void Show_ReleasePage(object sender, RoutedEventArgs e)
         {
             if (ReleaseList.SelectedItem == null) return;
-
             var item = ReleaseList.SelectedItem;
             var currentWindow = this;
 
