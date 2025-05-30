@@ -105,8 +105,9 @@
 
                 <TextBlock HorizontalAlignment="Left" Margin="55,760,0,0" TextWrapping="Wrap" Text="About Us" VerticalAlignment="Top" FontSize="36" FontFamily="Yu Gothic"/>
                 <TextBlock HorizontalAlignment="Left" Margin="55,818,0,-12" TextWrapping="Wrap" FontSize="20" FontFamily="Yu Gothic" Width="1445"><Run Language="nl-be" Text="We like music. And money. Mostly money."/></TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="55,933,0,-75" TextWrapping="Wrap" FontSize="36" FontFamily="Yu Gothic"><Run Language="nl-be" Text="Contact"/></TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="55,996,0,-190" TextWrapping="Wrap" FontSize="20" FontFamily="Yu Gothic" Width="1445"><Run Language="nl-be" Text="Github + Website + ..."/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="55,933,0,-75" TextWrapping="Wrap" FontSize="36" FontFamily="Yu Gothic"><Run Language="nl-be" Text="Links"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="55,996,0,-190" TextWrapping="Wrap" FontSize="20" FontFamily="Yu Gothic" Width="1445"><Run Language="nl-be" Text="https://github.com/Floor4821/MusicSpot\n
+                                                                                                                                                        https://verlindenjamey.be/\n"/></TextBlock>
                 <Label Name="AdminLabel" Visibility="Hidden" Content="[ADMIN]" Foreground="Red" HorizontalAlignment="Left" Margin="303,8,0,0" VerticalAlignment="Top" FontSize="36"/>
 
 
