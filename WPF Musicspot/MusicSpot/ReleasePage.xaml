@@ -24,7 +24,7 @@
         <Label Name="Subgenre" Content="Subgenre: Data Binding" HorizontalAlignment="Left" Margin="806,387,0,0" VerticalAlignment="Top" Height="56" Width="503" FontSize="36"/>
         <Label Content="Release Products" HorizontalAlignment="Left" Margin="729,475,0,0" VerticalAlignment="Top" Height="56" Width="386" FontSize="36"/>
         <ListBox Name="SongList" Background="DarkGray" DisplayMemberPath="Name" Margin="86,532,1127,33"/>
-        <Button Click="ReleaseEdit" Name="EditRelease" Visibility="Hidden" Content="Edit" Background="#222222" Foreground="White" FontSize="20" Margin="1381,20,38,717"/>
+        <Button Click="ReleaseEdit" Name="EditRelease" Visibility="Hidden" Content="Edit" Background="#222222" Foreground="White" FontSize="20" Margin="1120,20,299,716"/>
         <Label Content="Tracklist" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Margin="86,474,0,0"/>
         <ListView Name="ProductList" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="729,543,225,18" Background="White" BorderBrush="{Binding ActualHeight, ElementName=ProductList, Mode=OneWay}" RenderTransformOrigin="0.5,0.5" SelectionChanged="ProductList_SelectionChanged">
             <ListView.RenderTransform>
@@ -68,6 +68,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Name="ReleaseDeletor" Click="DeleteRelease" Visibility="Hidden" Content="Delete Release" HorizontalAlignment="Left" Foreground="White" Background="#222222" Margin="1299,17,0,0" VerticalAlignment="Top" Height="60" Width="225" FontSize="24"/>
         <Image MouseLeftButtonDown="LikeRelease" Source="https://i.postimg.cc/tR2CwC8X/Thumbsup.png" Margin="1352,641,67,41"></Image>
     </Grid>
 </Window>

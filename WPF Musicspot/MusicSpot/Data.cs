@@ -534,6 +534,40 @@ namespace MusicSpot
                 return likedList;
             }
         }
+        public void DeleteRelease(int releaseID)
+        {
+            using (var context = new Data())
+            {
+                List<int> productIDs = context.product.Where(p => p.ReleaseID == releaseID).Select(p => p.ProductID).ToList();
+                List<Likedlist> likedLists = context.likedlist.Where(l => l.ReleaseID == releaseID).ToList();
+
+                context.likedlist.RemoveRange(likedLists);
+                context.SaveChanges();
+                
+                foreach (int pID in productIDs)
+                {
+                    List<Wishlist> wishlists = context.wishlist.Where(w => w.ProductID == pID).ToList();
+                    context.wishlist.RemoveRange(wishlists);
+                    context.SaveChanges();
+
+                    List<PurchaseProduct> purchases = context.purchaseproduct.Where(pp => pp.ProductID == pID).ToList();
+                    context.purchaseproduct.RemoveRange(purchases);
+                    context.SaveChanges();
+
+                    Product p = context.product.FirstOrDefault(p => p.ProductID == pID);
+                    context.Remove(p);
+                    context.SaveChanges();
+                }
+
+                List<Song> songs = context.song.Where(s => s.ReleaseID == releaseID).ToList();
+                context.RemoveRange(songs);
+                context.SaveChanges();
+
+                release r = context.release.FirstOrDefault(r => r.ReleaseID == releaseID);
+                context.Remove(r);
+                context.SaveChanges();
+            }
+        }
 
 
 

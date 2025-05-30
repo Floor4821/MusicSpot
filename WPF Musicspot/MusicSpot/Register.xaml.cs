@@ -46,6 +46,12 @@ namespace MusicSpot
             string password = RegisterPass.Password;
             string hashedpassword = "";
             byte[] pfp = ProfilePicture;
+            bool emailCheck = d.account.Any(a => a.Email == mail);
+            if (emailCheck == true)
+            {
+                MessageBox.Show("This email is already in use");
+                return;
+            }
             if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(mail) || String.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Missing values. Please ensure all fields are satisfied.", "Failed to create new account", MessageBoxButton.OK, MessageBoxImage.Error);
