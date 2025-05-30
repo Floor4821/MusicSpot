@@ -30,6 +30,16 @@ namespace MusicSpot
         public ReleaseManager(int EditReleaseID = 0)
         {
             InitializeComponent();
+            if (EditReleaseID != 0)
+            {
+                Hide1.Visibility = Visibility.Hidden;
+                ReleaseSongs.Visibility = Visibility.Hidden;
+                Hide3.Visibility = Visibility.Hidden;
+                Hide4.Visibility = Visibility.Hidden;
+                Hide5.Visibility = Visibility.Hidden;
+                GenreSelection.Visibility = Visibility.Hidden;
+                SubgenreSelection.Visibility = Visibility.Hidden;
+            }
 
             List<Genretype> allgenres = d.genretype.OrderBy(x => x.Type).ToList();
             List<SubgenreType> allsubgenres = d.subgenretype.OrderBy(y => y.Type).ToList();
@@ -214,14 +224,12 @@ namespace MusicSpot
                 Product vinylE = d.product.FirstOrDefault(v => v.ReleaseID == editrelease & v.Mediatype == 1);
                 Product cassetteE = d.product.FirstOrDefault(v => v.ReleaseID == editrelease & v.Mediatype == 3);
                 Product CDE = d.product.FirstOrDefault(v => v.ReleaseID == editrelease & v.Mediatype == 2);
+                MessageBox.Show(editrelease.ToString() + " " + vinylE.Price.ToString() + " " + cassetteE.Price.ToString() + " " + CDE.Price.ToString());
 
                 release UpdateRelease = d.release.FirstOrDefault(x => x.ReleaseID == editrelease);
                 MessageBox.Show(UpdateRelease.ReleaseName);
 
-                UpdateRelease.ReleaseName = "TESTING";
-                d.SaveChanges();
-
-                /*string RN = Releasename.Text;
+                string RN = Releasename.Text;
                 string AN = Artistname.Text;
                 bool temp = DateTime.TryParse(ReleaseDate.Text, out DateTime ReleaseTime);
                 int RT = Status;
@@ -264,7 +272,7 @@ namespace MusicSpot
                 {
                     UpdateRelease.Cover = COVER;
                 }
-                //
+                // products
                 if (Vinyl1)
                 {
                     vinylE.Price = v1;
@@ -290,7 +298,7 @@ namespace MusicSpot
                     CDE.Stock = cd2;
                 }
                 d.SaveChanges();
-                MessageBox.Show("Release has been updated");*/
+                MessageBox.Show("Release/products has been updated");
             }
         }
         public void InsertReleaseImage(object sender, RoutedEventArgs e)

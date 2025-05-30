@@ -236,9 +236,22 @@ namespace MusicSpot
         {
             using (var context = new Data())
             {
-                var delete_me = context.account.FirstOrDefault(x => x.AccountID == ID);
-                context.account.Remove(delete_me);
-                context.SaveChanges();
+                Data d = new Data();
+                Navigation n = new Navigation();
+                int deleteaccountID = ID;
+
+                UserAccount DeleteUA = d.account.FirstOrDefault(x => x.AccountID == deleteaccountID);
+                List<Wishlist> DeleteWishlist = d.wishlist.Where(y => y.AccountID == DeleteUA.AccountID).ToList();
+                List<Purchase> DeletePurchase = d.purchase.Where(z => z.AccountID == DeleteUA.AccountID).ToList();
+                List<Likedlist> DeleteLikedlist = d.likedlist.Where(q => q.AccountID == DeleteUA.AccountID).ToList();
+
+                d.wishlist.RemoveRange(DeleteWishlist);
+                d.purchase.RemoveRange(DeletePurchase);
+                d.likedlist.RemoveRange(DeleteLikedlist);
+                d.SaveChanges();
+
+                d.account.Remove(DeleteUA);
+                d.SaveChanges();
             }
         }
         public List<Song> songlist(int ReleaseID)
@@ -249,7 +262,7 @@ namespace MusicSpot
                 return songs;
             }
         }
-        public void ReleaseDel(string releasename)
+        /*public void ReleaseDel(string releasename)
         {
             using (var context = new Data())
             {
@@ -257,23 +270,30 @@ namespace MusicSpot
                 MessageBoxResult result = MessageBox.Show("Commander, are you sure you want to delete this release?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
-                    int DelID = DeleteRelease.ReleaseID;
-
-                    List<Product> products = context.product.Where(p => p.ReleaseID == DelID).ToList();
-                    foreach (Product p in products)
+                    if(DeleteRelease != null)
                     {
-                        context.product.Remove(p);
+                        int DelID = DeleteRelease.ReleaseID;
+
+                        List<Product> products = context.product.Where(p => p.ReleaseID == DelID).ToList();
+                        List<Song> songs = context.song.Where(x => x.ReleaseID == DeleteRelease.ReleaseID).ToList();
+                        context.product.RemoveRange(products);
+                        context.song.RemoveRange(songs);
+
+                        context.SaveChanges();
+
+                        context.release.Remove(DeleteRelease);
+
+                        context.SaveChanges();
+
+                        MessageBox.Show("The release has been successfully destroyed", "Successfull deletion", MessageBoxButton
                     }
-                    context.SaveChanges();
-
-                    context.release.Remove(DeleteRelease);
-
-                    context.SaveChanges();
-
-                    MessageBox.Show("The release has been successfully destroyed", "Successfull deletion", MessageBoxButton.OK, MessageBoxImage.Information);
+                    else
+                    {
+                        MessageBox.Show("Cannot delete non-existing release", "release not found");
+                    }
                 }
             }
-        }
+        }*/
         public byte[] GetDefaultPfp()
         {
             string url = "https://i.postimg.cc/fRn91Yp2/defaultpfp.png";
@@ -323,9 +343,18 @@ namespace MusicSpot
             {
                 using (var context = new Data())
                 {
-                    Wishlist toAdd = new Wishlist(accountID, productID);
-                    context.wishlist.Add(toAdd);
-                    context.SaveChanges();
+                    bool ProductExists = context.wishlist.Any(w => w.AccountID == accountID & w.ProductID == productID);
+                    if (ProductExists == true)
+                    {
+                        MessageBox.Show("Item has already been added to your wishlist");
+                    }
+                    else
+                    {
+                        Wishlist toAdd = new Wishlist(accountID, productID);
+                        context.wishlist.Add(toAdd);
+                        context.SaveChanges();
+                        MessageBox.Show("Product has been added to your wishlist");
+                    }
                 }
             }
             else
@@ -363,20 +392,28 @@ namespace MusicSpot
                 using (var context = new Data())
                 {
                     int purchaseID = FindPurchase(accountID);
-
-                    if (purchaseID == 0)
+                    bool puchraseExist = context.purchaseproduct.Any(x => x.PurchaseID == purchaseID & x.ProductID == productID);
+                    if (puchraseExist == true)
                     {
-                        Purchase purchase = new Purchase(false, accountID);
-                        context.purchase.Add(purchase);
-                        context.SaveChanges();
-
-                        purchaseID = purchase.PurchaseID;
-
+                        MessageBox.Show("Item has already been added to your shoppingcart");
                     }
+                    else
+                    {
+                        if (purchaseID == 0)
+                        {
+                            Purchase purchase = new Purchase(false, accountID);
+                            context.purchase.Add(purchase);
+                            context.SaveChanges();
 
-                    PurchaseProduct pp = new PurchaseProduct(purchaseID, productID);
-                    context.purchaseproduct.Add(pp);
-                    context.SaveChanges();
+                            purchaseID = purchase.PurchaseID;
+
+                        }
+
+                        PurchaseProduct pp = new PurchaseProduct(purchaseID, productID);
+                        context.purchaseproduct.Add(pp);
+                        context.SaveChanges();
+                        MessageBox.Show("Product has been added to your shoppingcart");
+                    }
                 }
             }
             else
@@ -465,9 +502,18 @@ namespace MusicSpot
             {
                 using (var context = new Data())
                 {
-                    Likedlist toAdd = new Likedlist(accountID, releaseID);
-                    context.likedlist.Add(toAdd);
-                    context.SaveChanges();
+                    bool LikedlistExists = context.likedlist.Any(x => x.ReleaseID == releaseID & x.AccountID == accountID);
+                    if (LikedlistExists == true)
+                    {
+                        MessageBox.Show("Item already added to your likedlist");
+                    }
+                    else
+                    {
+                        Likedlist toAdd = new Likedlist(accountID, releaseID);
+                        context.likedlist.Add(toAdd);
+                        context.SaveChanges();
+                        MessageBox.Show("Release has been added to your likedlist");
+                    }
                 }
             }
             else

@@ -64,7 +64,7 @@ namespace MusicSpot
             if(MBR == MessageBoxResult.Yes)
             {
                 d.DeleteAccount(CurrentAccount);
-                MessageBox.Show("Account has been terminated", "Deleted", MessageBoxButton.OK);
+                MessageBox.Show("The account has been removed", "Operation successfull");
             }
         }
 
