@@ -48,7 +48,7 @@ namespace MusicSpot
         }
         public void NewPFP(object sender, MouseButtonEventArgs e)
         {
-            byte[] image = d.PFP();
+            byte[] image = d.PFP(false);
             ImagePFP = image;
         }
 

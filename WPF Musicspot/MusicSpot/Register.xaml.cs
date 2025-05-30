@@ -36,7 +36,7 @@ namespace MusicSpot
         }
         public void AddPfp(object sender, RoutedEventArgs e)
         {
-            byte[] stuff = d.PFP();
+            byte[] stuff = d.PFP(false);
             ProfilePicture = stuff;
         }
         private void CreateAccount(object sender, RoutedEventArgs e)

@@ -302,19 +302,43 @@ namespace MusicSpot
                 return client.DownloadData(url);
             }
         }
-        public byte[] PFP()
+
+        public byte[] GetDefaultCover()
+        {
+            string url = "https://i.postimg.cc/mDQmrbMc/Album.jpg";
+            using (WebClient client = new WebClient())
+            {
+                return client.DownloadData(url);
+            }
+        }
+        public byte[] PFP(bool isAlbum)
         {
             var dlg = new OpenFileDialog();
             if (dlg.ShowDialog() == true)
             {
-                string selectedFileName = dlg.FileName;
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(selectedFileName);
-                bitmap.EndInit();
-                byte[] stuff = File.ReadAllBytes(selectedFileName);
+                try
+                {
+                    string selectedFileName = dlg.FileName;
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(selectedFileName);
+                    bitmap.EndInit();
+                    byte[] stuff = File.ReadAllBytes(selectedFileName);
 
-                return stuff;
+                    return stuff;
+                }
+                catch
+                {
+                    MessageBox.Show("What the fuck did you do?");
+                    if (isAlbum == false)
+                    {
+                        return GetDefaultPfp();
+                    }
+                    else
+                    {
+                        return GetDefaultCover();
+                    }
+                }
             }
             else
             {

@@ -102,8 +102,9 @@ namespace MusicSpot
                 
             List<release> ReleaseFilter = new List<release>();
             List<release> allreleases = d.GetAllReleases();
-                
-            Regex regex = new Regex(name);
+
+            string escapedName = Regex.Escape(name);
+            Regex regex = new Regex(escapedName);
             foreach (release r in allreleases)
             {
                 string currentgenre = r.GenreString;
