@@ -48,7 +48,7 @@ namespace MusicSpot
         }
         public void NewPFP(object sender, MouseButtonEventArgs e)
         {
-            byte[] image = d.PFP();
+            byte[] image = d.PFP(false);
             ImagePFP = image;
         }
 
@@ -69,6 +69,12 @@ namespace MusicSpot
             string UM = Email.Text;
             string UP = Password.Password;
             string hashedpass = "";
+            bool emailCheck = d.account.Any(a => a.Email == UM);
+            if (emailCheck == true)
+            {
+                MessageBox.Show("This email is already in use");
+                return;
+            }
             if (ID == 0)
             {
                 if (string.IsNullOrWhiteSpace(UN) || string.IsNullOrWhiteSpace(UM) || string.IsNullOrWhiteSpace(UP))

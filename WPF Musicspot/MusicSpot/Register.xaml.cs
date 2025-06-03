@@ -36,7 +36,7 @@ namespace MusicSpot
         }
         public void AddPfp(object sender, RoutedEventArgs e)
         {
-            byte[] stuff = d.PFP();
+            byte[] stuff = d.PFP(false);
             ProfilePicture = stuff;
         }
         private void CreateAccount(object sender, RoutedEventArgs e)
@@ -46,8 +46,15 @@ namespace MusicSpot
             string password = RegisterPass.Password;
             string hashedpassword = "";
             byte[] pfp = ProfilePicture;
-            bool emailcheck = d.account.All(a => a.Email == mail);
-            if (emailcheck == true)
+
+            bool emailCheck = d.account.Any(a => a.Email == mail);
+            if (emailCheck == true)
+            {
+                MessageBox.Show("This email is already in use");
+                return;
+            }
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(mail) || String.IsNullOrEmpty(password))
+
             {
                 MessageBox.Show("Please use a different email", "Email already taken", MessageBoxButton.OK, MessageBoxImage.Error);
             }

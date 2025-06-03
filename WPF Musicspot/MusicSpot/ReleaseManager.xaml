@@ -60,11 +60,10 @@
             </ListView.View>
         </ListView>
         <Button Name="Hide3" Content="Add Song" Click="AddColumn_Click" Canvas.Left="514" Canvas.Top="539" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
-        <Expander Height="52" Header="ReleaseType" Canvas.Left="216" Canvas.Top="343" Width="271" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Grid Background="#FFE5E5E5">
-                <Button Margin="0,0,193,0" Content="EP" Click="EP_Status"></Button>
-                <Button Margin="88,0,98,0" Content="Album" Click="Album_Status"/>
-                <Button Margin="186,0,0,0" Content="Other" Click="Other_Status"/>
+        <Expander Height="52" Header="ReleaseType" Canvas.Left="216" Canvas.Top="343" Width="137" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Grid Background="#FFE5E5E5" Width="253">
+                <Button Margin="0,0,197,0" Content="EP" Click="EP_Status"></Button>
+                <Button Margin="77,0,118,0" Content="Album" Click="Album_Status"/>
             </Grid>
         </Expander>
         <Label Content="ReleaseDate:" FontSize="24" Canvas.Left="55" Canvas.Top="284" HorizontalAlignment="Left" VerticalAlignment="Top"/>

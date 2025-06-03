@@ -303,7 +303,7 @@ namespace MusicSpot
         }
         public void InsertReleaseImage(object sender, RoutedEventArgs e)
         {
-            COVER = d.PFP();
+            COVER = d.PFP(true);
         }
     }
 }

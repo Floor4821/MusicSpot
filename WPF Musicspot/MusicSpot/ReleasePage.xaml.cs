@@ -51,6 +51,11 @@ namespace MusicSpot
 
             List<Product> products = d.GetProductsByID(r.ReleaseID);
 
+            if (AdminCheck.IsAdmin == 1)
+            {
+                ReleaseDeletor.Visibility = Visibility.Visible;
+            }
+
             ProductList.ItemsSource = products;
             OriginPage = originpage;
         }
@@ -134,7 +139,15 @@ namespace MusicSpot
             this.Hide();
         }
 
-        private void ProductList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DeleteRelease(object sender, RoutedEventArgs e)
+        {
+            d.DeleteRelease(CurrentReleaseID);
+            MessageBox.Show("Release deleted succesfully: returning to previous page");
+            PreviousWindow.Show();
+            this.Hide();
+        }
+
+        private void ProductList_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
         }

@@ -31,28 +31,40 @@ namespace MusicSpot
             get
             {
                 var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images", "album.png");
-                if (Cover != null)
+                if (Cover == null)
                 {
-                    try
+                    using (var context = new Data())
                     {
-                        using (var ms = new MemoryStream(Cover))
-                        {
-                            var image = new BitmapImage();
-                            image.BeginInit();
-                            image.CacheOption = BitmapCacheOption.OnLoad;
-                            image.StreamSource = ms;
-                            image.EndInit();
-                            return image;
-                        }
-                    }
-                    catch
-                    {
-                        return new BitmapImage(new Uri(path));
+                        Cover = context.GetDefaultCover();
                     }
                 }
-                else
+                try
                 {
-                    return new BitmapImage(new Uri(path));
+                    using (var ms = new MemoryStream(Cover))
+                    {
+                        var image = new BitmapImage();
+                        image.BeginInit();
+                        image.CacheOption = BitmapCacheOption.OnLoad;
+                        image.StreamSource = ms;
+                        image.EndInit();
+                        return image;
+                    }
+                }
+                catch
+                {
+                    using (var context = new Data())
+                    {
+                        Cover = context.GetDefaultCover();
+                    }
+                    using (var ms = new MemoryStream(Cover))
+                    {
+                        var image = new BitmapImage();
+                        image.BeginInit();
+                        image.CacheOption = BitmapCacheOption.OnLoad;
+                        image.StreamSource = ms;
+                        image.EndInit();
+                        return image;
+                    }
                 }
             }
         }

@@ -13,10 +13,11 @@ namespace MusicSpot.Classes
             Dictionary<string, int> subgenreCount = new Dictionary<string, int>();
             Dictionary<string, int> genreCount = new Dictionary<string, int>();
             List<release> likedList = new List<release>();
+            List<int> likedListIDs = new List<int>();
 
             using (Data d = new Data())
             {
-                likedList = d.GetLikedList(accountID);
+                likedList = d.GetLikedList(accountID);             
             }
 
             foreach (release r in likedList)
@@ -67,6 +68,8 @@ namespace MusicSpot.Classes
 
             Dictionary<string, List<release>> releasePool = GetReleasePool(subgenres, genres);
             List<release> recommended = new List<release>();
+            List<release> likedList = d.GetLikedList(accountID);
+
 
             int subgenresLen = subgenres.Count;
             int genresLen = genres.Count;
@@ -77,6 +80,7 @@ namespace MusicSpot.Classes
 
                 for (int j = 0; j < depth; j++)
                 {
+                    // select which genre to pick a release from
                     string search = "";
                     if (j >= subgenresLen)
                     {
@@ -87,10 +91,12 @@ namespace MusicSpot.Classes
                         search = subgenres[j];
                     }
                     List<release> subList = releasePool[search];
+                    
+                    // pick random release from releases with that genre
                     if (subList.Count > 0)
                     {
                         int index = random.Next(subList.Count);
-                        if (!recommended.Contains(subList[index]))
+                        if (!(recommended.Contains(subList[index]) || likedList.Contains(subList[index])))
                         {
                             recommended.Add(subList[index]);
                         }
