@@ -46,24 +46,32 @@ namespace MusicSpot
             string password = RegisterPass.Password;
             string hashedpassword = "";
             byte[] pfp = ProfilePicture;
-            if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(mail) || String.IsNullOrEmpty(password))
+            bool emailcheck = d.account.All(a => a.Email == mail);
+            if (emailcheck == true)
             {
-                MessageBox.Show("Missing values. Please ensure all fields are satisfied.", "Failed to create new account", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            string[] passcheck = PasswordCheck(password);
-            if (passcheck[0] == "Correct")
-            {
-                hashedpassword = d.HashPassword(password);
-                UserAccount UA = new UserAccount(name, mail, hashedpassword, 0, pfp);
-
-                d.account.Add(UA);
-                d.SaveChanges();
-                
-                MessageBox.Show("Account has been successfully created", "Success", MessageBoxButton.OK);
+                MessageBox.Show("Please use a different email", "Email already taken", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                MessageBox.Show(passcheck[0], "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(mail) || String.IsNullOrEmpty(password))
+                {
+                    MessageBox.Show("Missing values. Please ensure all fields are satisfied.", "Failed to create new account", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                string[] passcheck = PasswordCheck(password);
+                if (passcheck[0] == "Correct")
+                {
+                    hashedpassword = d.HashPassword(password);
+                    UserAccount UA = new UserAccount(name, mail, hashedpassword, 0, pfp);
+
+                    d.account.Add(UA);
+                    d.SaveChanges();
+
+                    MessageBox.Show("Account has been successfully created", "Success", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBox.Show(passcheck[0], "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
         public string[] PasswordCheck(string pass)

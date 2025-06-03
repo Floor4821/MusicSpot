@@ -100,7 +100,15 @@ namespace MusicSpot
                     }
                     if (!string.IsNullOrWhiteSpace(UM))
                     {
-                        user.Email = UM;
+                        bool emailcheck = context.account.Any(a => a.Email == UM);
+                        if (emailcheck == true)
+                        {
+                            MessageBox.Show("Email is already taken");
+                        }
+                        else
+                        {
+                            user.Email = UM;
+                        }
                     }
                     if (!string.IsNullOrWhiteSpace(UP))
                     {
